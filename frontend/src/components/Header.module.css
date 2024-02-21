@@ -1,0 +1,17 @@
+.wrapper {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  align-items: center;
+  font-size: 28px;
+  font-family: sans-serif;
+
+  padding: 8px 24px;
+  box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.5);
+}
