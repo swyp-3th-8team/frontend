@@ -3,11 +3,6 @@
   display: flex;
   justify-content: space-between;
 
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-
   align-items: center;
   font-size: 28px;
   font-family: sans-serif;
