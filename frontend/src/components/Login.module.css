@@ -15,6 +15,7 @@
 
 .loginInput input {
   box-sizing: border-box;
+  width: 356px;
   height: 56px;
 
   padding: 0;
@@ -48,18 +49,19 @@
 }
 */
 .button {
+  width: 356px;
   height: 109px;
   margin-bottom: 32px;
+  padding: 0;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
 }
 
 .loginButton {
   box-sizing: border-box;
-  width: 356;
+  width: 356px;
   height: 56px;
   border: 0;
   border-radius: 12px;
@@ -74,6 +76,10 @@
   height: 35px;
   margin-right: auto;
   border: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   background-color: transparent;
 }
