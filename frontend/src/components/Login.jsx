@@ -6,7 +6,8 @@ export default function Login() {
     <div className={styles.continer}>
       <div className={styles.loginIntro}>
         <h1>로그인</h1>
-        <div>서비스 간단한 문구</div>
+        <div>서비스 간단한 설명이나</div>
+        <div>문구 채울까요!</div>
       </div>
       <div className={styles.loginInput}>
         <input

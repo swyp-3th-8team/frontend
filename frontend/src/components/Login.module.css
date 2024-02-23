@@ -9,6 +9,14 @@
   margin-bottom: 44px;
 }
 
+.loginIntro h1 {
+  font-size: 24px;
+}
+
+.loginIntro div {
+  font-size: 18px;
+}
+
 .loginInput {
   margin-bottom: 20px;
 }
@@ -16,15 +24,13 @@
 .loginInput input {
   box-sizing: border-box;
   width: 356px;
-  height: 56px;
+  height: 53px;
 
-  padding: 0;
-  padding-block: 0;
-  padding-inline: 0;
   border-width: 1px;
   border-color: #c0c0c0;
 
   text-align: left;
+  font-size: 16px;
 }
 
 .loginInput input::placeholder {
@@ -33,10 +39,12 @@
 
 .loginInputId {
   border-radius: 12px 12px 0 0;
+  padding: 17px 16px;
 }
 
 .loginInputPw {
   border-radius: 0 0 12px 12px;
+  padding: 17px 16px;
 }
 /* 작동안됨
 .logininput input:focus {
@@ -68,6 +76,7 @@
 
   background-color: #6ab23a;
   color: #ffffff;
+  font-size: 18px;
 }
 
 .signupButton {
@@ -75,6 +84,7 @@
   width: 72px;
   height: 35px;
   margin-right: auto;
+  padding: 8px;
   border: 0;
 
   display: flex;
@@ -82,15 +92,18 @@
   align-items: center;
 
   background-color: transparent;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 .service {
   box-sizing: border-box;
-  width: 118px;
-  height: 39px;
-  margin: 3px;
+  width: 102px;
+  height: 23px;
+  margin: 8px;
   border-width: 0 0 1px 0;
-  padding: 0;
+  padding: 0px;
 
   background-color: transparent;
+  font-size: 16px;
 }

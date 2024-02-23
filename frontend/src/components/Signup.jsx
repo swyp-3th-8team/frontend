@@ -3,7 +3,7 @@ import styles from "./Signup.module.css";
 export default function Signup() {
   return (
     <div className={styles.continer}>
-      <h3>로그인</h3>
+      <h2>로그인</h2>
       <div className={styles.makeId}>
         <div>아이디를 입력해주세요</div>
         <input type="text" placeholder="6자 이상 입력해주세요." />
