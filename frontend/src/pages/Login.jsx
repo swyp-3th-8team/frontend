@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import styles from "./Login.module.scss";
 import { Link } from "react-router-dom";
 
@@ -22,7 +23,7 @@ export default function Login() {
         />
       </div>
       <div className={styles.button}>
-        <button className={styles.loginButton}>로그인</button>
+        <Button finishButton="로그인" />
         <Link className={styles.signupButton} to="/signup">
           회원가입
         </Link>

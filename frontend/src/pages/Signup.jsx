@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import TextInput from "../components/TextInput";
 import styles from "./Signup.module.scss";
 
@@ -25,7 +26,7 @@ export default function Signup() {
           placeholder="비밀번호를 다시 입력해주세요."
         />
       </div>
-      <button className={styles.finishSignup}>회원가입 완료</button>
+      <Button finishButton="회원가입 완료" />
     </div>
   );
 }
