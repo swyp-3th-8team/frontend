@@ -4,6 +4,7 @@ import styles from "./SubjectList.module.scss";
 export default function SubjectList() {
   return (
     <div className={styles.subjectList}>
+      <button className={styles.close}>x</button>
       <div className={styles.subject}>
         <input type="text" placeholder="대주제를 등록해주세요" />
         <button>✏️</button>

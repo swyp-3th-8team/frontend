@@ -1,4 +1,5 @@
 import Goal from "../components/Mandarlart/Goal";
+import GoalList from "../components/Mandarlart/GoalList";
 import MainGoal from "../components/Mandarlart/MainGoal";
 import SubjectList from "../components/Mandarlart/SubjectList";
 import styles from "./MainPage.module.scss";
@@ -18,6 +19,7 @@ export default function MainPage() {
         <Goal />
       </div>
       <SubjectList />
+      <GoalList />
     </>
   );
 }
