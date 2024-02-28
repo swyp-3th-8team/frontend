@@ -1,4 +1,4 @@
-.goal {
+.mainGoal {
   box-sizing: border-box;
   width: 270px;
   height: 252px;
@@ -13,13 +13,15 @@
 
     margin: 0;
     border-radius: 10px;
-    border: 3px solid #e5e5e5;
+    border: 3px solid #e1e0e0;
     padding: 5px;
 
+    background-color: #f1efef;
     text-align: center;
   }
 
-  .subject {
-    background-color: #e5e5e5;
+  .mainSubject {
+    border-color: #6ab23a;
+    background-color: #6ab23a;
   }
 }

@@ -1,4 +1,5 @@
 import Goal from "../components/Mandarlart/Goal";
+import MainGoal from "../components/Mandarlart/MainGoal";
 import styles from "./MainPage.module.scss";
 
 export default function MainPage() {
@@ -8,7 +9,7 @@ export default function MainPage() {
       <Goal />
       <Goal />
       <Goal />
-      <Goal />
+      <MainGoal />
       <Goal />
       <Goal />
       <Goal />
