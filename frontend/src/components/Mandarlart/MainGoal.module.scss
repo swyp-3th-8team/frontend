@@ -1,0 +1,27 @@
+.mainGoal {
+  box-sizing: border-box;
+  width: 270px;
+  height: 252px;
+
+  display: table;
+  border-collapse: collapse;
+
+  input {
+    box-sizing: border-box;
+    width: 90px;
+    height: 84px;
+
+    margin: 0;
+    border-radius: 10px;
+    border: 3px solid #e1e0e0;
+    padding: 5px;
+
+    background-color: #f1efef;
+    text-align: center;
+  }
+
+  .mainSubject {
+    border-color: #6ab23a;
+    background-color: #6ab23a;
+  }
+}
