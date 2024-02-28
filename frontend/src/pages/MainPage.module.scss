@@ -3,8 +3,8 @@
   width: 874px;
   height: 796px;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
+  display: grid;
+  grid-template-columns: 272px 272px 272px;
+  grid-template-rows: 252px 252px 252px;
+  gap: 20px 30px;
 }

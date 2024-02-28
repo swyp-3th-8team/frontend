@@ -2,7 +2,7 @@ import styles from "./Goal.module.scss";
 
 export default function Goal() {
   return (
-    <div className={styles.goal}>
+    <div className={styles.container}>
       <input type="text" />
       <input type="text" />
       <input type="text" />

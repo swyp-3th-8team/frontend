@@ -1,7 +1,7 @@
-import Goal from "../components/Mandarlart/Goal";
-import GoalList from "../components/Mandarlart/GoalList";
-import MainGoal from "../components/Mandarlart/MainGoal";
-import SubjectList from "../components/Mandarlart/SubjectList";
+import Goal from "../components/Mandalart/Goal";
+import GoalList from "../components/Mandalart/GoalList";
+import MainGoal from "../components/Mandalart/MainGoal";
+import SubjectList from "../components/Mandalart/SubjectList";
 import styles from "./MainPage.module.scss";
 
 export default function MainPage() {
