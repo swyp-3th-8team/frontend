@@ -28,7 +28,9 @@ export default function Login() {
           회원가입
         </Link>
       </div>
-      <button className={styles.service}>서비스 미리보기</button>
+      <Link className={styles.main} to="/main">
+        서비스 미리보기
+      </Link>
     </div>
   );
 }
