@@ -1,7 +1,6 @@
 import styles from "./Mission.module.scss";
 
 export default function Mission(objectiveList) {
-  console.log(objectiveList);
   return (
     <>
       <div className={styles.mission}>

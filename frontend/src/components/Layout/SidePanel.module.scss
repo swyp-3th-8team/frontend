@@ -1,9 +1,27 @@
 .wrapper {
-  width: 480px;
-  box-shadow: 0 0 11px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  width: 356px;
+  height: 785px;
+  box-shadow: 0 0 3px 1px #bbbbbb;
+
+  border-radius: 19px;
+  padding: 19px 25px 34px 25px;
+
+  color: #bbbbbb;
+
   position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.title {
+  box-sizing: border-box;
+  width: 306px;
+  height: 59px;
+  margin-bottom: 30px;
+
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .content {
@@ -11,7 +29,9 @@
 }
 
 .button {
-  width: 100%;
+  box-sizing: border-box;
+  width: 306px;
+  height: 58px;
 }
 
 .closeButton {

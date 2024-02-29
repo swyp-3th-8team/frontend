@@ -1,8 +1,9 @@
 import ObjectiveListItem from "./ObjectiveListItem";
+import styles from "./ObjectiveListItem.module.scss";
 
 export default function ObjectiveList({ objectiveList, setObjectiveList }) {
   return (
-    <ul>
+    <ul className={styles}>
       {objectiveList.map(({ content, taskList }, i) => (
         <ObjectiveListItem
           key={i}

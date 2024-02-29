@@ -6,7 +6,7 @@ import "./index.scss";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import MainPage from "./pages/MainPage.jsx";
-import TestPage from "./pages/Test.jsx";
+import TestPage from "./pages/TestPage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
