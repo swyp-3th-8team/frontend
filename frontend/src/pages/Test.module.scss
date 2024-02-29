@@ -1,5 +1,9 @@
 .content {
   flex: 1;
+  display: grid;
+  grid-template-columns: 272px 272px 272px;
+  grid-template-rows: 252px 252px 252px;
+  gap: 20px 30px;
 }
 
 .wrapper {

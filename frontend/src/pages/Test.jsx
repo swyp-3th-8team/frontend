@@ -4,6 +4,8 @@ import ObjectiveList from "../components/Lists/ObjectiveList";
 import TaskList from "../components/Lists/TaskList";
 
 import styles from "./Test.module.scss";
+import Goal from "../components/Mandalart/Goal";
+import Mission from "../components/Mandalart/Mission";
 
 const createDefaultTask = () => ({
   content: "",
@@ -21,7 +23,20 @@ export default function TestPage() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.content}></div>
+      <div className={styles.content}>
+        <Goal
+          taskList={objectiveList[0].taskList}
+          objectiveList={objectiveList[0].content}
+        />
+        <Goal objectiveList={objectiveList[1].content} />
+        <Goal objectiveList={objectiveList[2].content} />
+        <Goal objectiveList={objectiveList[3].content} />
+        <Mission objectiveList={objectiveList} />
+        <Goal objectiveList={objectiveList[4].content} />
+        <Goal objectiveList={objectiveList[5].content} />
+        <Goal objectiveList={objectiveList[6].content} />
+        <Goal objectiveList={objectiveList[7].content} />
+      </div>
       <SidePanel title={<h2>2024년도 건강하게</h2>} buttonText="저장">
         <TaskList
           objectiveList={objectiveList}

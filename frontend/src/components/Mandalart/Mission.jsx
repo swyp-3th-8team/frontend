@@ -1,42 +1,19 @@
-//import { useState } from "react";
 import styles from "./Mission.module.scss";
-//import SubjectList from "./SubjectList";
 
-export default function Mission() {
-  /**
-  const [showList, setShowList] = useState(false);
-  {showList ? (
-    <input
-      className={styles.mainSubject}
-      type="text"
-      onClick={() => {
-        setShowList(false);
-      }}
-      />
-      ) : (
-        <input
-        className={styles.mainSubject}
-        type="text"
-        onClick={() => {
-          setShowList(<SubjectList />);
-        }}
-        />
-        )}
-              <div>{showList}</div>
-  */
-
+export default function Mission(objectiveList) {
+  console.log(objectiveList);
   return (
     <>
       <div className={styles.mission}>
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input className={styles.mainMission} type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
+        <div>{objectiveList?.objectiveList?.[0]?.content}</div>
+        <div>{objectiveList?.objectiveList?.[1]?.content}</div>
+        <div>{objectiveList?.objectiveList?.[2]?.content}</div>
+        <div>{objectiveList?.objectiveList?.[3]?.content}</div>
+        <div className={styles.mainMission} />
+        <div>{objectiveList?.objectiveList?.[4]?.content}</div>
+        <div>{objectiveList?.objectiveList?.[5]?.content}</div>
+        <div>{objectiveList?.objectiveList?.[6]?.content}</div>
+        <div>{objectiveList?.objectiveList?.[7]?.content}</div>
       </div>
     </>
   );
