@@ -1,7 +1,7 @@
 import Goal from "../components/Mandalart/Goal";
 import Mission from "../components/Mandalart/Mission";
-import MissionList from "../components/Mandalart/MissionList";
 import styles from "./MainPage.module.scss";
+import MissionList from "../components/Mandalart/MissionList";
 
 export default function MainPage() {
   return (
