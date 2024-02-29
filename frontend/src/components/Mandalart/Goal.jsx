@@ -7,7 +7,7 @@ export default function Goal() {
       <input type="text" />
       <input type="text" />
       <input type="text" />
-      <input className={styles.subject} type="text" />
+      <input className={styles.mainGoal} type="text" />
       <input type="text" />
       <input type="text" />
       <input type="text" />

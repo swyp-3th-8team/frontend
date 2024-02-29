@@ -1,4 +1,4 @@
-.subjectList {
+.missionList {
   box-sizing: border-box;
   width: 356px;
   height: 765px;
@@ -20,7 +20,7 @@
     background-color: transparent;
   }
 
-  .subject {
+  .mission {
     box-sizing: border-box;
     width: 306px;
     height: 39px;
@@ -48,7 +48,7 @@
     }
   }
 
-  .mainGoal {
+  .goal {
     margin-bottom: 30px;
 
     input {

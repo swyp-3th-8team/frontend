@@ -1,15 +1,16 @@
 import Button from "../Button";
-import styles from "./SubjectList.module.scss";
+import styles from "./MissionList.module.scss";
 
-export default function SubjectList() {
+export default function MissionList() {
   return (
-    <div className={styles.subjectList}>
+    <form className={styles.missionList}>
       <button className={styles.close}>x</button>
-      <div className={styles.subject}>
+      <div className={styles.mission}>
         <input type="text" placeholder="대주제를 등록해주세요" />
         <button>✏️</button>
       </div>
-      <div className={styles.mainGoal}>
+      <div className={styles.goal}>
+        <input type="text" placeholder="목표를 입력해주세요" />
         <input type="text" placeholder="목표를 입력해주세요" />
         <input type="text" placeholder="목표를 입력해주세요" />
         <input type="text" placeholder="목표를 입력해주세요" />
@@ -19,7 +20,7 @@ export default function SubjectList() {
         <input type="text" placeholder="목표를 입력해주세요" />
         <input type="text" placeholder="목표를 입력해주세요" />
       </div>
-      <Button finishButton="저장하기" />
-    </div>
+      <Button finishButton="저장하기" type="submit" />
+    </form>
   );
 }

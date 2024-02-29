@@ -1,7 +1,6 @@
 import Goal from "../components/Mandalart/Goal";
-import GoalList from "../components/Mandalart/GoalList";
-import MainGoal from "../components/Mandalart/MainGoal";
-import SubjectList from "../components/Mandalart/SubjectList";
+import Mission from "../components/Mandalart/Mission";
+import MissionList from "../components/Mandalart/MissionList";
 import styles from "./MainPage.module.scss";
 
 export default function MainPage() {
@@ -12,14 +11,15 @@ export default function MainPage() {
         <Goal />
         <Goal />
         <Goal />
-        <MainGoal />
+        <Mission />
         <Goal />
         <Goal />
         <Goal />
         <Goal />
       </div>
-      <SubjectList />
-      <GoalList />
+      <div>
+        <MissionList />
+      </div>
     </>
   );
 }
