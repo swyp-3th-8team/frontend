@@ -1,4 +1,4 @@
-.mainGoal {
+.mission {
   box-sizing: border-box;
   width: 270px;
   height: 252px;
@@ -6,11 +6,11 @@
   display: table;
   border-collapse: collapse;
 
-  input {
-    box-sizing: border-box;
-    width: 90px;
-    height: 84px;
+  display: grid;
+  grid-template-columns: 90px 90px 90px;
+  grid-template-rows: repeat(3, minmax(84px, 84px));
 
+  div {
     margin: 0;
     border-radius: 10px;
     border: 3px solid #e1e0e0;
@@ -20,7 +20,7 @@
     text-align: center;
   }
 
-  .mainSubject {
+  .mainMission {
     border-color: #6ab23a;
     background-color: #6ab23a;
   }
