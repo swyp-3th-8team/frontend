@@ -1,12 +1,14 @@
 import { useState } from "react";
 import styles from "./Signup.module.scss";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import TextInput from "../components/TextInput";
 
 export default function Signup() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordCheck, setPasswordCheck] = useState("");
+  const [repassword, setRepassword] = useState("");
 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -17,14 +19,16 @@ export default function Signup() {
   };
 
   const handleChangePasswordCheck = (e) => {
-    setPasswordCheck(e.target.value);
+    setRepassword(e.target.value);
   };
 
   const handleSubmit = () => {
-    axios.post("/member/join", { username, password, passwordCheck });
+    axios.post("http://localhost:9090/member/join", null, {
+      params: { username, password, repassword },
+    });
+    navigate("/login");
   };
-  console.log(username);
-  console.log(password);
+
   return (
     <div>
       <h2>회원가입</h2>
@@ -49,8 +53,8 @@ export default function Signup() {
           placeholder="6영문, 숫자, 특수문자로 8자 이상 입력해주세요."
           onChange={(e) => handleChangePassword(e)}
         />
-        <TextInput
-          value={passwordCheck}
+        <input
+          value={repassword}
           type="password"
           label="비밀번호를 다시 한 번 확인해주세요"
           placeholder="비밀번호를 다시 입력해주세요."
