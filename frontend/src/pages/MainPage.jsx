@@ -21,6 +21,8 @@ export default function MainPage() {
     new Array(8).fill(null).map(createDefaultObject)
   );
 
+  const [missionTitle, setMissionTitle] = useState("");
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -31,7 +33,7 @@ export default function MainPage() {
         <Goal objectiveList={objectiveList[1].content} />
         <Goal objectiveList={objectiveList[2].content} />
         <Goal objectiveList={objectiveList[3].content} />
-        <Mission objectiveList={objectiveList} />
+        <Mission objectiveList={objectiveList} missionTitle={missionTitle} />
         <Goal objectiveList={objectiveList[4].content} />
         <Goal objectiveList={objectiveList[5].content} />
         <Goal objectiveList={objectiveList[6].content} />
@@ -44,7 +46,17 @@ export default function MainPage() {
           setObjectiveList={setObjectiveList}
         />
       </SidePanel>
-      <SidePanel title={<input placeholder="목표 입력" />} buttonText="저장">
+      <SidePanel
+        title={
+          <input
+            placeholder="목표 입력"
+            onChange={(e) => {
+              setMissionTitle(e.target.value);
+            }}
+          />
+        }
+        buttonText="저장"
+      >
         <ObjectiveList
           objectiveList={objectiveList}
           setObjectiveList={setObjectiveList}

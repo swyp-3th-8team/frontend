@@ -1,22 +1,21 @@
-import { useState } from "react";
 import styles from "./TextInput.module.scss";
 
-export default function TextInput({ type, label, placeholder }) {
-  const [input, setInput] = useState("");
-
-  const handleChangeinput = (e) => {
-    setInput(e.target.value);
-  };
-
-  console.log(input);
+export default function TextInput({
+  value,
+  type,
+  label,
+  placeholder,
+  onChange,
+}) {
   return (
     <div className={styles.textInput}>
       <label>{label}</label>
       <input
-        value={input}
+        value={value}
         type={type}
+        label={label}
         placeholder={placeholder}
-        onChange={(e) => handleChangeinput(e)}
+        onChange={onChange}
       />
     </div>
   );
