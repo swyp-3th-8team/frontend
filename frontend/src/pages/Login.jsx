@@ -18,7 +18,7 @@ export default function Login() {
         />
         <input
           className={styles.loginInputPw}
-          type="text"
+          type="password"
           placeholder="비밀번호"
         />
       </div>
