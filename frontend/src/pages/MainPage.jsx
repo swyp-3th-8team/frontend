@@ -39,7 +39,7 @@ export default function MainPage() {
         <Goal objectiveList={objectiveList[6].content} />
         <Goal objectiveList={objectiveList[7].content} />
       </div>
-      <SidePanel title={<h2>2024년도 건강하게</h2>} buttonText="저장">
+      <SidePanel title={objectiveList?.[0]?.content} buttonText="저장">
         <TaskList
           objectiveList={objectiveList}
           objectiveIndex={0}
