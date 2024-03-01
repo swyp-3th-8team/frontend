@@ -40,7 +40,11 @@ export default function MainPage() {
         <Goal objectiveList={objectiveList[6].content} />
         <Goal objectiveList={objectiveList[7].content} />
       </div>
-      <GoalPanel title={objectiveList?.[0]?.content} buttonText="저장">
+      <GoalPanel
+        uptitle={missionTitle}
+        title={objectiveList?.[0]?.content}
+        buttonText="저장"
+      >
         <TaskList
           objectiveList={objectiveList}
           objectiveIndex={0}
