@@ -1,7 +1,7 @@
-import styles from "./SidePanel.module.scss";
+import styles from "./GoalPanel.module.scss";
 import CloseIcon from "../../assets/icons/close.svg";
 
-export default function SidePanel({ title, children, onClick, buttonText }) {
+export default function GoalPanel({ title, children, onClick, buttonText }) {
   return (
     <div className={styles.wrapper}>
       <CloseButton />

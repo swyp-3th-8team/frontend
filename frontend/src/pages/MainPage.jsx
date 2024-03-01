@@ -1,5 +1,6 @@
 import { useState } from "react";
-import SidePanel from "../components/Layout/SidePanel";
+import GoalPanel from "../components/Layout/GoalPanel";
+import MissionPanel from "../components/Layout/MissionPanel";
 import ObjectiveList from "../components/Lists/ObjectiveList";
 import TaskList from "../components/Lists/TaskList";
 
@@ -39,20 +40,19 @@ export default function MainPage() {
         <Goal objectiveList={objectiveList[6].content} />
         <Goal objectiveList={objectiveList[7].content} />
       </div>
-      <SidePanel title={objectiveList?.[0]?.content} buttonText="저장">
+      <GoalPanel title={objectiveList?.[0]?.content} buttonText="저장">
         <TaskList
           objectiveList={objectiveList}
           objectiveIndex={0}
           setObjectiveList={setObjectiveList}
         />
-      </SidePanel>
-      <SidePanel
+      </GoalPanel>
+      <MissionPanel
         title={
           <input
             placeholder="목표 입력"
-            onChange={(e) => {
-              setMissionTitle(e.target.value);
-            }}
+            value={missionTitle}
+            onChange={(e) => setMissionTitle(e.target.value)}
           />
         }
         buttonText="저장"
@@ -61,7 +61,7 @@ export default function MainPage() {
           objectiveList={objectiveList}
           setObjectiveList={setObjectiveList}
         />
-      </SidePanel>
+      </MissionPanel>
     </div>
   );
 }
