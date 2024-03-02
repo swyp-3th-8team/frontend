@@ -1,6 +1,6 @@
-import styles from "./TaskListItem.module.scss";
+import styles from "./GoalListItem.module.scss";
 
-export default function TaskListItem({
+export default function GoalListItem({
   isCompleted,
   content,
   onChangeIsCompleted,

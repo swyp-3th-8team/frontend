@@ -1,8 +1,8 @@
 import { useState } from "react";
 import GoalPanel from "../components/Layout/GoalPanel";
 import MissionPanel from "../components/Layout/MissionPanel";
-import ObjectiveList from "../components/Lists/ObjectiveList";
-import TaskList from "../components/Lists/TaskList";
+import MissionList from "../components/Lists/MissionList";
+import GoalList from "../components/Lists/GoalList";
 
 import styles from "./MainPage.module.scss";
 import Goal from "../components/Mandalart/Goal";
@@ -14,90 +14,90 @@ const createDefaultTask = () => ({
 });
 const createDefaultObject = () => ({
   content: "",
-  taskList: new Array(8).fill(null).map(createDefaultTask),
+  goalList: new Array(8).fill(null).map(createDefaultTask),
 });
 
 export default function MainPage() {
-  const [objectiveList, setObjectiveList] = useState(() =>
+  const [missionList, setMissionList] = useState(() =>
     new Array(8).fill(null).map(createDefaultObject)
   );
 
   const [missionTitle, setMissionTitle] = useState("");
   const [selectedObjectiveIndex, setSelectedObjectiveIndex] = useState(null);
-  const [selectedObjectiveList, setSelectedObjectiveList] = useState(null);
+  const [selectedMissionList, setSelectedMissionList] = useState(null);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
         <Goal
-          taskList={objectiveList[0].taskList}
-          objectiveList={objectiveList[0].content}
+          goalList={missionList[0].goalList}
+          missionList={missionList[0].content}
           onClick={() => setSelectedObjectiveIndex(0)}
         />
         <Goal
-          taskList={objectiveList[1].taskList}
-          objectiveList={objectiveList[1].content}
+          goalList={missionList[1].goalList}
+          missionList={missionList[1].content}
           onClick={() => setSelectedObjectiveIndex(1)}
         />
         <Goal
-          taskList={objectiveList[2].taskList}
-          objectiveList={objectiveList[2].content}
+          goalList={missionList[2].goalList}
+          missionList={missionList[2].content}
           onClick={() => setSelectedObjectiveIndex(2)}
         />
         <Goal
-          taskList={objectiveList[3].taskList}
-          objectiveList={objectiveList[3].content}
+          goalList={missionList[3].goalList}
+          missionList={missionList[3].content}
           onClick={() => setSelectedObjectiveIndex(3)}
         />
         <Mission
-          objectiveList={objectiveList}
+          missionList={missionList}
           missionTitle={missionTitle}
-          onClick={() => setSelectedObjectiveList()}
+          onClick={() => setSelectedMissionList()}
         />
         <Goal
-          taskList={objectiveList[4].taskList}
-          objectiveList={objectiveList[4].content}
+          goalList={missionList[4].goalList}
+          missionList={missionList[4].content}
           onClick={() => setSelectedObjectiveIndex(4)}
         />
         <Goal
-          taskList={objectiveList[5].taskList}
-          objectiveList={objectiveList[5].content}
+          goalList={missionList[5].goalList}
+          missionList={missionList[5].content}
           onClick={() => setSelectedObjectiveIndex(5)}
         />
         <Goal
-          taskList={objectiveList[6].taskList}
-          objectiveList={objectiveList[6].content}
+          goalList={missionList[6].goalList}
+          missionList={missionList[6].content}
           onClick={() => setSelectedObjectiveIndex(6)}
         />
         <Goal
-          taskList={objectiveList[7].taskList}
-          objectiveList={objectiveList[7].content}
+          goalList={missionList[7].goalList}
+          missionList={missionList[7].content}
           onClick={() => setSelectedObjectiveIndex(7)}
         />
       </div>
       {selectedObjectiveIndex !== null && (
         <GoalPanel
-          title={objectiveList?.[selectedObjectiveIndex]?.content}
+          title={missionList?.[selectedObjectiveIndex]?.content}
           buttonText="저장"
           onClose={() => setSelectedObjectiveIndex(null)}
         >
-          <TaskList
-            objectiveList={objectiveList}
+          <GoalList
+            missionList={missionList}
             objectiveIndex={selectedObjectiveIndex}
-            setObjectiveList={setObjectiveList}
+            setMissionList={setMissionList}
           />
         </GoalPanel>
       )}
-      {selectedObjectiveList !== null && (
+      {selectedMissionList !== null && (
         <MissionPanel
           title={missionTitle}
           onTitleChange={setMissionTitle} // title 변경 시 상태 업데이트
           buttonText="저장"
-          onClose={() => setSelectedObjectiveList(null)}
+          onClose={() => setSelectedMissionList(null)}
         >
-          <ObjectiveList
-            objectiveList={objectiveList}
-            setObjectiveList={setObjectiveList}
+          <MissionList
+            missionList={missionList}
+            setMissionList={setMissionList}
           />
         </MissionPanel>
       )}
