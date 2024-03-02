@@ -25,7 +25,7 @@ export default function MainPage() {
   const [missionTitle, setMissionTitle] = useState("");
   const [selectedObjectiveIndex, setSelectedObjectiveIndex] = useState(null);
   const [selectedObjectiveList, setSelectedObjectiveList] = useState(null);
-  console.log(objectiveList[1].content);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
