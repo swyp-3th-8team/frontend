@@ -25,7 +25,7 @@ export default function MainPage() {
   const [missionTitle, setMissionTitle] = useState("");
   const [selectedObjectiveIndex, setSelectedObjectiveIndex] = useState(null);
   const [selectedObjectiveList, setSelectedObjectiveList] = useState(null);
-
+  console.log(objectiveList[1].content);
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -77,8 +77,7 @@ export default function MainPage() {
       </div>
       {selectedObjectiveIndex !== null && (
         <GoalPanel
-          uptitle={missionTitle}
-          title={objectiveList?.[0]?.content}
+          title={objectiveList?.[selectedObjectiveIndex]?.content}
           buttonText="저장"
           onClose={() => setSelectedObjectiveIndex(null)}
         >
