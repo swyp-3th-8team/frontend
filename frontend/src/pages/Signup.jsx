@@ -2,7 +2,8 @@ import { useState } from "react";
 import styles from "./Signup.module.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import TextInput from "../components/TextInput";
+import Button from "../components/Button";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -23,15 +24,17 @@ export default function Signup() {
   };
 
   const handleSubmit = () => {
-    axios.post("http://localhost:9090/member/join", null, { params: { username, password, repassword } });
+    axios.post("http://localhost:9090/member/join", null, {
+      params: { username, password, repassword },
+    });
     navigate("/login");
-    };
+  };
 
   return (
     <div>
       <h2>회원가입</h2>
       <div>
-        <input
+        <TextInput
           value={username}
           type="text"
           label="아이디를 입력해주세요"
@@ -44,11 +47,11 @@ export default function Signup() {
         </div>
       </div>
       <div className={styles.makePw}>
-        <input
+        <TextInput
           value={password}
           type="password"
           label="비밀번호를 입력해주세요"
-          placeholder="영문, 숫자, 특수문자로 8자 이상 입력해주세요."
+          placeholder="6영문, 숫자, 특수문자로 8자 이상 입력해주세요."
           onChange={(e) => handleChangePassword(e)}
         />
         <input
@@ -59,7 +62,7 @@ export default function Signup() {
           onChange={(e) => handleChangePasswordCheck(e)}
         />
       </div>
-      <button onClick={handleSubmit}>회원가입 완료</button>
+      <Button onClick={handleSubmit} finishButton="회원가입 완료" />
     </div>
   );
 }

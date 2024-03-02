@@ -1,8 +1,8 @@
 import styles from "./Goal.module.scss";
 
-export default function Goal({ taskList, objectiveList }) {
+export default function Goal({ taskList, objectiveList, onClick }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={onClick}>
       <div>{taskList?.[0]?.content}</div>
       <div>{taskList?.[1]?.content}</div>
       <div>{taskList?.[2]?.content}</div>

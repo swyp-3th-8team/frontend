@@ -1,7 +1,7 @@
 import Goal from "../components/Mandalart/Goal";
 import Mission from "../components/Mandalart/Mission";
 import styles from "./TestPage.module.scss";
-import MissionList from "../components/Mandalart/MissionList";
+//import MissionList from "../components/Mandalart/MissionList";
 
 export default function TestPage() {
   return (
@@ -17,9 +17,7 @@ export default function TestPage() {
         <Goal />
         <Goal />
       </div>
-      <div>
-        <MissionList />
-      </div>
+      <div></div>
     </>
   );
 }
