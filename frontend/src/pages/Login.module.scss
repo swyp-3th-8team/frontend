@@ -1,97 +1,65 @@
 .continer {
   width: 356px;
   height: 448px;
-
   text-align: center;
-}
-
-.loginIntro {
-  margin-bottom: 44px;
+  margin-top: 216px;
 }
 
 .loginIntro h1 {
   font-size: 28px;
+  font-weight: 700;
+  margin: 0;
 }
 
 .loginIntro div {
   font-size: 18px;
+  font-weight: 600;
+  margin-top: 12px;
 }
 
 .loginInput {
-  margin-bottom: 20px;
-  display: table;
-  border-collapse: collapse;
+  margin-top: 44px;
+  // display: table;
+  // border-collapse: collapse;
 }
 
 .loginInput input {
   box-sizing: border-box;
   width: 356px;
   height: 53px;
-
   border: 1px solid #c0c0c0;
-  padding: 17px 16px;
-
-  text-align: left;
+  border-radius: 12px 12px 0px 0px;
+  padding: 0px 16px;
   font-size: 16px;
+  &::placeholder {
+    color: #c0c0c0;
+  }
+  &:nth-child(2) {
+    border-radius: 0 0 12px 12px;
+  }
+  &:focus {
+    border-color: #6ab23a;
+    outline: 0;
+  }
 }
 
-.loginInput input::placeholder {
-  color: #c0c0c0;
-}
-
-.loginInputId {
-  border-radius: 12px 12px 0 0;
-}
-
-.loginInputPw {
-  border-radius: 0 0 12px 12px;
-}
-/* 작동안됨
-.logininput input:focus {
-  background-color: #6ab23a;
-  outline: 1px solid #6ab23a;
-}
-
-.logininput input:focus::placeholder {
-  color: #000000;
-}
-*/
 .button {
-  width: 356px;
-  height: 109px;
-  margin-bottom: 32px;
-  padding: 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .signupButton {
-  box-sizing: border-box;
-  width: 72px;
-  height: 35px;
-  margin-right: auto;
-  padding: 8px;
-  border: 0;
-
+  margin-top: 16px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-
+  border: 0;
   background-color: transparent;
-  text-decoration: none;
   font-size: 16px;
+  cursor: pointer;
 }
 
-.main {
-  box-sizing: border-box;
-  width: 102px;
-  height: 23px;
-  margin: 8px;
+.service {
+  margin-top: 32px;
   border-width: 0 0 1px 0;
-  padding: 0px;
-
   background-color: transparent;
   font-size: 16px;
+  cursor: pointer;
 }
