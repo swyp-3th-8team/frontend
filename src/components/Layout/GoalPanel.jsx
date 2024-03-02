@@ -2,7 +2,7 @@ import styles from "./GoalPanel.module.scss";
 import CloseIcon from "../../assets/icons/close.svg";
 
 export default function GoalPanel({
-  uptitle,
+  missionTitle,
   title,
   children,
   onClick,
@@ -12,7 +12,7 @@ export default function GoalPanel({
   return (
     <div className={styles.wrapper}>
       <CloseButton onClose={onClose} />
-      <div className={styles.uptitle}>{uptitle}</div>
+      <div className={styles.missionTitle}>{missionTitle}</div>
       <div className={styles.title}>{title}</div>
       <div className={styles.content}>{children}</div>
       <button className={styles.button} onClick={onClick}>

@@ -77,6 +77,7 @@ export default function MainPage() {
       </div>
       {selectedObjectiveIndex !== null && (
         <GoalPanel
+          missionTitle={missionTitle}
           title={missionList?.[selectedObjectiveIndex]?.content}
           buttonText="저장"
           onClose={() => setSelectedObjectiveIndex(null)}
