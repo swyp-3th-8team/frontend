@@ -1,40 +1,79 @@
-.continer {
+.container {
   width: 356px;
   height: 561px;
+  margin-top: 190px;
 }
 
 h2 {
-  margin: 0 0 54px 0;
   text-align: center;
   font-size: 24px;
 }
 
-.overlap {
+.makeId {
+  margin-top: 60px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.makeId input {
+  box-sizing: border-box;
+  margin-top: 12px;
+  height: 58px;
+  border: 1px solid #bbbbbb;
+  border-radius: 12px;
+  padding: 0px 16px;
+  font-size: 16px;
+}
+
+.duplicate {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin-top: 12px;
 }
 
-.overlap button {
+.duplicate button {
   box-sizing: border-box;
   width: 120px;
   height: 40px;
   border: 0;
   border-radius: 10px;
-
   background-color: #6ab23a;
   color: #ffffff;
   font-size: 16px;
-  font-weight: 550;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .makePw {
-  margin: 20px 0 46px 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.makePw input {
+  box-sizing: border-box;
+  margin-top: 12px;
+  height: 58px;
+  border: 1px solid #bbbbbb;
+  border-radius: 12px;
+  padding: 0px 16px;
+  font-size: 16px;
 }
 
 .makePw div {
-  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.submit {
+  width: 356px;
+  height: 58px;
+  margin-top: 46px;
+  margin-bottom: 230px;
+  border: 0;
+  border-radius: 12px;
+  background-color: #6ab23a;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
 }
