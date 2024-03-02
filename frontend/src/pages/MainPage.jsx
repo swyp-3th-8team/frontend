@@ -52,13 +52,8 @@ export default function MainPage() {
         />
       </GoalPanel>
       <MissionPanel
-        title={
-          <input
-            placeholder="목표 입력"
-            value={missionTitle}
-            onChange={(e) => setMissionTitle(e.target.value)}
-          />
-        }
+        title={missionTitle}
+        onTitleChange={setMissionTitle} // title 변경 시 상태 업데이트
         buttonText="저장"
       >
         <ObjectiveList

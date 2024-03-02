@@ -1,10 +1,33 @@
 import styles from "./GoalPanel.module.scss";
 import CloseIcon from "../../assets/icons/close.svg";
 import PencilIcon from "../../assets/icons/pencil.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function MissionPanel({ title, children, onClick, buttonText }) {
+export default function MissionPanel({
+  onTitleChange,
+  title,
+  children,
+  onClick,
+  buttonText,
+}) {
   const [isEditing, setIsEditing] = useState(false);
+  const [editedTitle, setEditedTitle] = useState("");
+
+  // 초기에 title이 input인 경우를 고려하여 처리
+  useEffect(() => {
+    setEditedTitle(title || "");
+  }, [title]);
+
+  // input 값이 변경될 때마다 호출되는 함수
+  const handleInputChange = (e) => {
+    setEditedTitle(e.target.value);
+    onTitleChange(e.target.value); // 입력 중에도 Mainpage의 상태 업데이트
+  };
+
+  // PencilButton 클릭 시 호출되는 함수
+  const handlePencilButtonClick = () => {
+    setIsEditing((prev) => !prev);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -13,13 +36,14 @@ export default function MissionPanel({ title, children, onClick, buttonText }) {
         {isEditing ? (
           <input
             type="text"
-            value={title}
-            onChange={(e) => onClick(e.target.value)}
+            value={editedTitle}
+            onChange={handleInputChange}
+            placeholder="목표 입력"
           />
         ) : (
-          title
+          <span>{editedTitle || "목표 입력"}</span>
         )}
-        <PencilButton onClick={() => setIsEditing(!isEditing)} />
+        <PencilButton onClick={handlePencilButtonClick} />
       </div>
       <div className={styles.content}>{children}</div>
       <button className={styles.button} onClick={onClick}>
