@@ -1,9 +1,8 @@
 import MissionListItem from "./MissionListItem";
-import styles from "./MissionListItem.module.scss";
 
 export default function MissionList({ missionList, setMissionList }) {
   return (
-    <ul className={styles}>
+    <ul>
       {missionList.map(({ content, goalList }, i) => (
         <MissionListItem
           key={i}

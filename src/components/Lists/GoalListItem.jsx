@@ -7,13 +7,19 @@ export default function GoalListItem({
   onChangeContent,
 }) {
   return (
-    <li className={styles.wrapper}>
+    <li className={styles.listWrapper}>
       <input
+        className={styles.checkbox}
         type="checkbox"
         checked={isCompleted}
         onChange={onChangeIsCompleted}
       />
-      <input value={content} onChange={onChangeContent} />
+      <input
+        className={styles.listInput}
+        value={content}
+        placeholder="목표를 등록해주세요"
+        onChange={onChangeContent}
+      />
     </li>
   );
 }

@@ -12,8 +12,10 @@ export default function GoalPanel({
   return (
     <div className={styles.wrapper}>
       <CloseButton onClose={onClose} />
-      <div className={styles.missionTitle}>{missionTitle}</div>
-      <div className={styles.title}>{title}</div>
+      <div className={styles.titleWrapper}>
+        <div className={styles.missionTitle}>{missionTitle}</div>
+        <div className={styles.title}>{title}</div>
+      </div>
       <div className={styles.content}>{children}</div>
       <button className={styles.button} onClick={onClick}>
         {buttonText}

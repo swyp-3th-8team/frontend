@@ -1,7 +1,7 @@
-import styles from "./GoalPanel.module.scss";
+import { useEffect, useState } from "react";
 import CloseIcon from "../../assets/icons/close.svg";
 import PencilIcon from "../../assets/icons/pencil.svg";
-import { useEffect, useState } from "react";
+import styles from "./GoalPanel.module.scss";
 
 export default function MissionPanel({
   onTitleChange,
@@ -33,18 +33,20 @@ export default function MissionPanel({
   return (
     <div className={styles.wrapper}>
       <CloseButton onClose={onClose} />
-      <div className={styles.title}>
-        {isEditing ? (
-          <input
-            type="text"
-            value={editedTitle}
-            onChange={handleInputChange}
-            placeholder="목표 입력"
-          />
-        ) : (
-          <span>{editedTitle || "목표 입력"}</span>
-        )}
-        <PencilButton onClick={handlePencilButtonClick} />
+      <div className={styles.titleWrapper}>
+        <div className={styles.title}>
+          {isEditing ? (
+            <input
+              type="text"
+              value={editedTitle}
+              onChange={handleInputChange}
+              placeholder="목표 입력"
+            />
+          ) : (
+            <span>{editedTitle || "목표 입력"}</span>
+          )}
+          <PencilButton onClick={handlePencilButtonClick} />
+        </div>
       </div>
       <div className={styles.content}>{children}</div>
       <button className={styles.button} onClick={onClick}>
