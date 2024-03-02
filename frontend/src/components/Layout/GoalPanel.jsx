@@ -7,10 +7,11 @@ export default function GoalPanel({
   children,
   onClick,
   buttonText,
+  onClose,
 }) {
   return (
     <div className={styles.wrapper}>
-      <CloseButton />
+      <CloseButton onClose={onClose} />
       <div className={styles.uptitle}>{uptitle}</div>
       <div className={styles.title}>{title}</div>
       <div className={styles.content}>{children}</div>
@@ -21,9 +22,9 @@ export default function GoalPanel({
   );
 }
 
-function CloseButton() {
+function CloseButton({ onClose }) {
   return (
-    <button className={styles.closeButton}>
+    <button className={styles.closeButton} onClick={onClose}>
       <img src={CloseIcon} />
     </button>
   );

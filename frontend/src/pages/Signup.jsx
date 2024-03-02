@@ -3,6 +3,7 @@ import styles from "./Signup.module.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import TextInput from "../components/TextInput";
+import Button from "../components/Button";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ export default function Signup() {
           onChange={(e) => handleChangePasswordCheck(e)}
         />
       </div>
-      <button onClick={handleSubmit}>회원가입 완료</button>
+      <Button onClick={handleSubmit} finishButton="회원가입 완료" />
     </div>
   );
 }
