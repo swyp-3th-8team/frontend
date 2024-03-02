@@ -24,6 +24,7 @@ export default function MainPage() {
 
   const [missionTitle, setMissionTitle] = useState("");
   const [selectedObjectiveIndex, setSelectedObjectiveIndex] = useState(null);
+  const [selectedObjectiveList, setSelectedObjectiveList] = useState(null);
 
   return (
     <div className={styles.wrapper}>
@@ -48,7 +49,11 @@ export default function MainPage() {
           objectiveList={objectiveList[3].content}
           onClick={() => setSelectedObjectiveIndex(3)}
         />
-        <Mission objectiveList={objectiveList} missionTitle={missionTitle} />
+        <Mission
+          objectiveList={objectiveList}
+          missionTitle={missionTitle}
+          onClick={() => setSelectedObjectiveList()}
+        />
         <Goal
           taskList={objectiveList[4].taskList}
           objectiveList={objectiveList[4].content}
@@ -84,16 +89,19 @@ export default function MainPage() {
           />
         </GoalPanel>
       )}
-      <MissionPanel
-        title={missionTitle}
-        onTitleChange={setMissionTitle} // title 변경 시 상태 업데이트
-        buttonText="저장"
-      >
-        <ObjectiveList
-          objectiveList={objectiveList}
-          setObjectiveList={setObjectiveList}
-        />
-      </MissionPanel>
+      {selectedObjectiveList !== null && (
+        <MissionPanel
+          title={missionTitle}
+          onTitleChange={setMissionTitle} // title 변경 시 상태 업데이트
+          buttonText="저장"
+          onClose={() => setSelectedObjectiveList(null)}
+        >
+          <ObjectiveList
+            objectiveList={objectiveList}
+            setObjectiveList={setObjectiveList}
+          />
+        </MissionPanel>
+      )}
     </div>
   );
 }

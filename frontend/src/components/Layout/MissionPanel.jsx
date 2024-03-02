@@ -9,6 +9,7 @@ export default function MissionPanel({
   children,
   onClick,
   buttonText,
+  onClose,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState("");
@@ -31,7 +32,7 @@ export default function MissionPanel({
 
   return (
     <div className={styles.wrapper}>
-      <CloseButton />
+      <CloseButton onClose={onClose} />
       <div className={styles.title}>
         {isEditing ? (
           <input
@@ -61,9 +62,9 @@ function PencilButton({ onClick }) {
   );
 }
 
-function CloseButton() {
+function CloseButton({ onClose }) {
   return (
-    <button className={styles.closeButton}>
+    <button className={styles.closeButton} onClick={onClose}>
       <img src={CloseIcon} />
     </button>
   );

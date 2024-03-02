@@ -1,9 +1,9 @@
 import styles from "./Mission.module.scss";
 
-export default function Mission({ objectiveList, missionTitle }) {
+export default function Mission({ objectiveList, missionTitle, onClick }) {
   return (
     <>
-      <div className={styles.mission}>
+      <div className={styles.mission} onClick={onClick}>
         <div>{objectiveList?.[0]?.content}</div>
         <div>{objectiveList?.[1]?.content}</div>
         <div>{objectiveList?.[2]?.content}</div>
