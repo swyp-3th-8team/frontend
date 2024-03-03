@@ -8,4 +8,44 @@
   width: 870px;
   height: 796px;
   background-color: white;
+
+  display: grid;
+  grid-template-columns: 272px 272px 272px;
+  grid-template-rows: 252px 252px 252px;
+  gap: 20px 30px;
+  margin-right: 38px;
+
+  text-align: center;
+
+  .goalDetail {
+    box-sizing: border-box;
+    width: 270px;
+    height: 252px;
+
+    border-radius: 20px;
+    border: 3px solid #f1efef;
+
+    div {
+      box-sizing: border-box;
+      width: 200px;
+      height: 37px;
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 200px;
+      height: 78px;
+
+      border: 0;
+    }
+  }
+
+  .mainGoal {
+    box-sizing: border-box;
+    width: 270px;
+    height: 252px;
+
+    border-radius: 20px;
+    border: 3px solid #f1efef;
+  }
 }
