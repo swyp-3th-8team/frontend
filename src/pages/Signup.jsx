@@ -48,9 +48,7 @@ export default function Signup() {
         />
         <div className={styles.duplicate}>
           <div>중복확인 메세지</div>
-          <button className={username ? styles.username : styles.duplicateBtn}>
-            중복 확인하기
-          </button>
+          <Button finishButton="중복 확인하기" size="small" />
         </div>
       </div>
       <div className={styles.email}>
@@ -83,9 +81,11 @@ export default function Signup() {
           />
         </div>
       </div>
-      <Button onClick={handleSubmit} finishButton="회원가입 완료">
-        회원가입 완료
-      </Button>
+      <Button
+        onClick={handleSubmit}
+        finishButton="회원가입 완료"
+        size="basic"
+      />
     </div>
   );
 }

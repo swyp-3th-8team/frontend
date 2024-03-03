@@ -20,7 +20,7 @@ export default function Login() {
         />
       </div>
       <div className={styles.button}>
-        <Button finishButton="로그인" />
+        <Button finishButton="로그인" size="basic" />
         <button
           className={styles.signupButton}
           onClick={() => navigate("/signup")}
