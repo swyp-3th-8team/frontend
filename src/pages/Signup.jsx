@@ -83,11 +83,7 @@ export default function Signup() {
           />
         </div>
       </div>
-      <Button
-        className={styles.submit}
-        onClick={handleSubmit}
-        finishButton="회원가입 완료"
-      >
+      <Button onClick={handleSubmit} finishButton="회원가입 완료">
         회원가입 완료
       </Button>
     </div>
