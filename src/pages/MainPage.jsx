@@ -7,6 +7,7 @@ import GoalList from "../components/Lists/GoalList";
 import styles from "./MainPage.module.scss";
 import Goal from "../components/Mandalart/Goal";
 import Mission from "../components/Mandalart/Mission";
+import GoalDetail from "../components/Layout/GoalDetail";
 
 const createDefaultTask = () => ({
   content: "",
@@ -75,6 +76,7 @@ export default function MainPage() {
           onClick={() => setSelectedObjectiveIndex(7)}
         />
       </div>
+      <GoalDetail />
       {selectedObjectiveIndex !== null && (
         <GoalPanel
           missionTitle={missionTitle}
