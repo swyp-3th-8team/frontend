@@ -1,0 +1,14 @@
+.wrapper {
+  width: 1264px;
+  height: 796px;
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 272px 272px 272px;
+  grid-template-rows: 252px 252px 252px;
+  gap: 20px 30px;
+  margin-right: 38px;
+}

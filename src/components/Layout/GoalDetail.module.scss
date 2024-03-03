@@ -1,0 +1,18 @@
+.detailContainer {
+  box-sizing: border-box;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 272px 272px 272px;
+  grid-template-rows: 252px 252px 252px;
+  gap: 20px 30px;
+  margin-right: 38px;
+
+  div {
+    margin: 0;
+    border-radius: 10px;
+    border: 3px solid #e5e5e5;
+    padding: 5px;
+
+    text-align: center;
+  }
+}
