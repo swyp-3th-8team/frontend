@@ -7,12 +7,13 @@ import GoalList from "../components/Lists/GoalList";
 import styles from "./MainPage.module.scss";
 import Goal from "../components/Mandalart/Goal";
 import Mission from "../components/Mandalart/Mission";
-import GoalDetail from "../components/Layout/GoalDetail";
+import GoalDetail from "../components/Modal/GoalDetail";
 
 const createDefaultTask = () => ({
   content: "",
   isCompleted: false,
 });
+
 const createDefaultObject = () => ({
   content: "",
   goalList: new Array(8).fill(null).map(createDefaultTask),
@@ -76,7 +77,10 @@ export default function MainPage() {
           onClick={() => setSelectedMissionIndex(7)}
         />
       </div>
-      <GoalDetail />
+      <GoalDetail
+        missionList={missionList}
+        selectedMissionIndex={selectedMissionIndex}
+      />
       {selectedMissionIndex !== null && (
         <GoalPanel
           missionTitle={missionTitle}
@@ -86,7 +90,7 @@ export default function MainPage() {
         >
           <GoalList
             missionList={missionList}
-            objectiveIndex={selectedMissionIndex}
+            missionIndex={selectedMissionIndex}
             setMissionList={setMissionList}
           />
         </GoalPanel>
