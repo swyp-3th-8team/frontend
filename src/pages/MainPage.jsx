@@ -27,6 +27,12 @@ export default function MainPage() {
   const [missionTitle, setMissionTitle] = useState("");
   const [selectedMissionIndex, setSelectedMissionIndex] = useState(null);
   const [selectedMissionList, setSelectedMissionList] = useState(null);
+  const [isGoalDetailModalOpen, setIsGoalDetailModalOpen] = useState(false);
+
+  const openGoalDetailModal = (index) => {
+    setSelectedMissionIndex(index);
+    setIsGoalDetailModalOpen(true);
+  };
 
   return (
     <div className={styles.mainWrapper}>
@@ -34,22 +40,22 @@ export default function MainPage() {
         <Goal
           goalList={missionList[0].goalList}
           missionList={missionList[0].content}
-          onClick={() => setSelectedMissionIndex(0)}
+          onClick={() => openGoalDetailModal(0)}
         />
         <Goal
           goalList={missionList[1].goalList}
           missionList={missionList[1].content}
-          onClick={() => setSelectedMissionIndex(1)}
+          onClick={() => openGoalDetailModal(1)}
         />
         <Goal
           goalList={missionList[2].goalList}
           missionList={missionList[2].content}
-          onClick={() => setSelectedMissionIndex(2)}
+          onClick={() => openGoalDetailModal(2)}
         />
         <Goal
           goalList={missionList[3].goalList}
           missionList={missionList[3].content}
-          onClick={() => setSelectedMissionIndex(3)}
+          onClick={() => openGoalDetailModal(3)}
         />
         <Mission
           missionList={missionList}
@@ -59,28 +65,31 @@ export default function MainPage() {
         <Goal
           goalList={missionList[4].goalList}
           missionList={missionList[4].content}
-          onClick={() => setSelectedMissionIndex(4)}
+          onClick={() => openGoalDetailModal(4)}
         />
         <Goal
           goalList={missionList[5].goalList}
           missionList={missionList[5].content}
-          onClick={() => setSelectedMissionIndex(5)}
+          onClick={() => openGoalDetailModal(5)}
         />
         <Goal
           goalList={missionList[6].goalList}
           missionList={missionList[6].content}
-          onClick={() => setSelectedMissionIndex(6)}
+          onClick={() => openGoalDetailModal(6)}
         />
         <Goal
           goalList={missionList[7].goalList}
           missionList={missionList[7].content}
-          onClick={() => setSelectedMissionIndex(7)}
+          onClick={() => openGoalDetailModal(7)}
         />
       </div>
-      <GoalDetail
-        missionList={missionList}
-        selectedMissionIndex={selectedMissionIndex}
-      />
+      {isGoalDetailModalOpen && (
+        <GoalDetail
+          missionList={missionList}
+          selectedMissionIndex={selectedMissionIndex}
+          onClose={() => setIsGoalDetailModalOpen(false)}
+        />
+      )}
       {selectedMissionIndex !== null && (
         <GoalPanel
           missionTitle={missionTitle}
