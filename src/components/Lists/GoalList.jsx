@@ -9,16 +9,16 @@ export default function GoalList({
 
   return (
     <ul>
-      {goalList.map((task, taskIndex) => (
+      {goalList.map((goal, goalIndex) => (
         <GoalListItem
-          key={taskIndex}
-          content={task.content}
-          isCompleted={task.isCompleted}
+          key={goalIndex}
+          content={goal.content}
+          isCompleted={goal.isCompleted}
           onChangeContent={(e) => {
             const objective = missionList[objectiveIndex];
             const newGoalList = [...objective.goalList];
-            newGoalList[taskIndex] = {
-              ...newGoalList[taskIndex],
+            newGoalList[goalIndex] = {
+              ...newGoalList[goalIndex],
               content: e.target.value,
             };
             const newObjective = {
@@ -33,8 +33,8 @@ export default function GoalList({
           onChangeIsCompleted={(e) => {
             const objective = missionList[objectiveIndex];
             const newGoalList = [...objective.goalList];
-            newGoalList[taskIndex] = {
-              ...newGoalList[taskIndex],
+            newGoalList[goalIndex] = {
+              ...newGoalList[goalIndex],
               isCompleted: e.target.checked,
             };
             const newObjective = {

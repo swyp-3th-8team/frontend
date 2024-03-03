@@ -24,31 +24,31 @@ export default function MainPage() {
   );
 
   const [missionTitle, setMissionTitle] = useState("");
-  const [selectedObjectiveIndex, setSelectedObjectiveIndex] = useState(null);
+  const [selectedMissionIndex, setSelectedMissionIndex] = useState(null);
   const [selectedMissionList, setSelectedMissionList] = useState(null);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.mainWrapper}>
       <div className={styles.content}>
         <Goal
           goalList={missionList[0].goalList}
           missionList={missionList[0].content}
-          onClick={() => setSelectedObjectiveIndex(0)}
+          onClick={() => setSelectedMissionIndex(0)}
         />
         <Goal
           goalList={missionList[1].goalList}
           missionList={missionList[1].content}
-          onClick={() => setSelectedObjectiveIndex(1)}
+          onClick={() => setSelectedMissionIndex(1)}
         />
         <Goal
           goalList={missionList[2].goalList}
           missionList={missionList[2].content}
-          onClick={() => setSelectedObjectiveIndex(2)}
+          onClick={() => setSelectedMissionIndex(2)}
         />
         <Goal
           goalList={missionList[3].goalList}
           missionList={missionList[3].content}
-          onClick={() => setSelectedObjectiveIndex(3)}
+          onClick={() => setSelectedMissionIndex(3)}
         />
         <Mission
           missionList={missionList}
@@ -58,35 +58,35 @@ export default function MainPage() {
         <Goal
           goalList={missionList[4].goalList}
           missionList={missionList[4].content}
-          onClick={() => setSelectedObjectiveIndex(4)}
+          onClick={() => setSelectedMissionIndex(4)}
         />
         <Goal
           goalList={missionList[5].goalList}
           missionList={missionList[5].content}
-          onClick={() => setSelectedObjectiveIndex(5)}
+          onClick={() => setSelectedMissionIndex(5)}
         />
         <Goal
           goalList={missionList[6].goalList}
           missionList={missionList[6].content}
-          onClick={() => setSelectedObjectiveIndex(6)}
+          onClick={() => setSelectedMissionIndex(6)}
         />
         <Goal
           goalList={missionList[7].goalList}
           missionList={missionList[7].content}
-          onClick={() => setSelectedObjectiveIndex(7)}
+          onClick={() => setSelectedMissionIndex(7)}
         />
       </div>
       <GoalDetail />
-      {selectedObjectiveIndex !== null && (
+      {selectedMissionIndex !== null && (
         <GoalPanel
           missionTitle={missionTitle}
-          title={missionList?.[selectedObjectiveIndex]?.content}
+          title={missionList?.[selectedMissionIndex]?.content}
           buttonText="저장"
-          onClose={() => setSelectedObjectiveIndex(null)}
+          onClose={() => setSelectedMissionIndex(null)}
         >
           <GoalList
             missionList={missionList}
-            objectiveIndex={selectedObjectiveIndex}
+            objectiveIndex={selectedMissionIndex}
             setMissionList={setMissionList}
           />
         </GoalPanel>
