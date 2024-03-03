@@ -1,16 +1,22 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 import styles from "./Signup.module.scss";
 
 export default function Signup() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordcheck, setPasswordcheck] = useState("");
 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
+  };
+
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   const handleChangePassword = (e) => {
@@ -34,7 +40,7 @@ export default function Signup() {
       <div className={styles.makeId}>
         <label htmlFor="id">아이디를 입력해주세요.</label>
         <input
-          name="id"
+          id="id"
           value={username}
           type="text"
           placeholder="6자 이상 입력해주세요."
@@ -42,22 +48,34 @@ export default function Signup() {
         />
         <div className={styles.duplicate}>
           <div>중복확인 메세지</div>
-          <button>중복 확인하기</button>
+          <button className={username ? styles.username : styles.duplicateBtn}>
+            중복 확인하기
+          </button>
         </div>
+      </div>
+      <div className={styles.email}>
+        <label htmlFor="email">이메일을 입력해주세요.</label>
+        <input
+          id="email"
+          value={email}
+          type="email"
+          placeholder="이메일을 입력해주세요."
+          onChange={(e) => handleChangeEmail(e)}
+        />
       </div>
       <div className={styles.makePw}>
         <label htmlFor="pw">비밀번호를 입력해주세요.</label>
         <input
-          name="pw"
+          id="pw"
           value={password}
           type="password"
           placeholder="영문, 숫자, 특수문자로 8자 이상 입력해주세요."
           onChange={(e) => handleChangePassword(e)}
         />
         <div>
-          <label htmlFor="pwcheck">비밀번호를 다시 입력해주세요.</label>
+          <label htmlFor="pwcheck">비밀번호를 다시 한번 확인해주세요.</label>
           <input
-            name="pwcheck"
+            id="pwcheck"
             value={passwordcheck}
             type="password"
             placeholder="비밀번호를 다시 입력해주세요."
@@ -65,9 +83,13 @@ export default function Signup() {
           />
         </div>
       </div>
-      <button className={styles.submit} onClick={handleSubmit}>
+      <Button
+        className={styles.submit}
+        onClick={handleSubmit}
+        finishButton="회원가입 완료"
+      >
         회원가입 완료
-      </button>
+      </Button>
     </div>
   );
 }
