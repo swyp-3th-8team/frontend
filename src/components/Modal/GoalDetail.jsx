@@ -1,8 +1,12 @@
 import styles from "./GoalDetail.module.scss";
 
-export default function GoalDetail({ missionList, selectedMissionIndex }) {
+export default function GoalDetail({
+  missionList,
+  selectedMissionIndex,
+  onClick,
+}) {
   return (
-    <div className={styles.goalContainer}>
+    <div className={styles.goalContainer} onClick={onClick}>
       <div className={styles.goalDetail}>
         <div>{missionList[selectedMissionIndex]?.goalList?.[0]?.content}</div>
         <input placeholder="다짐을 적어주세요!" />

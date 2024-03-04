@@ -29,6 +29,7 @@ export default function MainPage() {
   const [selectedMissionIndex, setSelectedMissionIndex] = useState(null);
   const [selectedMissionList, setSelectedMissionList] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showGoalPanel, setShowGoalPanel] = useState(false);
 
   const openModal = (index) => {
     setSelectedMissionIndex(index);
@@ -109,18 +110,22 @@ export default function MainPage() {
             <GoalDetail
               missionList={missionList}
               selectedMissionIndex={selectedMissionIndex}
+              onClick={() => setShowGoalPanel(true)}
             />
-            <GoalPanel
-              missionTitle={missionTitle}
-              title={missionList?.[selectedMissionIndex]?.content}
-              buttonText="저장"
-            >
-              <GoalList
-                missionList={missionList}
-                missionIndex={selectedMissionIndex}
-                setMissionList={setMissionList}
-              />
-            </GoalPanel>
+            {showGoalPanel && (
+              <GoalPanel
+                missionTitle={missionTitle}
+                title={missionList?.[selectedMissionIndex]?.content}
+                buttonText="저장"
+                onClose={() => setShowGoalPanel(false)}
+              >
+                <GoalList
+                  missionList={missionList}
+                  missionIndex={selectedMissionIndex}
+                  setMissionList={setMissionList}
+                />
+              </GoalPanel>
+            )}
           </div>
         </Modal>
       )}
