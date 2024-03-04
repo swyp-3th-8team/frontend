@@ -2,6 +2,7 @@
   width: 1264px;
   height: 796px;
   display: flex;
+  position: fixed;
 }
 
 .content {
@@ -11,4 +12,12 @@
   grid-template-rows: 252px 252px 252px;
   gap: 20px 30px;
   margin-right: 38px;
+}
+
+.modalWrapper {
+  width: 1264px;
+  height: 796px;
+  position: fixed;
+  background-color: white;
+  border-radius: 20px;
 }

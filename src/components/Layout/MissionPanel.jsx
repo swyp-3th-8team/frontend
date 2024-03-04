@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CloseIcon from "../../assets/icons/close.svg";
 import PencilIcon from "../../assets/icons/pencil.svg";
-import styles from "./GoalPanel.module.scss";
+import styles from "./MissionPanel.module.scss";
 
 export default function MissionPanel({
   onTitleChange,

@@ -1,0 +1,74 @@
+.wrapper {
+  box-sizing: border-box;
+  width: 356px;
+  height: 793px;
+  box-shadow: 0 0 3px 1px #bbbbbb;
+
+  border-radius: 19px;
+  padding: 56px 25px 34px 25px;
+
+  color: #bbbbbb;
+  background-color: transparent;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .titleWrapper {
+    box-sizing: border-box;
+    width: 306px;
+    height: 62px;
+    margin-bottom: 34px;
+
+    .missionTitle {
+      font-weight: bold;
+      font-size: 14px;
+      color: #6ab23a;
+    }
+
+    .title {
+      box-sizing: border-box;
+      width: 306px;
+      height: 40px;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      font-weight: bold;
+      font-size: 28px;
+      color: #000000;
+    }
+  }
+
+  .content {
+    flex: 1;
+    width: 306px;
+    height: 532px;
+
+    margin-bottom: 34px;
+  }
+
+  .button {
+    box-sizing: border-box;
+    width: 306px;
+    height: 58px;
+  }
+}
+
+.pencilButton {
+  border: 0;
+  padding: 0;
+
+  background-color: transparent;
+}
+
+.closeButton {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+
+  border: 0;
+  padding: 0;
+
+  background-color: transparent;
+}

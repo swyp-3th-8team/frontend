@@ -5,7 +5,7 @@ export default function MissionListItem({ goalList, content, onChange }) {
   const isCompleted = goalList.every((task) => task.isCompleted);
 
   return (
-    <li className={styles.listWrapper}>
+    <li className={styles.listbox}>
       <input
         className={isCompleted ? styles.completed : styles.listInput}
         value={content}
