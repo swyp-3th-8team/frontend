@@ -15,9 +15,13 @@
 }
 
 .modalWrapper {
+  box-sizing: border-box;
   width: 1264px;
   height: 796px;
+
+  display: flex;
   position: fixed;
-  background-color: white;
+
   border-radius: 20px;
+  background-color: white;
 }

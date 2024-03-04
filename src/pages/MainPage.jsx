@@ -8,6 +8,7 @@ import styles from "./MainPage.module.scss";
 import Goal from "../components/Mandalart/Goal";
 import Mission from "../components/Mandalart/Mission";
 import GoalDetail from "../components/Modal/GoalDetail";
+import Modal from "../components/Modal/Modal";
 
 const createDefaultTask = () => ({
   content: "",
@@ -27,15 +28,15 @@ export default function MainPage() {
   const [missionTitle, setMissionTitle] = useState("");
   const [selectedMissionIndex, setSelectedMissionIndex] = useState(null);
   const [selectedMissionList, setSelectedMissionList] = useState(null);
-  const [isGoalDetailModalOpen, setIsGoalDetailModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openGoalDetailModal = (index) => {
+  const openModal = (index) => {
     setSelectedMissionIndex(index);
-    setIsGoalDetailModalOpen(true);
+    setIsModalOpen(true);
   };
 
   const closeModals = () => {
-    setIsGoalDetailModalOpen(false);
+    setIsModalOpen(false);
   };
 
   return (
@@ -45,22 +46,22 @@ export default function MainPage() {
           <Goal
             goalList={missionList[0].goalList}
             missionList={missionList[0].content}
-            onClick={() => openGoalDetailModal(0)}
+            onClick={() => openModal(0)}
           />
           <Goal
             goalList={missionList[1].goalList}
             missionList={missionList[1].content}
-            onClick={() => openGoalDetailModal(1)}
+            onClick={() => openModal(1)}
           />
           <Goal
             goalList={missionList[2].goalList}
             missionList={missionList[2].content}
-            onClick={() => openGoalDetailModal(2)}
+            onClick={() => openModal(2)}
           />
           <Goal
             goalList={missionList[3].goalList}
             missionList={missionList[3].content}
-            onClick={() => openGoalDetailModal(3)}
+            onClick={() => openModal(3)}
           />
           <Mission
             missionList={missionList}
@@ -70,22 +71,22 @@ export default function MainPage() {
           <Goal
             goalList={missionList[4].goalList}
             missionList={missionList[4].content}
-            onClick={() => openGoalDetailModal(4)}
+            onClick={() => openModal(4)}
           />
           <Goal
             goalList={missionList[5].goalList}
             missionList={missionList[5].content}
-            onClick={() => openGoalDetailModal(5)}
+            onClick={() => openModal(5)}
           />
           <Goal
             goalList={missionList[6].goalList}
             missionList={missionList[6].content}
-            onClick={() => openGoalDetailModal(6)}
+            onClick={() => openModal(6)}
           />
           <Goal
             goalList={missionList[7].goalList}
             missionList={missionList[7].content}
-            onClick={() => openGoalDetailModal(7)}
+            onClick={() => openModal(7)}
           />
         </div>
         {selectedMissionList !== null && (
@@ -102,26 +103,26 @@ export default function MainPage() {
           </MissionPanel>
         )}
       </div>
-      {isGoalDetailModalOpen && (
-        <div className={styles.modalWrapper}>
-          <GoalDetail
-            missionList={missionList}
-            selectedMissionIndex={selectedMissionIndex}
-            onClose={closeModals}
-          />
-          <GoalPanel
-            missionTitle={missionTitle}
-            title={missionList?.[selectedMissionIndex]?.content}
-            buttonText="저장"
-            onClose={closeModals}
-          >
-            <GoalList
+      {isModalOpen && (
+        <Modal onClose={closeModals}>
+          <div className={styles.modalWrapper}>
+            <GoalDetail
               missionList={missionList}
-              missionIndex={selectedMissionIndex}
-              setMissionList={setMissionList}
+              selectedMissionIndex={selectedMissionIndex}
             />
-          </GoalPanel>
-        </div>
+            <GoalPanel
+              missionTitle={missionTitle}
+              title={missionList?.[selectedMissionIndex]?.content}
+              buttonText="저장"
+            >
+              <GoalList
+                missionList={missionList}
+                missionIndex={selectedMissionIndex}
+                setMissionList={setMissionList}
+              />
+            </GoalPanel>
+          </div>
+        </Modal>
       )}
     </>
   );
