@@ -21,10 +21,14 @@
     border-radius: 20px;
     border: 3px solid #f1efef;
 
+    word-wrap: break-word;
+
     div {
       box-sizing: border-box;
       width: 200px;
       height: 37px;
+
+      font-size: 26px;
     }
 
     input {
@@ -33,6 +37,8 @@
       height: 78px;
 
       border: 0;
+
+      font-size: 16px;
     }
   }
 
@@ -43,5 +49,11 @@
 
     border-radius: 20px;
     border: 3px solid #f1efef;
+    padding: 50px;
+
+    text-align: center;
+    background-color: #6ab23a;
+    font-weight: bold;
+    font-size: 36px;
   }
 }
