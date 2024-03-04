@@ -31,11 +31,25 @@
       height: 40px;
 
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
 
+      color: #6ab23a;
       font-weight: bold;
       font-size: 28px;
-      color: #000000;
+
+      input {
+        box-sizing: border-box;
+        width: 222px;
+        height: 40px;
+        border: 0;
+        padding: 0;
+
+        color: #bbbbbb;
+        font-weight: bold;
+        font-size: 28px;
+      }
     }
   }
 
@@ -47,14 +61,18 @@
     margin-bottom: 34px;
   }
 
-  .button {
+  .buttonWrapper {
     box-sizing: border-box;
     width: 306px;
     height: 58px;
+
+    display: flex;
+    justify-content: space-between;
   }
 }
 
 .pencilButton {
+  margin-right: 47px;
   border: 0;
   padding: 0;
 

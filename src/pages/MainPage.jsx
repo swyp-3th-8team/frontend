@@ -94,7 +94,6 @@ export default function MainPage() {
           <MissionPanel
             title={missionTitle}
             onTitleChange={setMissionTitle} // title 변경 시 상태 업데이트
-            buttonText="저장"
             onClose={() => setSelectedMissionList(null)}
           >
             <MissionList
