@@ -4,7 +4,7 @@ export default function Button({ finishButton, size }) {
   return (
     <button
       type="submit"
-      className={size === "small" ? styles.finishButton : styles.largeButton}
+      className={size === "basic" ? styles.finishButton : styles.smallButton}
     >
       {finishButton}
     </button>
