@@ -1,12 +1,10 @@
+import { useContext } from "react";
 import CheckIcon from "../../assets/icons/check.svg";
+import MainPageContext from "../../pages/MainPageContext";
 import styles from "./GoalListItem.module.scss";
 
-export default function MissionListItem({
-  goalList,
-  content,
-  onChange,
-  isPanelEditing,
-}) {
+export default function MissionListItem({ goalList, content, onChange }) {
+  const { isPanelEditing } = useContext(MainPageContext);
   const isCompleted = goalList.every((task) => task.isCompleted);
 
   return (

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MainPageProvider } from "./MainPageContext";
 import GoalPanel from "../components/Modal/GoalPanel";
 import MissionPanel from "../components/Layout/MissionPanel";
 import MissionList from "../components/Lists/MissionList";
@@ -41,7 +42,7 @@ export default function MainPage() {
   };
 
   return (
-    <>
+    <MainPageProvider>
       <div className={styles.mainWrapper}>
         <div className={styles.content}>
           <Goal
@@ -128,6 +129,6 @@ export default function MainPage() {
           </div>
         </Modal>
       )}
-    </>
+    </MainPageProvider>
   );
 }
