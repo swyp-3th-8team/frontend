@@ -19,9 +19,10 @@ export default function Login() {
           placeholder="비밀번호"
         />
       </div>
-      <div className={styles.button}>
-        <Button finishButton="로그인" size="basic" />
+      <div style={{ margin: "8px 14px", textAlign: "left" }}>
+        {/* 존재하지않는 아이디입니다. */}
       </div>
+      <Button finishButton="로그인" size="basic" />
       <div className={styles.findContainer}>
         <button>아이디 찾기</button>
         <span>|</span>
