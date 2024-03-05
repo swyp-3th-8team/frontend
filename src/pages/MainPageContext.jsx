@@ -1,7 +1,9 @@
 import { createContext, useContext, useState } from "react";
 
+//context 생성
 const MainPageContext = createContext();
 
+//context 제공자
 export const MainPageProvider = ({ children }) => {
   //전역 상태 관리
   const [isPanelEditing, setIsPanelEditing] = useState(false);
@@ -9,7 +11,7 @@ export const MainPageProvider = ({ children }) => {
     setIsPanelEditing((prev) => !prev);
   };
 
-  //사용자 관리 훅
+  //context 사용자 관리 훅
   const useMainPageContext = () => {
     const context = useContext(MainPageContext);
     if (!context) {

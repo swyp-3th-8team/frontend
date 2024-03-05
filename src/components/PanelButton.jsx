@@ -1,19 +1,13 @@
 import styles from "./PanelButton.module.scss";
 
-export default function PanelButton({
-  action,
-  onClickPanelButton,
-  isPanelEditing,
-}) {
+export default function PanelButton({ onClickPanelButton, isPanelEditing }) {
   return (
     <button
-      className={
-        action === "저장하기" ? styles.saveButton : styles.modifyButton
-      }
+      className={styles.panelButton}
       onClick={onClickPanelButton}
       disabled={isPanelEditing}
     >
-      {action}
+      수정 / 저장하기
     </button>
   );
 }

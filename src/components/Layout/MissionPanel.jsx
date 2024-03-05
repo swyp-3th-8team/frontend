@@ -14,7 +14,7 @@ export default function MissionPanel({
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState("");
-  const { togglePanelEditing } = useContext(MainPageContext);
+  const { togglePanelEditing, activeItemIndex } = useContext(MainPageContext);
 
   // 초기에 title이 input인 경우를 고려하여 처리
   useEffect(() => {
@@ -31,11 +31,7 @@ export default function MissionPanel({
     setIsEditing((prev) => !prev);
   };
 
-  const handleModifyButtonClick = () => {
-    togglePanelEditing();
-  };
-
-  const handleSaveButtonClick = () => {
+  const handlePanelButtonClick = () => {
     togglePanelEditing();
   };
 
@@ -59,14 +55,7 @@ export default function MissionPanel({
       </div>
       <div className={styles.content}>{children}</div>
       <div className={styles.buttonWrapper}>
-        <PanelButton
-          action="수정하기"
-          onClickPanelButton={handleModifyButtonClick}
-        />
-        <PanelButton
-          action="저장하기"
-          onClickPanelButton={handleSaveButtonClick}
-        />
+        <PanelButton onClickPanelButton={handlePanelButtonClick} />
       </div>
     </div>
   );
