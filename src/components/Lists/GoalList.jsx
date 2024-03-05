@@ -2,47 +2,47 @@ import GoalListItem from "./GoalListItem";
 
 export default function GoalList({
   missionList,
-  objectiveIndex,
+  missionIndex,
   setMissionList,
 }) {
-  const goalList = missionList[objectiveIndex].goalList;
+  const goalList = missionList[missionIndex].goalList;
 
   return (
     <ul>
-      {goalList.map((task, taskIndex) => (
+      {goalList.map((goal, goalIndex) => (
         <GoalListItem
-          key={taskIndex}
-          content={task.content}
-          isCompleted={task.isCompleted}
+          key={goalIndex}
+          content={goal.content}
+          isCompleted={goal.isCompleted}
           onChangeContent={(e) => {
-            const objective = missionList[objectiveIndex];
-            const newGoalList = [...objective.goalList];
-            newGoalList[taskIndex] = {
-              ...newGoalList[taskIndex],
+            const mission = missionList[missionIndex];
+            const newGoalList = [...mission.goalList];
+            newGoalList[goalIndex] = {
+              ...newGoalList[goalIndex],
               content: e.target.value,
             };
-            const newObjective = {
-              ...objective,
+            const newMission = {
+              ...mission,
               goalList: newGoalList,
             };
             const newMissionList = [...missionList];
-            newMissionList[objectiveIndex] = newObjective;
+            newMissionList[missionIndex] = newMission;
 
             setMissionList(newMissionList);
           }}
           onChangeIsCompleted={(e) => {
-            const objective = missionList[objectiveIndex];
-            const newGoalList = [...objective.goalList];
-            newGoalList[taskIndex] = {
-              ...newGoalList[taskIndex],
+            const mission = missionList[missionIndex];
+            const newGoalList = [...mission.goalList];
+            newGoalList[goalIndex] = {
+              ...newGoalList[goalIndex],
               isCompleted: e.target.checked,
             };
-            const newObjective = {
-              ...objective,
+            const newMission = {
+              ...mission,
               goalList: newGoalList,
             };
             const newMissionList = [...missionList];
-            newMissionList[objectiveIndex] = newObjective;
+            newMissionList[missionIndex] = newMission;
 
             setMissionList(newMissionList);
           }}

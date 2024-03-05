@@ -9,13 +9,13 @@ export default function MissionList({ missionList, setMissionList }) {
           content={content}
           goalList={goalList}
           onChange={(e) => {
-            const objective = missionList[i];
-            const newObjective = {
-              ...objective,
+            const mission = missionList[i];
+            const newMission = {
+              ...mission,
               content: e.target.value,
             };
             const newMissionList = [...missionList];
-            newMissionList[i] = newObjective;
+            newMissionList[i] = newMission;
 
             setMissionList(newMissionList);
           }}
