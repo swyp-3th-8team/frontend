@@ -21,12 +21,28 @@ export default function Login() {
       </div>
       <div className={styles.button}>
         <Button finishButton="로그인" />
+      </div>
+      <div className={styles.findContainer}>
+        <button>아이디 찾기</button>
+        <span>|</span>
+        <button>비밀번호 찾기</button>
+        <span>|</span>
         <button
           className={styles.signupButton}
           onClick={() => navigate("/signup")}
         >
           회원가입
         </button>
+      </div>
+      <div className={styles.social}>
+        <hr />
+        <span>OR</span>
+        <div style={{ backgroundColor: "#fee500", width: "100%" }}>
+          카카오 로그인
+        </div>
+        <div style={{ backgroundColor: "skyblue", width: "100%" }}>
+          구글계정으로 로그인
+        </div>
       </div>
       <button className={styles.service} onClick={() => navigate("/main")}>
         서비스 미리보기
