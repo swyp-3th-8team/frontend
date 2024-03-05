@@ -28,6 +28,16 @@ export default function MissionPanel({
     setIsEditing((prev) => !prev);
   };
 
+  const [isPanelEditing, setIsPanelEditing] = useState(false);
+
+  const handleModifyButtonClick = () => {
+    setIsPanelEditing(true);
+  };
+
+  const handleSaveButtonClick = () => {
+    setIsPanelEditing(false);
+  };
+
   return (
     <div className={styles.wrapper}>
       <CloseButton onClose={onClose} />
@@ -48,8 +58,16 @@ export default function MissionPanel({
       </div>
       <div className={styles.content}>{children}</div>
       <div className={styles.buttonWrapper}>
-        <PanelButton finishButton="수정하기" object="modify" />
-        <PanelButton finishButton="저장하기" object="save" />
+        <PanelButton
+          finishButton="수정하기"
+          objective="modify"
+          onClickPanelButton={console.log("sdfmskldfnls")}
+        />
+        <PanelButton
+          finishButton="저장하기"
+          objective="save"
+          onClickPanelButton={handleSaveButtonClick}
+        />
       </div>
     </div>
   );
