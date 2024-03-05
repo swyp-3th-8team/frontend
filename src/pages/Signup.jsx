@@ -6,13 +6,27 @@ import styles from "./Signup.module.scss";
 
 export default function Signup() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+  const [id, setId] = useState("");
+  const [idCheck, setIdCheck] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordcheck, setPasswordcheck] = useState("");
 
   const handleChangeUsername = (e) => {
-    setUsername(e.target.value);
+    const { value } = e.target;
+    const usernameRegExp = /^[A-Za-z0-9]{6,12}$/.test(value);
+    console.log(usernameRegExp);
+    setId(value);
+  };
+
+  const handleClickIdCheck = () => {
+    // axios("")
+    // 중복확인 GET 요청
+    // if (res === true) {
+    //   setIdCheck("중복된 아이디입니다");
+    // } else {
+    //   setIdCheck("사용 가능한 아이디입니다");
+    // }
   };
 
   const handleChangeEmail = (e) => {
@@ -29,7 +43,7 @@ export default function Signup() {
 
   const handleSubmit = () => {
     axios.post("http://localhost:9090/member/join", null, {
-      params: { username, password, passwordcheck },
+      params: { id, password, passwordcheck },
     });
     navigate("/login");
   };
@@ -41,14 +55,18 @@ export default function Signup() {
         <label htmlFor="id">아이디를 입력해주세요.</label>
         <input
           id="id"
-          value={username}
+          value={id}
           type="text"
-          placeholder="6자 이상 입력해주세요."
+          placeholder="영문, 숫자로 6~12자 내로 입력해주세요."
+          autoComplete="off"
           onChange={(e) => handleChangeUsername(e)}
         />
         <div className={styles.duplicate}>
-          <div>중복확인 메세지</div>
-          <button className={username ? styles.username : styles.duplicateBtn}>
+          <div>{idCheck}</div>
+          <button
+            className={id ? styles.username : styles.duplicateBtn}
+            onClick={handleClickIdCheck}
+          >
             중복 확인하기
           </button>
         </div>
@@ -59,7 +77,8 @@ export default function Signup() {
           id="email"
           value={email}
           type="email"
-          placeholder="이메일을 입력해주세요."
+          placeholder="ex) email@mando.com"
+          autoComplete="off"
           onChange={(e) => handleChangeEmail(e)}
         />
       </div>
