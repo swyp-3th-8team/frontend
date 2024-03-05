@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import CloseIcon from "../../assets/icons/close.svg";
 import PencilIcon from "../../assets/icons/pencil.svg";
-import styles from "./GoalPanel.module.scss";
+import styles from "./MissionPanel.module.scss";
+import PanelButton from "../PanelButton";
 
 export default function MissionPanel({
   onTitleChange,
   title,
   children,
-  onClick,
-  buttonText,
   onClose,
 }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -25,9 +24,18 @@ export default function MissionPanel({
     onTitleChange(e.target.value); // 입력 중에도 Mainpage의 상태 업데이트
   };
 
-  // PencilButton 클릭 시 호출되는 함수
   const handlePencilButtonClick = () => {
     setIsEditing((prev) => !prev);
+  };
+
+  const [isPanelEditing, setIsPanelEditing] = useState(false);
+
+  const handleModifyButtonClick = () => {
+    setIsPanelEditing(true);
+  };
+
+  const handleSaveButtonClick = () => {
+    setIsPanelEditing(false);
   };
 
   return (
@@ -40,25 +48,38 @@ export default function MissionPanel({
               type="text"
               value={editedTitle}
               onChange={handleInputChange}
-              placeholder="목표 입력"
+              placeholder="목표를 입력해주세요"
             />
           ) : (
-            <span>{editedTitle || "목표 입력"}</span>
+            <span>{editedTitle || "목표를 입력해주세요"}</span>
           )}
-          <PencilButton onClick={handlePencilButtonClick} />
+          <PencilButton onClickPencilButton={handlePencilButtonClick} />
         </div>
       </div>
       <div className={styles.content}>{children}</div>
-      <button className={styles.button} onClick={onClick}>
-        {buttonText}
-      </button>
+      <div className={styles.buttonWrapper}>
+        <PanelButton
+          finishButton="수정하기"
+          objective="modify"
+          onClickPanelButton={console.log("sdfmskldfnls")}
+        />
+        <PanelButton
+          finishButton="저장하기"
+          objective="save"
+          onClickPanelButton={handleSaveButtonClick}
+        />
+      </div>
     </div>
   );
 }
 
-function PencilButton({ onClick }) {
+function PencilButton({ onClickPencilButton }) {
   return (
-    <button className={styles.pencilButton} type="button" onClick={onClick}>
+    <button
+      className={styles.pencilButton}
+      type="button"
+      onClick={onClickPencilButton}
+    >
       <img src={PencilIcon} alt="Pencil Icon" />
     </button>
   );
