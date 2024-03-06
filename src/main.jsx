@@ -7,6 +7,7 @@ import Signup from "./pages/Signup.jsx";
 import MainPage from "./pages/MainPage.jsx";
 import FindAccount from "./pages/FindAccount.jsx";
 import "./index.scss";
+import PreSignup from "./pages/PreSignup.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="find-account" element={<FindAccount />} />
         </Route>
         <Route path="login" element={<Login />} />
+        <Route path="pre-signup" element={<PreSignup />} />
         <Route path="signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
