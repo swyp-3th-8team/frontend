@@ -3,25 +3,13 @@
   height: 796px;
   display: flex;
   position: fixed;
+  justify-content: center;
 }
 
 .content {
-  flex: 1;
+  // mainWrapper랑 MissionPanel 위치 고정하고 싶으면 flex: 1;
   display: grid;
   grid-template-columns: 272px 272px 272px;
   grid-template-rows: 252px 252px 252px;
   gap: 20px 30px;
-  margin-right: 38px;
-}
-
-.modalWrapper {
-  box-sizing: border-box;
-  width: 1264px;
-  height: 796px;
-
-  display: flex;
-  position: fixed;
-
-  border-radius: 20px;
-  background-color: white;
 }

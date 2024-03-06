@@ -22,26 +22,7 @@ ul {
   justify-content: space-between;
 
   &:focus-within {
-    border: 2px solid #6ab23a;
-  }
-
-  .checkbox {
-    box-sizing: border-box;
-    width: 20px;
-    height: 20px;
-    margin: 0;
-    margin-right: 10px;
-
-    &:checked {
-      & + label {
-        &:before {
-          background-color: #6ab23a;
-        }
-        &:after {
-          border-color: white;
-        }
-      }
-    }
+    border: 5px solid #bbbbbb;
   }
 
   .listInput {
@@ -58,5 +39,15 @@ ul {
     &:focus {
       outline: 0;
     }
+  }
+
+  .completed {
+    width: 100%;
+    padding: 0;
+    color: #bbbbbb;
+    font-size: 16px;
+    text-decoration: line-through;
+
+    border: 2px solid #6ab23a;
   }
 }

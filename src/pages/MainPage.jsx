@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MainPageProvider } from "./MainPageContext";
 import GoalPanel from "../components/Modal/GoalPanel";
 import MissionPanel from "../components/Layout/MissionPanel";
 import MissionList from "../components/Lists/MissionList";
@@ -41,7 +42,7 @@ export default function MainPage() {
   };
 
   return (
-    <>
+    <MainPageProvider>
       <div className={styles.mainWrapper}>
         <div className={styles.content}>
           <Goal
@@ -105,29 +106,27 @@ export default function MainPage() {
       </div>
       {isModalOpen && (
         <Modal onClose={closeModals}>
-          <div className={styles.modalWrapper}>
-            <GoalDetail
-              missionList={missionList}
-              selectedMissionIndex={selectedMissionIndex}
-              onClick={() => setShowGoalPanel(true)}
-            />
-            {showGoalPanel && (
-              <GoalPanel
-                missionTitle={missionTitle}
-                title={missionList?.[selectedMissionIndex]?.content}
-                buttonText="저장"
-                onClose={() => setShowGoalPanel(false)}
-              >
-                <GoalList
-                  missionList={missionList}
-                  missionIndex={selectedMissionIndex}
-                  setMissionList={setMissionList}
-                />
-              </GoalPanel>
-            )}
-          </div>
+          <GoalDetail
+            missionList={missionList}
+            selectedMissionIndex={selectedMissionIndex}
+            onClick={() => setShowGoalPanel(true)}
+          />
+          {showGoalPanel && (
+            <GoalPanel
+              missionTitle={missionTitle}
+              title={missionList?.[selectedMissionIndex]?.content}
+              buttonText="저장"
+              onClose={() => setShowGoalPanel(false)}
+            >
+              <GoalList
+                missionList={missionList}
+                missionIndex={selectedMissionIndex}
+                setMissionList={setMissionList}
+              />
+            </GoalPanel>
+          )}
         </Modal>
       )}
-    </>
+    </MainPageProvider>
   );
 }

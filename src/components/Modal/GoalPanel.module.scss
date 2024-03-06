@@ -1,9 +1,10 @@
 .wrapper {
   box-sizing: border-box;
   width: 356px;
-  height: 793px;
+  height: 796px;
   box-shadow: 0 0 3px 1px #bbbbbb;
 
+  margin-left: 43px;
   border-radius: 19px;
   padding: 56px 25px 34px 25px;
 
@@ -18,7 +19,7 @@
     box-sizing: border-box;
     width: 306px;
     height: 62px;
-    margin-bottom: 34px;
+    margin-bottom: 30px;
 
     .missionTitle {
       font-weight: bold;
@@ -43,18 +44,9 @@
   .content {
     flex: 1;
     width: 306px;
-    height: 532px;
+    height: 518px;
 
-    margin-bottom: 34px;
-  }
-
-  .buttonWrapper {
-    box-sizing: border-box;
-    width: 306px;
-    height: 58px;
-
-    display: flex;
-    justify-content: space-between;
+    margin-bottom: 30px;
   }
 }
 

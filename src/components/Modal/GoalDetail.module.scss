@@ -1,15 +1,13 @@
 .goalContainer {
-  flex: 1;
-
+  // goalContainer랑 goalPanel 위치 고정하고 싶으면 flex: 1;
   box-sizing: border-box;
   width: 870px;
   height: 796px;
 
   display: grid;
-  grid-template-columns: 272px 272px 272px;
-  grid-template-rows: 252px 252px 252px;
+  grid-template-columns: repeat(3, 270px);
+  grid-template-rows: repeat(3, 252px);
   gap: 20px 30px;
-  margin-right: 38px;
 
   text-align: center;
 
@@ -19,26 +17,37 @@
     height: 252px;
 
     border-radius: 20px;
-    border: 3px solid #f1efef;
+    border: 5px solid #f1efef;
+    padding: 32px 28px;
 
     word-wrap: break-word;
 
     div {
       box-sizing: border-box;
-      width: 200px;
-      height: 37px;
+      width: 214px;
+      height: 26px;
 
-      font-size: 26px;
+      margin-bottom: 17px;
+
+      font-weight: 550; //semi-bold
+      font-size: 22px;
     }
 
-    input {
+    textarea {
       box-sizing: border-box;
-      width: 200px;
-      height: 78px;
+      width: 214px;
+      height: 146px;
+      resize: none;
 
       border: 0;
+      padding: 0;
 
+      display: block;
       font-size: 16px;
+
+      &:focus {
+        outline: 0;
+      }
     }
   }
 
@@ -50,6 +59,10 @@
     border-radius: 20px;
     border: 3px solid #f1efef;
     padding: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     text-align: center;
     background-color: #6ab23a;

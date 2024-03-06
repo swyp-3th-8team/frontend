@@ -1,12 +1,11 @@
+import { useContext } from "react";
 import CheckIcon from "../../assets/icons/check.svg";
-import styles from "./GoalListItem.module.scss";
+import GreenCheckIcon from "../../assets/icons/greenCheck.svg";
+import MainPageContext from "../../pages/MainPageContext";
+import styles from "./MissionListItem.module.scss";
 
-export default function MissionListItem({
-  goalList,
-  content,
-  onChange,
-  isPanelEditing,
-}) {
+export default function MissionListItem({ goalList, content, onChange }) {
+  const { isPanelEditing } = useContext(MainPageContext);
   const isCompleted = goalList.every((task) => task.isCompleted);
 
   return (
@@ -23,7 +22,8 @@ export default function MissionListItem({
           {content || "목표를 입력해주세요"}
         </span>
       )}
-      {isCompleted && <img src={CheckIcon} />}
+      {content && <img src={CheckIcon} />}
+      {isCompleted && <img src={GreenCheckIcon} />}
     </li>
   );
 }
