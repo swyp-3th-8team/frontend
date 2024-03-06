@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import MainPageContext from "../../pages/MainPageContext";
+import PanelButton from "../PanelButton";
 import CloseIcon from "../../assets/icons/close.svg";
 import PencilIcon from "../../assets/icons/pencil.svg";
 import styles from "./MissionPanel.module.scss";
-import PanelButton from "../PanelButton";
+import { useContext } from "react";
 
 export default function MissionPanel({
   onTitleChange,
@@ -12,6 +14,7 @@ export default function MissionPanel({
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState("");
+  const { togglePanelEditing, activeItemIndex } = useContext(MainPageContext);
 
   // 초기에 title이 input인 경우를 고려하여 처리
   useEffect(() => {
@@ -28,14 +31,8 @@ export default function MissionPanel({
     setIsEditing((prev) => !prev);
   };
 
-  const [isPanelEditing, setIsPanelEditing] = useState(false);
-
-  const handleModifyButtonClick = () => {
-    setIsPanelEditing(true);
-  };
-
-  const handleSaveButtonClick = () => {
-    setIsPanelEditing(false);
+  const handlePanelButtonClick = () => {
+    togglePanelEditing();
   };
 
   return (
@@ -57,18 +54,7 @@ export default function MissionPanel({
         </div>
       </div>
       <div className={styles.content}>{children}</div>
-      <div className={styles.buttonWrapper}>
-        <PanelButton
-          finishButton="수정하기"
-          objective="modify"
-          onClickPanelButton={console.log("sdfmskldfnls")}
-        />
-        <PanelButton
-          finishButton="저장하기"
-          objective="save"
-          onClickPanelButton={handleSaveButtonClick}
-        />
-      </div>
+      <PanelButton onClickPanelButton={handlePanelButtonClick} />
     </div>
   );
 }
