@@ -106,27 +106,25 @@ export default function MainPage() {
       </div>
       {isModalOpen && (
         <Modal onClose={closeModals}>
-          <div className={styles.modalWrapper}>
-            <GoalDetail
-              missionList={missionList}
-              selectedMissionIndex={selectedMissionIndex}
-              onClick={() => setShowGoalPanel(true)}
-            />
-            {showGoalPanel && (
-              <GoalPanel
-                missionTitle={missionTitle}
-                title={missionList?.[selectedMissionIndex]?.content}
-                buttonText="저장"
-                onClose={() => setShowGoalPanel(false)}
-              >
-                <GoalList
-                  missionList={missionList}
-                  missionIndex={selectedMissionIndex}
-                  setMissionList={setMissionList}
-                />
-              </GoalPanel>
-            )}
-          </div>
+          <GoalDetail
+            missionList={missionList}
+            selectedMissionIndex={selectedMissionIndex}
+            onClick={() => setShowGoalPanel(true)}
+          />
+          {showGoalPanel && (
+            <GoalPanel
+              missionTitle={missionTitle}
+              title={missionList?.[selectedMissionIndex]?.content}
+              buttonText="저장"
+              onClose={() => setShowGoalPanel(false)}
+            >
+              <GoalList
+                missionList={missionList}
+                missionIndex={selectedMissionIndex}
+                setMissionList={setMissionList}
+              />
+            </GoalPanel>
+          )}
         </Modal>
       )}
     </MainPageProvider>

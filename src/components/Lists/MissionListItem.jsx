@@ -2,7 +2,7 @@ import { useContext } from "react";
 import CheckIcon from "../../assets/icons/check.svg";
 import GreenCheckIcon from "../../assets/icons/greenCheck.svg";
 import MainPageContext from "../../pages/MainPageContext";
-import styles from "./GoalListItem.module.scss";
+import styles from "./MissionListItem.module.scss";
 
 export default function MissionListItem({ goalList, content, onChange }) {
   const { isPanelEditing } = useContext(MainPageContext);

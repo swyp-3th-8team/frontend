@@ -54,9 +54,7 @@ export default function MissionPanel({
         </div>
       </div>
       <div className={styles.content}>{children}</div>
-      <div className={styles.buttonWrapper}>
-        <PanelButton onClickPanelButton={handlePanelButtonClick} />
-      </div>
+      <PanelButton onClickPanelButton={handlePanelButtonClick} />
     </div>
   );
 }
