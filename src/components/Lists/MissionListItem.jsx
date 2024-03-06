@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import CheckIcon from "../../assets/icons/check.svg";
+import GreenCheckIcon from "../../assets/icons/greenCheck.svg";
 import MainPageContext from "../../pages/MainPageContext";
 import styles from "./GoalListItem.module.scss";
 
@@ -21,7 +22,8 @@ export default function MissionListItem({ goalList, content, onChange }) {
           {content || "목표를 입력해주세요"}
         </span>
       )}
-      {isCompleted && <img src={CheckIcon} />}
+      {content && <img src={CheckIcon} />}
+      {isCompleted && <img src={GreenCheckIcon} />}
     </li>
   );
 }

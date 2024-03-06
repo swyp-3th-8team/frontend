@@ -12,8 +12,7 @@ export default function GoalPanel({ missionTitle, title, children, onClose }) {
       </div>
       <div className={styles.content}>{children}</div>
       <div className={styles.buttonWrapper}>
-        <PanelButton finishButton="수정하기" object="modify" />
-        <PanelButton finishButton="저장하기" object="save" />
+        <PanelButton />
       </div>
     </div>
   );

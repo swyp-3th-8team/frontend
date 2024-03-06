@@ -18,6 +18,17 @@
 
     background-color: #f1efef;
     text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 14px;
+
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .mainMission {
