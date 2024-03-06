@@ -7,7 +7,7 @@ export default function GoalListItem({
   onChangeContent,
 }) {
   return (
-    <li className={styles.listWrapper}>
+    <li className={styles.listbox}>
       <input
         className={styles.checkbox}
         type="checkbox"

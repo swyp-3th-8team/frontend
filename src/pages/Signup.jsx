@@ -102,9 +102,11 @@ export default function Signup() {
           />
         </div>
       </div>
-      <Button onClick={handleSubmit} finishButton="회원가입 완료">
-        회원가입 완료
-      </Button>
+      <Button
+        onClick={handleSubmit}
+        finishButton="회원가입 완료"
+        size="basic"
+      />
     </div>
   );
 }
