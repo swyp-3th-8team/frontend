@@ -58,3 +58,8 @@ ul {
 .listbox:has(span.completed) {
   border: 2px solid #6ab23a;
 }
+
+span {
+  display: flex;
+  align-items: center;
+}
