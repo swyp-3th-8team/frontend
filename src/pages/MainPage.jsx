@@ -4,12 +4,11 @@ import GoalPanel from "../components/Modal/GoalPanel";
 import MissionPanel from "../components/Layout/MissionPanel";
 import MissionList from "../components/Lists/MissionList";
 import GoalList from "../components/Lists/GoalList";
-
-import styles from "./MainPage.module.scss";
 import Goal from "../components/Mandalart/Goal";
 import Mission from "../components/Mandalart/Mission";
 import GoalDetail from "../components/Modal/GoalDetail";
 import Modal from "../components/Modal/Modal";
+import styles from "./MainPage.module.scss";
 
 const createDefaultTask = () => ({
   content: "",
