@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { useContext } from "react";
 import MainPageContext from "../../pages/MainPageContext";
 import PanelButton from "../PanelButton";
 import CloseIcon from "../../assets/icons/close.svg";
 import PencilIcon from "../../assets/icons/pencil.svg";
 import styles from "./MissionPanel.module.scss";
-import { useContext } from "react";
 
 export default function MissionPanel({
   onTitleChange,
@@ -14,7 +14,7 @@ export default function MissionPanel({
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState("");
-  const { togglePanelEditing, activeItemIndex } = useContext(MainPageContext);
+  const { togglePanelEditing } = useContext(MainPageContext);
 
   // 초기에 title이 input인 경우를 고려하여 처리
   useEffect(() => {
