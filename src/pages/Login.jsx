@@ -20,7 +20,7 @@ export default function Login() {
             placeholder="비밀번호"
           />
         </div>
-        <Button finishButton="로그인" size="basic" />
+        <Button size="large">로그인</Button>
         <div className={styles.findContainer}>
           <button onClick={() => navigate("/find-account")}>아이디 찾기</button>
           <span>|</span>

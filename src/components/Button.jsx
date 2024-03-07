@@ -1,13 +1,14 @@
 import styles from "./Button.module.scss";
 
-export default function Button({ finishButton, size, onClick }) {
+export default function Button({ children, size, isActive, onClick }) {
   return (
     <button
-      type="submit"
-      className={size === "basic" ? styles.finishButton : styles.smallButton}
+      className={`${styles.button} ${styles[size]} ${
+        isActive ? styles.active : styles.inactive
+      }`}
       onClick={onClick}
     >
-      {finishButton}
+      {children}
     </button>
   );
 }

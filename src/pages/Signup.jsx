@@ -90,12 +90,9 @@ export default function Signup() {
           />
           <div className={styles.duplicate}>
             <div>{idCheck}</div>
-            <button
-              className={id ? styles.username : styles.duplicateBtn}
-              onClick={handleClickIdCheck}
-            >
+            <Button size="small" isActive={id} onClick={handleClickIdCheck}>
               중복 확인하기
-            </button>
+            </Button>
           </div>
         </div>
         <div className={styles.email}>
@@ -130,10 +127,12 @@ export default function Signup() {
           </div>
         </div>
         <Button
+          size="large"
+          isActive={name && id && email && password && repassword}
           onClick={handleSubmit}
-          finishButton="회원가입 완료"
-          size="basic"
-        />
+        >
+          회원가입 완료
+        </Button>
       </div>
     </div>
   );
