@@ -31,9 +31,6 @@ export default function PreSignup() {
             <img src="img/google.svg" alt="" />
           </div>
         </div>
-        <button className={styles.service} onClick={() => navigate("/main")}>
-          서비스 미리보기
-        </button>
       </div>
     </div>
   );
