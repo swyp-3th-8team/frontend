@@ -1,8 +1,14 @@
-import styles from "./GoalPanel.module.scss";
+import { useContext } from "react";
 import CloseIcon from "../../assets/icons/close.svg";
 import PanelButton from "../PanelButton";
+import MainPageContext from "../../pages/MainPageContext";
+import styles from "./GoalPanel.module.scss";
 
 export default function GoalPanel({ missionTitle, title, children, onClose }) {
+  const { togglePanelEditing } = useContext(MainPageContext);
+  const handlePanelButtonClick = () => {
+    togglePanelEditing();
+  };
   return (
     <div className={styles.wrapper}>
       <CloseButton onClose={onClose} />
@@ -12,7 +18,7 @@ export default function GoalPanel({ missionTitle, title, children, onClose }) {
       </div>
       <div className={styles.content}>{children}</div>
       <div className={styles.buttonWrapper}>
-        <PanelButton />
+        <PanelButton onClickPanelButton={handlePanelButtonClick} />
       </div>
     </div>
   );

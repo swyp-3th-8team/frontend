@@ -1,38 +1,45 @@
-.mission {
+.cellContainer {
   box-sizing: border-box;
   width: 270px;
   height: 252px;
-
-  display: table;
-  border-collapse: collapse;
 
   display: grid;
   grid-template-columns: 90px 90px 90px;
   grid-template-rows: repeat(3, minmax(84px, 84px));
 
-  div {
+  .cellWrapper {
     margin: 0;
     border-radius: 10px;
     border: 3px solid #e1e0e0;
     padding: 5px;
 
     background-color: #f1efef;
-    text-align: center;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-size: 14px;
-
-    flex-wrap: wrap;
-    word-wrap: break-word;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
-  .mainMission {
-    border-color: #6ab23a;
+  .mainCell {
+    margin: 0;
+    border-radius: 10px;
+    border: 3px solid #6ab23a;
+    padding: 5px;
+
     background-color: #6ab23a;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cell {
+    background-color: transparent;
+    text-align: center;
+    font-size: 14px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
   }
 }

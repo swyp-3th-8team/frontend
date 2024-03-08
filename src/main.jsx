@@ -7,6 +7,8 @@ import Signup from "./pages/Signup.jsx";
 import PreSignup from "./pages/PreSignup.jsx";
 import MainPage from "./pages/MainPage.jsx";
 import FindAccount from "./pages/FindAccount.jsx";
+import PreSignup from "./pages/PreSignup.jsx";
+import PreMainPage from "./pages/PreMainPage.jsx";
 import FindPassword from "./pages/FindPassword.jsx";
 import "./index.scss";
 
@@ -15,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path="mando" element={<PreMainPage />} />
           <Route path="main" element={<MainPage />} />
           <Route path="find-account" element={<FindAccount />} />
           <Route path="find-password" element={<FindPassword />} />

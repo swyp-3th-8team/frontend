@@ -22,8 +22,7 @@ export default function MissionListItem({ goalList, content, onChange }) {
           {content || "목표를 입력해주세요"}
         </span>
       )}
-      {content && <img src={CheckIcon} />}
-      {isCompleted && <img src={GreenCheckIcon} />}
+      {isCompleted ? <img src={GreenCheckIcon} /> : <img src={CheckIcon} />}
     </li>
   );
 }

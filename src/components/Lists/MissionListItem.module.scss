@@ -43,11 +43,23 @@ ul {
 
   .completed {
     width: 100%;
+    border: 0;
     padding: 0;
-    color: #bbbbbb;
+    color: #000000;
     font-size: 16px;
-    text-decoration: line-through;
+    text-decoration: line-through #000000;
 
-    border: 2px solid #6ab23a;
+    &:focus {
+      outline: 0;
+    }
   }
+}
+
+.listbox:has(span.completed) {
+  border: 2px solid #6ab23a;
+}
+
+span {
+  display: flex;
+  align-items: center;
 }

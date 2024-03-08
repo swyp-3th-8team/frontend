@@ -6,7 +6,7 @@ export default function GoalDetail({
   onClick,
 }) {
   return (
-    <div className={styles.goalContainer} onClick={onClick}>
+    <div className={styles.goalDetailContainer} onClick={onClick}>
       <div className={styles.goalDetail}>
         <div>{missionList[selectedMissionIndex]?.goalList?.[0]?.content}</div>
         <textarea placeholder="다짐을 적어주세요!" />
@@ -23,8 +23,10 @@ export default function GoalDetail({
         <div>{missionList[selectedMissionIndex]?.goalList?.[3]?.content}</div>
         <textarea placeholder="다짐을 적어주세요!" />
       </div>
-      <div className={styles.mainGoal}>
-        {missionList[selectedMissionIndex]?.content}
+      <div className={styles.mainGoalWrapper}>
+        <div className={styles.mainGoal}>
+          {missionList[selectedMissionIndex]?.content}
+        </div>
       </div>
       <div className={styles.goalDetail}>
         <div>{missionList[selectedMissionIndex]?.goalList?.[4]?.content}</div>

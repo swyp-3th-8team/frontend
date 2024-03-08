@@ -1,0 +1,29 @@
+.panelWrapper {
+  box-sizing: border-box;
+  width: 356px;
+  height: 369px;
+  box-shadow: 0 0 3px 1px #bbbbbb;
+
+  margin-left: 37px;
+  border-radius: 19px;
+  padding: 56px 25px 34px 25px;
+
+  color: black;
+  background-color: transparent;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .panelTitle {
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .panelContext {
+    margin: 26px 0;
+    font-size: 18px;
+    font-weight: 550; //semi-bold
+  }
+}
