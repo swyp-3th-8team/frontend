@@ -14,7 +14,11 @@ export default function PreSignup() {
           <div>나만의 만다라트를 실천하기 위한</div>
           <div>투두리스트를 세워봐요!</div>
         </div>
-        <Button size="large" onClick={() => navigate("/signup")}>
+        <Button
+          size="large"
+          isActive={"active"}
+          onClick={() => navigate("/signup")}
+        >
           만두에서 회원가입하기
         </Button>
         <div className={styles.social}>
