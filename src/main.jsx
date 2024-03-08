@@ -4,10 +4,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
+import PreSignup from "./pages/PreSignup.jsx";
 import MainPage from "./pages/MainPage.jsx";
 import FindAccount from "./pages/FindAccount.jsx";
+import FindPassword from "./pages/FindPassword.jsx";
 import "./index.scss";
-import PreSignup from "./pages/PreSignup.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,10 +17,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />}>
           <Route path="main" element={<MainPage />} />
           <Route path="find-account" element={<FindAccount />} />
+          <Route path="find-password" element={<FindPassword />} />
         </Route>
         <Route path="login" element={<Login />} />
-        <Route path="pre-signup" element={<PreSignup />} />
         <Route path="signup" element={<Signup />} />
+        <Route path="pre-signup" element={<PreSignup />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

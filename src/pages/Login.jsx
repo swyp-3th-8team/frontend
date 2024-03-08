@@ -45,7 +45,9 @@ export default function Login() {
         <div className={styles.findContainer}>
           <button onClick={() => navigate("/find-account")}>아이디 찾기</button>
           <span>|</span>
-          <button>비밀번호 찾기</button>
+          <button onClick={() => navigate("/find-password")}>
+            비밀번호 찾기
+          </button>
           <span>|</span>
           <button
             className={styles.signupButton}
