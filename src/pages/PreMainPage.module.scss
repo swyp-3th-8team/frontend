@@ -12,3 +12,21 @@
   grid-template-rows: 252px 252px 252px;
   gap: 20px 30px;
 }
+
+.preMainPageModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 50px)); //header위치 고려
+
+  box-sizing: border-box;
+  width: 375px;
+  height: 183px;
+
+  z-index: 20;
+
+  padding: 0;
+
+  border-radius: 12px;
+  background-color: white;
+}
