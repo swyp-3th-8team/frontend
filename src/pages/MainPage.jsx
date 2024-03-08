@@ -104,7 +104,7 @@ export default function MainPage() {
         )}
       </div>
       {isModalOpen && (
-        <Modal onClose={closeModals}>
+        <Modal onClose={closeModals} className={styles.mainPageModal}>
           <GoalDetail
             missionList={missionList}
             selectedMissionIndex={selectedMissionIndex}
