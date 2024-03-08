@@ -14,7 +14,7 @@ export default function FindAccount() {
           <label htmlFor="email">이메일을 입력해주세요</label>
           <input id="email" type="email" placeholder="ex) email@mando.com" />
         </div>
-        <Button finishButton="확인하기" size="basic" />
+        <Button size="large">확인하기</Button>
       </div>
     </div>
   );

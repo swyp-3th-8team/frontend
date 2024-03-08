@@ -1,53 +1,72 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import styles from "./Login.module.scss";
-import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleChangeId = (e) => {
+    setId(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
   return (
-    <div className={styles.container}>
-      <div className={styles.loginIntro}>
-        <h1>로그인</h1>
-        <div>나만의 만다라트를 실천하기 위한</div>
-        <div>투두리스트를 세워봐요!</div>
-      </div>
-      <div className={styles.loginInput}>
-        <input className={styles.loginInputId} placeholder="아이디" />
-        <input
-          className={styles.loginInputPw}
-          type="password"
-          placeholder="비밀번호"
-        />
-      </div>
-      <div style={{ margin: "8px 14px", textAlign: "left" }}>
-        {/* 존재하지않는 아이디입니다. */}
-      </div>
-      <Button finishButton="로그인" size="basic" />
-      <div className={styles.findContainer}>
-        <button onClick={() => navigate("/find-account")}>아이디 찾기</button>
-        <span>|</span>
-        <button>비밀번호 찾기</button>
-        <span>|</span>
-        <button
-          className={styles.signupButton}
-          onClick={() => navigate("/signup")}
-        >
-          회원가입
-        </button>
-      </div>
-      <div className={styles.social}>
-        <hr />
-        <span>OR</span>
-        <div style={{ backgroundColor: "#fee500", width: "100%" }}>
-          카카오 로그인
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <div className={styles.loginIntro}>
+          <img src="img/logo.svg" alt="" onClick={() => navigate("/main")} />
+          <div>나만의 만다라트를 실천하기 위한</div>
+          <div>투두리스트를 세워봐요!</div>
         </div>
-        <div style={{ backgroundColor: "skyblue", width: "100%" }}>
-          구글계정으로 로그인
+        <div className={styles.loginInput}>
+          <input
+            value={id}
+            className={styles.loginInputId}
+            placeholder="아이디"
+            onChange={(e) => handleChangeId(e)}
+          />
+          <input
+            value={password}
+            className={styles.loginInputPw}
+            type="password"
+            placeholder="비밀번호"
+            onChange={(e) => handleChangePassword(e)}
+          />
+        </div>
+        <Button size="large" isActive={id && password}>
+          로그인
+        </Button>
+        <div className={styles.findContainer}>
+          <button onClick={() => navigate("/find-account")}>아이디 찾기</button>
+          <span>|</span>
+          <button onClick={() => navigate("/find-password")}>
+            비밀번호 찾기
+          </button>
+          <span>|</span>
+          <button
+            className={styles.signupButton}
+            onClick={() => navigate("/signup")}
+          >
+            회원가입
+          </button>
+        </div>
+        <div className={styles.social}>
+          <hr />
+          <span>OR</span>
+          <div>
+            <img src="img/kakao.svg" alt="kakaoLogin" />
+          </div>
+          <div>
+            <img src="img/google.svg" alt="googleLogin" />
+          </div>
         </div>
       </div>
-      <button className={styles.service} onClick={() => navigate("/main")}>
-        서비스 미리보기
-      </button>
     </div>
   );
 }
