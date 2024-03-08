@@ -7,6 +7,7 @@ export default function Button({ children, size, isActive, onClick }) {
         isActive ? styles.active : styles.inactive
       }`}
       onClick={onClick}
+      disabled={!isActive}
     >
       {children}
     </button>
