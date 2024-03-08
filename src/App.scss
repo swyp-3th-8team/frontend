@@ -1,7 +1,12 @@
+#overlays {
+  padding: 0;
+}
+
 #root {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  padding: 0;
 }
 
 main {
