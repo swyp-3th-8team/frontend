@@ -1,9 +1,21 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import styles from "./Login.module.scss";
 
 export default function Login() {
   const navigate = useNavigate();
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleChangeId = (e) => {
+    setId(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -13,14 +25,23 @@ export default function Login() {
           <div>투두리스트를 세워봐요!</div>
         </div>
         <div className={styles.loginInput}>
-          <input className={styles.loginInputId} placeholder="아이디" />
           <input
+            value={id}
+            className={styles.loginInputId}
+            placeholder="아이디"
+            onChange={(e) => handleChangeId(e)}
+          />
+          <input
+            value={password}
             className={styles.loginInputPw}
             type="password"
             placeholder="비밀번호"
+            onChange={(e) => handleChangePassword(e)}
           />
         </div>
-        <Button size="large">로그인</Button>
+        <Button size="large" isActive={id && password}>
+          로그인
+        </Button>
         <div className={styles.findContainer}>
           <button onClick={() => navigate("/find-account")}>아이디 찾기</button>
           <span>|</span>
@@ -43,9 +64,6 @@ export default function Login() {
             <img src="img/google.svg" alt="googleLogin" />
           </div>
         </div>
-        <button className={styles.service} onClick={() => navigate("/main")}>
-          서비스 미리보기
-        </button>
       </div>
     </div>
   );
