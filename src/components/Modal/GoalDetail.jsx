@@ -13,7 +13,7 @@ export default function GoalDetail({
         renderGoalDetailItem(
           index,
           missionList[selectedMissionIndex]?.goalList,
-          goalDetailText[index], // 각 Goal에 대한 상태를 가져오도록 수정
+          goalDetailText[index],
           (text) => {
             const updatedTexts = [...goalDetailText];
             updatedTexts[index] = text;
@@ -32,7 +32,7 @@ export default function GoalDetail({
         renderGoalDetailItem(
           index,
           missionList[selectedMissionIndex]?.goalList,
-          goalDetailText[index], // 각 Goal에 대한 상태를 가져오도록 수정
+          goalDetailText[index],
           (text) => {
             const updatedTexts = [...goalDetailText];
             updatedTexts[index] = text;
@@ -51,7 +51,17 @@ const renderGoalDetailItem = (
   setGoalDetailText
 ) => (
   <div key={index} className={styles.goalDetail}>
-    <div>{goalList?.[index]?.content}</div>
+    <div>
+      {goalList?.[index]?.content === "" ? (
+        <>
+          세부 목표를
+          <br />
+          입력해 주세요
+        </>
+      ) : (
+        goalList?.[index]?.content
+      )}
+    </div>
     <textarea
       placeholder="다짐을 적어주세요!"
       value={goalDetailText}

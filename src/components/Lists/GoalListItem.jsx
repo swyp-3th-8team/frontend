@@ -22,7 +22,7 @@ export default function GoalListItem({
           <input
             className={styles.listInput}
             value={content}
-            placeholder="목표를 등록해주세요"
+            placeholder="목표를 등록해 주세요"
             onChange={onChangeContent}
           />
         </>
@@ -35,7 +35,7 @@ export default function GoalListItem({
             onChange={onChangeIsCompleted}
           />
           <span className={styles.listInput}>
-            {content || "목표를 등록해주세요"}
+            {content || "목표를 등록해 주세요"}
           </span>
         </>
       )}
