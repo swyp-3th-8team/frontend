@@ -1,14 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CloseIcon from "../../assets/icons/close.svg";
-import PanelButton from "../PanelButton";
 import MainPageContext from "../../pages/MainPageContext";
+import Button from "../Button";
 import styles from "./GoalPanel.module.scss";
 
 export default function GoalPanel({ missionTitle, title, children, onClose }) {
+  const [buttonText, setButtonText] = useState("수정하기");
   const { togglePanelEditing } = useContext(MainPageContext);
+
   const handlePanelButtonClick = () => {
     togglePanelEditing();
+    setButtonText((prevText) =>
+      prevText === "수정하기" ? "저장하기" : "수정하기"
+    );
   };
+
   return (
     <div className={styles.wrapper}>
       <CloseButton onClose={onClose} />
@@ -17,9 +23,9 @@ export default function GoalPanel({ missionTitle, title, children, onClose }) {
         <div className={styles.title}>{title}</div>
       </div>
       <div className={styles.content}>{children}</div>
-      <div className={styles.buttonWrapper}>
-        <PanelButton onClickPanelButton={handlePanelButtonClick} />
-      </div>
+      <Button type="panel" onClick={handlePanelButtonClick}>
+        {buttonText}
+      </Button>
     </div>
   );
 }
