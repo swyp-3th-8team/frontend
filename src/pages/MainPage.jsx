@@ -30,6 +30,9 @@ export default function MainPage() {
   const [selectedMissionList, setSelectedMissionList] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showGoalPanel, setShowGoalPanel] = useState(false);
+  const [goalDetailTexts, setGoalDetailTexts] = useState(
+    new Array(8).fill(null).map(() => "")
+  ); //GoalDetail <textarea> 상태값을 각 Goal에 대한 상태를 배열로 초기화
 
   const openModal = (index) => {
     setSelectedMissionIndex(index);
@@ -109,6 +112,12 @@ export default function MainPage() {
             <GoalDetail
               missionList={missionList}
               selectedMissionIndex={selectedMissionIndex}
+              goalDetailText={goalDetailTexts[selectedMissionIndex]}
+              setGoalDetailText={(text) => {
+                const updatedTexts = [...goalDetailTexts];
+                updatedTexts[selectedMissionIndex] = text;
+                setGoalDetailTexts(updatedTexts);
+              }}
               onClick={() => setShowGoalPanel(true)}
             />
             {showGoalPanel && (
