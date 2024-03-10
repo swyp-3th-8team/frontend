@@ -124,7 +124,6 @@ export default function MainPage() {
               <GoalPanel
                 missionTitle={missionTitle}
                 title={missionList?.[selectedMissionIndex]?.content}
-                buttonText="저장"
                 onClose={() => setShowGoalPanel(false)}
               >
                 <GoalList

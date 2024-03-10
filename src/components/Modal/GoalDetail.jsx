@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import MainPageContext from "../../pages/MainPageContext";
 import styles from "./GoalDetail.module.scss";
 
 export default function GoalDetail({
@@ -7,6 +9,7 @@ export default function GoalDetail({
   goalDetailText,
   setGoalDetailText,
 }) {
+  const { isGoalDetailEditing } = useContext(MainPageContext);
   return (
     <div className={styles.goalDetailContainer} onClick={onClick}>
       {[0, 1, 2, 3].map((index) =>
@@ -18,7 +21,8 @@ export default function GoalDetail({
             const updatedTexts = [...goalDetailText];
             updatedTexts[index] = text;
             setGoalDetailText(updatedTexts);
-          }
+          },
+          isGoalDetailEditing
         )
       )}
 
@@ -37,7 +41,8 @@ export default function GoalDetail({
             const updatedTexts = [...goalDetailText];
             updatedTexts[index] = text;
             setGoalDetailText(updatedTexts);
-          }
+          },
+          isGoalDetailEditing
         )
       )}
     </div>
@@ -48,7 +53,8 @@ const renderGoalDetailItem = (
   index,
   goalList,
   goalDetailText,
-  setGoalDetailText
+  setGoalDetailText,
+  isGoalDetailEditing
 ) => (
   <div key={index} className={styles.goalDetail}>
     <div>
@@ -66,6 +72,7 @@ const renderGoalDetailItem = (
       placeholder="다짐을 적어주세요!"
       value={goalDetailText}
       onChange={(e) => setGoalDetailText(e.target.value)}
+      readOnly={!isGoalDetailEditing}
     />
   </div>
 );
