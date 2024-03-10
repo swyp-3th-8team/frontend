@@ -9,6 +9,7 @@ export default function GoalListItem({
   onChangeContent,
 }) {
   const { isPanelEditing } = useContext(MainPageContext);
+
   return (
     <li className={styles.listbox}>
       {isPanelEditing ? (
@@ -20,9 +21,9 @@ export default function GoalListItem({
             onChange={onChangeIsCompleted}
           />
           <input
-            className={styles.listInput}
+            className={isCompleted ? styles.completed : styles.listInput}
             value={content}
-            placeholder="목표를 등록해 주세요"
+            placeholder="세부 목표를 입력해 주세요"
             onChange={onChangeContent}
           />
         </>
@@ -33,9 +34,9 @@ export default function GoalListItem({
             type="checkbox"
             checked={isCompleted}
             onChange={onChangeIsCompleted}
-          />
-          <span className={styles.listInput}>
-            {content || "목표를 등록해 주세요"}
+          ></input>
+          <span className={isCompleted ? styles.completed : styles.listInput}>
+            {content || "세부 목표를 입력해 주세요"}
           </span>
         </>
       )}

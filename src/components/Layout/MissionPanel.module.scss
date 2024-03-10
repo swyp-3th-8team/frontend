@@ -54,6 +54,10 @@
         &::placeholder {
           color: #bbbbbb;
         }
+
+        &:focus {
+          outline: 0;
+        }
       }
     }
   }

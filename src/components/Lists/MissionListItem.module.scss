@@ -43,20 +43,31 @@ ul {
 
   .completed {
     width: 100%;
+
     border: 0;
     padding: 0;
+
     color: #000000;
     font-size: 16px;
     text-decoration: line-through #000000;
+    background-color: transparent;
 
     &:focus {
       outline: 0;
     }
   }
+
+  /* 수정 안할 때 색깔 바꾸고 싶으면
+  span.completed {
+    color: #bbbbbb;
+    text-decoration: line-through #bbbbbb;
+  }
+  */
 }
 
-.listbox:has(span.completed) {
+.listbox:has(.completed) {
   border: 2px solid #6ab23a;
+  background-color: #f4faf0;
 }
 
 span {

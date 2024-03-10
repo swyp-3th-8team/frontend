@@ -16,11 +16,11 @@ export default function MissionListItem({ goalList, content, onChange }) {
           className={isCompleted ? styles.completed : styles.listInput}
           value={content}
           onChange={onChange}
-          placeholder="목표를 입력해주세요"
+          placeholder="목표를 입력해 주세요"
         />
       ) : (
         <span className={isCompleted ? styles.completed : styles.listInput}>
-          {content || "목표를 입력해주세요"}
+          {content || "목표를 입력해 주세요"}
         </span>
       )}
       {isCompleted ? (

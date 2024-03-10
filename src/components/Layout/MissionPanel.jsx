@@ -49,10 +49,10 @@ export default function MissionPanel({
               type="text"
               value={editedTitle}
               onChange={handleInputChange}
-              placeholder="목표를 입력해주세요"
+              placeholder="미션을 입력해 주세요"
             />
           ) : (
-            <span>{editedTitle || "목표를 입력해주세요"}</span>
+            <span>{editedTitle || "미션을 입력해 주세요"}</span>
           )}
           <PencilButton onClickPencilButton={handlePencilButtonClick} />
         </div>
