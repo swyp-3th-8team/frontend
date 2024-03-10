@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MainPageProvider } from "./MainPageContext";
 import GoalPanel from "../components/Modal/GoalPanel";
-import MissionPanel from "../components/Layout/MissionPanel";
+import MissionPanel from "../components/Mandalart/MissionPanel";
 import MissionList from "../components/Lists/MissionList";
 import GoalList from "../components/Lists/GoalList";
 import Goal from "../components/Mandalart/Goal";
