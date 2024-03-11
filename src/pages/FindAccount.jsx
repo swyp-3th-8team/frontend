@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Input from "../components/Input";
 import Button from "../components/Button";
 import styles from "./FindAccount.module.scss";
 
@@ -69,23 +70,20 @@ export default function FindAccount() {
       <div>
         <div className={styles.name}>
           <label htmlFor="name">이름을 입력해주세요</label>
-          <input
+          <Input
             id="name"
             value={username}
-            type="text"
             placeholder="ex) 홍길동"
-            autoComplete="off"
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className={styles.email}>
           <label htmlFor="email">이메일을 입력해주세요</label>
-          <input
+          <Input
             id="email"
             value={email}
             type="email"
             placeholder="ex) email@mando.com"
-            autoComplete="off"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>

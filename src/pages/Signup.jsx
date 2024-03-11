@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import Input from "../components/Input";
 import styles from "./Signup.module.scss";
 
 export default function Signup() {
@@ -79,7 +80,7 @@ export default function Signup() {
         <h2>회원가입</h2>
         <div className={styles.makeName}>
           <label htmlFor="name">이름을 입력해주세요.</label>
-          <input
+          <Input
             id="name"
             value={username}
             type="text"
@@ -90,7 +91,7 @@ export default function Signup() {
         </div>
         <div className={styles.makeId}>
           <label htmlFor="id">아이디를 입력해주세요.</label>
-          <input
+          <Input
             id="id"
             value={userId}
             type="text"
@@ -107,7 +108,7 @@ export default function Signup() {
         </div>
         <div className={styles.email}>
           <label htmlFor="email">이메일을 입력해주세요.</label>
-          <input
+          <Input
             id="email"
             value={email}
             type="email"
@@ -119,7 +120,7 @@ export default function Signup() {
         </div>
         <div className={styles.makePw}>
           <label htmlFor="pw">비밀번호를 입력해주세요.</label>
-          <input
+          <Input
             id="pw"
             value={password}
             type="password"
@@ -129,7 +130,7 @@ export default function Signup() {
           <span>{passwordCheck}</span>
           <div>
             <label htmlFor="pwcheck">비밀번호를 다시 한번 확인해주세요.</label>
-            <input
+            <Input
               id="pwcheck"
               value={repassword}
               type="password"

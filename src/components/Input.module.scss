@@ -1,0 +1,25 @@
+.input {
+  width: 100%;
+  height: 58px;
+  box-sizing: border-box;
+  border: 1px solid #c0c0c0;
+  border-radius: 12px;
+  padding: 0px 16px;
+  font-size: 16px;
+  outline: 0;
+
+  &:not(:placeholder-shown) {
+    border-color: #6ab23a;
+    outline: 0;
+  }
+}
+
+.loginIdInput {
+  height: 53px;
+  border-radius: 12px 12px 0 0;
+}
+
+.loginPasswordInput {
+  height: 53px;
+  border-radius: 0 0 12px 12px;
+}

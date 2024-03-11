@@ -24,24 +24,9 @@ h2 {
 
 .makeName {
   margin-top: 46px;
-}
-
-.makeName input {
-  width: 100%;
-  height: 58px;
-  box-sizing: border-box;
-  margin-top: 12px;
-  border: 1px solid #bbbbbb;
-  border-radius: 12px;
-  padding: 0px 16px;
-  font-size: 16px;
-  &:focus {
-    // border-color: #6ab23a;
-    outline: 0;
-  }
-  &:not(:placeholder-shown) {
-    border-color: #6ab23a;
-    outline: 0;
+  & label {
+    display: block;
+    margin-bottom: 12px;
   }
 }
 
@@ -49,16 +34,10 @@ h2 {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-}
-
-.makeId input {
-  height: 58px;
-  box-sizing: border-box;
-  margin-top: 12px;
-  border: 1px solid #bbbbbb;
-  border-radius: 12px;
-  padding: 0px 16px;
-  font-size: 16px;
+  & label {
+    display: block;
+    margin-bottom: 12px;
+  }
 }
 
 .duplicate {
@@ -73,6 +52,11 @@ h2 {
   display: flex;
   flex-direction: column;
 
+  & label {
+    display: block;
+    margin-bottom: 12px;
+  }
+
   & span {
     margin-top: 12px;
     padding-left: 8px;
@@ -80,35 +64,19 @@ h2 {
   }
 }
 
-.email input {
-  height: 58px;
-  box-sizing: border-box;
-  margin-top: 12px;
-  border: 1px solid #bbbbbb;
-  border-radius: 12px;
-  padding: 0px 16px;
-  font-size: 16px;
-}
-
 .makePw {
   margin: 20px 0px 46px;
   display: flex;
   flex-direction: column;
-}
 
-.makePw input {
-  width: 100%;
-  height: 58px;
-  box-sizing: border-box;
-  margin-top: 12px;
-  border: 1px solid #bbbbbb;
-  border-radius: 12px;
-  padding: 0px 16px;
-  font-size: 16px;
-}
+  & label {
+    display: block;
+    margin-bottom: 12px;
+  }
 
-.makePw div {
-  margin-top: 20px;
+  & div {
+    margin-top: 20px;
+  }
 }
 
 .submit {
