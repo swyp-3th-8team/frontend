@@ -1,14 +1,20 @@
 .cellContainer {
   box-sizing: border-box;
-  width: 270px;
-  height: 252px;
+  width: 272px;
+  height: 254px;
 
   display: grid;
   grid-template-columns: 90px 90px 90px;
   grid-template-rows: repeat(3, minmax(84px, 84px));
 
-  .cellWrapper {
-    margin: 0;
+  .cellWrapper0,
+  .cellWrapper1,
+  .cellWrapper2,
+  .cellWrapper3,
+  .cellWrapper4,
+  .cellWrapper5,
+  .cellWrapper6,
+  .cellWrapper7 {
     border-radius: 10px;
     border: 3px solid #e1e0e0;
     padding: 5px;
@@ -20,10 +26,27 @@
     align-items: center;
   }
 
+  .cellWrapper0,
+  .cellWrapper1,
+  .cellWrapper3,
+  .cellWrapper5,
+  .cellWrapper6 {
+    margin-right: 1px;
+  }
+
+  .cellWrapper0,
+  .cellWrapper1,
+  .cellWrapper2,
+  .cellWrapper3,
+  .cellWrapper4 {
+    margin-bottom: 1px;
+  }
+
   .mainCell {
-    margin: 0;
+    margin-right: 1px;
+    margin-bottom: 1px;
     border-radius: 10px;
-    border: 3px solid #6ab23a;
+    border: 3px solid #e1e0e0;
     padding: 5px;
 
     background-color: #6ab23a;
