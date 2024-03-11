@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
@@ -6,15 +7,22 @@ import styles from "./Login.module.scss";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [id, setId] = useState("");
+  const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
 
   const handleChangeId = (e) => {
-    setId(e.target.value);
+    setUserId(e.target.value);
   };
 
   const handleChangePassword = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    axios
+      .post("http://129.154.48.177/api/member/login", { userId, password })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -27,7 +35,7 @@ export default function Login() {
         </div>
         <div className={styles.loginInput}>
           <Input
-            value={id}
+            value={userId}
             placeholder="아이디"
             onChange={(e) => handleChangeId(e)}
           />
@@ -38,7 +46,11 @@ export default function Login() {
             onChange={(e) => handleChangePassword(e)}
           />
         </div>
-        <Button size="large" isActive={id && password}>
+        <Button
+          size="large"
+          isActive={userId && password}
+          onClick={handleSubmit}
+        >
           로그인
         </Button>
         <div className={styles.findContainer}>
