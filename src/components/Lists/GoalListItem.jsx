@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import MainPageContext from "../../pages/MainPageContext";
 import styles from "./GoalListItem.module.scss";
 
@@ -7,11 +7,28 @@ export default function GoalListItem({
   content,
   onChangeIsCompleted,
   onChangeContent,
+  onFocusChange,
+  index,
 }) {
   const { isPanelEditing } = useContext(MainPageContext);
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    onFocusChange(index);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    onFocusChange(null);
+  };
 
   return (
-    <li className={styles.listbox}>
+    <li
+      className={`${styles.listbox} ${isFocused ? styles.focused : ""}`}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+    >
       {isPanelEditing ? (
         <>
           <input

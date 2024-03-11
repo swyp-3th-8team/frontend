@@ -33,14 +33,22 @@ export default function MainPage() {
   const [goalDetailTexts, setGoalDetailTexts] = useState(
     new Array(8).fill(null).map(() => "")
   ); //GoalDetail <textarea> 상태값을 각 Goal에 대한 상태를 배열로 초기화
+  const [isGoalDetailEditing, setIsGoalDetailEditing] = useState(false);
+  const [focusedGoalIndex, setFocusedGoalIndex] = useState(null);
+
+  const onFocusChange = (index) => {
+    setFocusedGoalIndex(index); // focus 상태 변경 시 focusedGoalIndex 업데이트
+  };
 
   const openModal = (index) => {
     setSelectedMissionIndex(index);
     setIsModalOpen(true);
+    setIsGoalDetailEditing(true);
   };
 
   const closeModals = () => {
     setIsModalOpen(false);
+    setIsGoalDetailEditing(true);
   };
 
   return (
@@ -119,6 +127,8 @@ export default function MainPage() {
                 setGoalDetailTexts(updatedTexts);
               }}
               onClick={() => setShowGoalPanel(true)}
+              isGoalDetailEditing={isGoalDetailEditing}
+              focusedGoalIndex={focusedGoalIndex}
             />
             {showGoalPanel && (
               <GoalPanel
@@ -130,6 +140,7 @@ export default function MainPage() {
                   missionList={missionList}
                   missionIndex={selectedMissionIndex}
                   setMissionList={setMissionList}
+                  onFocusChange={onFocusChange}
                 />
               </GoalPanel>
             )}

@@ -8,8 +8,10 @@ export default function GoalDetail({
   onClick,
   goalDetailText,
   setGoalDetailText,
+  focusedGoalIndex,
 }) {
   const { isGoalDetailEditing } = useContext(MainPageContext);
+
   return (
     <div className={styles.goalDetailContainer} onClick={onClick}>
       {[0, 1, 2, 3].map((index) =>
@@ -22,7 +24,8 @@ export default function GoalDetail({
             updatedTexts[index] = text;
             setGoalDetailText(updatedTexts);
           },
-          isGoalDetailEditing
+          isGoalDetailEditing,
+          focusedGoalIndex
         )
       )}
 
@@ -42,7 +45,8 @@ export default function GoalDetail({
             updatedTexts[index] = text;
             setGoalDetailText(updatedTexts);
           },
-          isGoalDetailEditing
+          isGoalDetailEditing,
+          focusedGoalIndex
         )
       )}
     </div>
@@ -54,9 +58,15 @@ const renderGoalDetailItem = (
   goalList,
   goalDetailText,
   setGoalDetailText,
-  isGoalDetailEditing
+  isGoalDetailEditing,
+  focusedGoalIndex
 ) => (
-  <div key={index} className={styles.goalDetail}>
+  <div
+    key={index}
+    className={`${styles.goalDetail} ${
+      isGoalDetailEditing && focusedGoalIndex === index ? styles.focused : ""
+    }`}
+  >
     <div>
       {goalList?.[index]?.content === "" ? (
         <>
@@ -72,7 +82,6 @@ const renderGoalDetailItem = (
       placeholder="다짐을 적어주세요!"
       value={goalDetailText}
       onChange={(e) => setGoalDetailText(e.target.value)}
-      readOnly={!isGoalDetailEditing}
     />
   </div>
 );

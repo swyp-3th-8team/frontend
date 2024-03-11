@@ -4,6 +4,7 @@ export default function GoalList({
   missionList,
   missionIndex,
   setMissionList,
+  onFocusChange,
 }) {
   const goalList = missionList[missionIndex].goalList;
 
@@ -46,6 +47,7 @@ export default function GoalList({
 
             setMissionList(newMissionList);
           }}
+          onFocusChange={() => onFocusChange(goalIndex)}
         />
       ))}
     </ul>

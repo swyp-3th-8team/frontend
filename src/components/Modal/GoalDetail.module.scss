@@ -21,6 +21,10 @@
     border: 5px solid #f1efef;
     padding: 32px 28px;
 
+    &.focused {
+      border: 5px solid #bce1a3;
+    }
+
     div {
       box-sizing: border-box;
       width: 214px;
@@ -41,6 +45,7 @@
       border: 0;
       padding: 0;
 
+      background-color: transparent;
       display: block;
       font-size: 16px;
 
