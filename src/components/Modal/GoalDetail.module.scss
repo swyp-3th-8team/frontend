@@ -12,6 +12,8 @@
   text-align: center;
   align-items: center;
 
+  color: #6b6b6b;
+
   .goalDetail {
     box-sizing: border-box;
     width: 270px;
@@ -21,10 +23,28 @@
     border: 5px solid #f1efef;
     padding: 32px 28px;
 
+    &.focused {
+      border: 5px solid #bce1a3;
+    }
+
+    &:focus-within {
+      border: 5px solid #bce1a3;
+    }
+
+    &.completedGoal {
+      background-color: rgba(
+        188,
+        225,
+        163,
+        0.5
+      ); //투명도 따로하면 글자색 옅어지므로 rgba
+      border: 5px solid #6ab23a;
+    }
+
     div {
       box-sizing: border-box;
       width: 214px;
-      height: 26px;
+      height: 52px;
 
       margin-bottom: 17px;
 
@@ -35,12 +55,13 @@
     textarea {
       box-sizing: border-box;
       width: 214px;
-      height: 146px;
+      height: 120px;
       resize: none;
 
       border: 0;
       padding: 0;
 
+      background-color: transparent;
       display: block;
       font-size: 16px;
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MainPageProvider } from "./MainPageContext";
 import GoalPanel from "../components/Modal/GoalPanel";
-import MissionPanel from "../components/Layout/MissionPanel";
+import MissionPanel from "../components/Mandalart/MissionPanel";
 import MissionList from "../components/Lists/MissionList";
 import GoalList from "../components/Lists/GoalList";
 import Goal from "../components/Mandalart/Goal";
@@ -24,20 +24,30 @@ export default function MainPage() {
   const [missionList, setMissionList] = useState(() =>
     new Array(8).fill(null).map(createDefaultObject)
   );
-
   const [missionTitle, setMissionTitle] = useState("");
   const [selectedMissionIndex, setSelectedMissionIndex] = useState(null);
   const [selectedMissionList, setSelectedMissionList] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showGoalPanel, setShowGoalPanel] = useState(false);
+  const [goalDetailTexts, setGoalDetailTexts] = useState(
+    new Array(8).fill(null).map(() => "")
+  ); //GoalDetail <textarea> 상태값을 각 Goal에 대한 상태를 배열로 초기화
+  const [isGoalDetailEditing, setIsGoalDetailEditing] = useState(false);
+  const [focusedGoalIndex, setFocusedGoalIndex] = useState(null);
+
+  const onFocusChange = (index) => {
+    setFocusedGoalIndex(index); // focus 상태 변경 시 focusedGoalIndex 업데이트
+  };
 
   const openModal = (index) => {
     setSelectedMissionIndex(index);
     setIsModalOpen(true);
+    setIsGoalDetailEditing(true);
   };
 
   const closeModals = () => {
     setIsModalOpen(false);
+    setIsGoalDetailEditing(true);
   };
 
   return (
@@ -109,19 +119,27 @@ export default function MainPage() {
             <GoalDetail
               missionList={missionList}
               selectedMissionIndex={selectedMissionIndex}
+              goalDetailText={goalDetailTexts[selectedMissionIndex]}
+              setGoalDetailText={(text) => {
+                const updatedTexts = [...goalDetailTexts];
+                updatedTexts[selectedMissionIndex] = text;
+                setGoalDetailTexts(updatedTexts);
+              }}
               onClick={() => setShowGoalPanel(true)}
+              isGoalDetailEditing={isGoalDetailEditing}
+              focusedGoalIndex={focusedGoalIndex}
             />
             {showGoalPanel && (
               <GoalPanel
                 missionTitle={missionTitle}
                 title={missionList?.[selectedMissionIndex]?.content}
-                buttonText="저장"
                 onClose={() => setShowGoalPanel(false)}
               >
                 <GoalList
                   missionList={missionList}
                   missionIndex={selectedMissionIndex}
                   setMissionList={setMissionList}
+                  onFocusChange={onFocusChange}
                 />
               </GoalPanel>
             )}

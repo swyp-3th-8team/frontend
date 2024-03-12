@@ -11,6 +11,11 @@ export const MainPageProvider = ({ children }) => {
     setIsPanelEditing((prev) => !prev);
   };
 
+  const [isGoalDetailEditing, setIsGoalDetailEditing] = useState(false);
+  const toggleGoalDetailEditing = () => {
+    setIsGoalDetailEditing((prev) => !prev);
+  };
+
   //context 사용자 관리 훅
   const useMainPageContext = () => {
     const context = useContext(MainPageContext);
@@ -24,7 +29,13 @@ export const MainPageProvider = ({ children }) => {
 
   return (
     <MainPageContext.Provider
-      value={{ isPanelEditing, togglePanelEditing, useMainPageContext }}
+      value={{
+        isPanelEditing,
+        togglePanelEditing,
+        isGoalDetailEditing,
+        toggleGoalDetailEditing,
+        useMainPageContext,
+      }}
     >
       {children}
     </MainPageContext.Provider>

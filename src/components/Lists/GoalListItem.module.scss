@@ -24,14 +24,17 @@ ul {
   &:focus-within {
     border: 2px solid #6ab23a;
   }
-  //    accent-color: #6ab23a;
+
+  accent-color: #6ab23a;
   .checkbox {
     box-sizing: border-box;
     width: 20px;
     height: 20px;
+
     margin: 0;
     margin-right: 10px;
     border: 1.5px solid #bbbbbb;
+    border-radius: 6px;
 
     :checked {
       color: #6ab23a;
@@ -57,4 +60,29 @@ ul {
       outline: 0;
     }
   }
+  .completed {
+    width: 244px;
+    height: 24px;
+
+    border: 0;
+    padding: 0;
+    font-size: 16px;
+
+    background-color: transparent;
+    text-decoration: line-through;
+
+    &::placeholder {
+      color: #bbbbbb;
+      text-decoration: line-through #bbbbbb;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.listbox:has(.completed) {
+  border: 2px solid #6ab23a;
+  background-color: #f4faf0;
 }

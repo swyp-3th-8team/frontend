@@ -1,18 +1,34 @@
 import styles from "./Mission.module.scss";
 
 export default function Mission({ missionList, missionTitle, onClick }) {
+  const isMissionCompletedArray = missionList.map((mission) =>
+    mission.goalList.every((goal) => goal.isCompleted)
+  );
+
   return (
     <>
       <div className={styles.cellContainer} onClick={onClick}>
-        <Cell>{missionList?.[0]?.content}</Cell>
-        <Cell>{missionList?.[1]?.content}</Cell>
-        <Cell>{missionList?.[2]?.content}</Cell>
-        <Cell>{missionList?.[3]?.content}</Cell>
-        <Cell className="mainCell">{missionTitle}</Cell>
-        <Cell>{missionList?.[4]?.content}</Cell>
-        <Cell>{missionList?.[5]?.content}</Cell>
-        <Cell>{missionList?.[6]?.content}</Cell>
-        <Cell>{missionList?.[7]?.content}</Cell>
+        {missionList.slice(0, 4).map((mission, index) => (
+          <Cell
+            key={index}
+            className={`${styles[`cellWrapper${index}`]} ${
+              isMissionCompletedArray[index] ? styles.completedMission : ""
+            }`}
+          >
+            {mission.content}
+          </Cell>
+        ))}
+        <Cell className={styles.mainCell}>{missionTitle}</Cell>
+        {missionList.slice(4, 8).map((mission, index) => (
+          <Cell
+            key={index + 4}
+            className={`${styles[`cellWrapper${index + 4}`]} ${
+              isMissionCompletedArray[index + 4] ? styles.completedMission : ""
+            }`}
+          >
+            {mission.content}
+          </Cell>
+        ))}
       </div>
     </>
   );
@@ -20,11 +36,7 @@ export default function Mission({ missionList, missionTitle, onClick }) {
 
 function Cell({ children, className }) {
   return (
-    <div
-      className={
-        className === "mainCell" ? styles.mainCell : styles.cellWrapper
-      }
-    >
+    <div className={`${className}`}>
       <div className={styles.cell}>{children}</div>
     </div>
   );
