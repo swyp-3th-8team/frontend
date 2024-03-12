@@ -68,6 +68,7 @@ ul {
 .listbox:has(.completed) {
   border: 2px solid #6ab23a;
   background-color: #f4faf0;
+  box-shadow: 0 0 3px 0.5px #6ab23a;
 }
 
 span {

@@ -24,7 +24,6 @@ export default function MainPage() {
   const [missionList, setMissionList] = useState(() =>
     new Array(8).fill(null).map(createDefaultObject)
   );
-
   const [missionTitle, setMissionTitle] = useState("");
   const [selectedMissionIndex, setSelectedMissionIndex] = useState(null);
   const [selectedMissionList, setSelectedMissionList] = useState(null);

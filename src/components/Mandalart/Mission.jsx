@@ -1,18 +1,34 @@
 import styles from "./Mission.module.scss";
 
 export default function Mission({ missionList, missionTitle, onClick }) {
+  const isMissionCompletedArray = missionList.map((mission) =>
+    mission.goalList.every((goal) => goal.isCompleted)
+  );
+
   return (
     <>
       <div className={styles.cellContainer} onClick={onClick}>
-        <Cell className={styles.cellWrapper0}>{missionList?.[0]?.content}</Cell>
-        <Cell className={styles.cellWrapper1}>{missionList?.[1]?.content}</Cell>
-        <Cell className={styles.cellWrapper2}>{missionList?.[2]?.content}</Cell>
-        <Cell className={styles.cellWrapper3}>{missionList?.[3]?.content}</Cell>
+        {missionList.slice(0, 4).map((mission, index) => (
+          <Cell
+            key={index}
+            className={`${styles[`cellWrapper${index}`]} ${
+              isMissionCompletedArray[index] ? styles.completedMission : ""
+            }`}
+          >
+            {mission.content}
+          </Cell>
+        ))}
         <Cell className={styles.mainCell}>{missionTitle}</Cell>
-        <Cell className={styles.cellWrapper4}>{missionList?.[4]?.content}</Cell>
-        <Cell className={styles.cellWrapper5}>{missionList?.[5]?.content}</Cell>
-        <Cell className={styles.cellWrapper6}>{missionList?.[6]?.content}</Cell>
-        <Cell className={styles.cellWrapper7}>{missionList?.[7]?.content}</Cell>
+        {missionList.slice(4, 8).map((mission, index) => (
+          <Cell
+            key={index + 4}
+            className={`${styles[`cellWrapper${index + 4}`]} ${
+              isMissionCompletedArray[index + 4] ? styles.completedMission : ""
+            }`}
+          >
+            {mission.content}
+          </Cell>
+        ))}
       </div>
     </>
   );
