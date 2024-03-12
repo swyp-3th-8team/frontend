@@ -1,8 +1,15 @@
 import styles from "./Goal.module.scss";
 
 export default function Goal({ goalList, missionList, onClick }) {
+  const areAllGoalsCompleted = goalList.every((goal) => goal.isCompleted);
+
   return (
-    <div className={styles.cellContainer} onClick={onClick}>
+    <div
+      className={`${styles.cellContainer} ${
+        areAllGoalsCompleted ? styles.completedGoal : ""
+      }`}
+      onClick={onClick}
+    >
       {goalList.slice(0, 4).map((goal, index) => (
         <Cell
           key={index}
