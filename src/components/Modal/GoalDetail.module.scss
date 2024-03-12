@@ -12,6 +12,8 @@
   text-align: center;
   align-items: center;
 
+  color: #6b6b6b;
+
   .goalDetail {
     box-sizing: border-box;
     width: 270px;
@@ -23,6 +25,16 @@
 
     &.focused {
       border: 5px solid #bce1a3;
+    }
+
+    &.completedGoal {
+      background-color: rgba(
+        188,
+        225,
+        163,
+        0.5
+      ); //투명도 따로하면 글자색 옅어지므로 rgba
+      border: 5px solid #6ab23a;
     }
 
     div {

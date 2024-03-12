@@ -60,28 +60,32 @@ const renderGoalDetailItem = (
   setGoalDetailText,
   isGoalDetailEditing,
   focusedGoalIndex
-) => (
-  <div
-    key={index}
-    className={`${styles.goalDetail} ${
-      isGoalDetailEditing && focusedGoalIndex === index ? styles.focused : ""
-    }`}
-  >
-    <div>
-      {goalList?.[index]?.content === "" ? (
-        <>
-          세부 목표를
-          <br />
-          입력해 주세요
-        </>
-      ) : (
-        goalList?.[index]?.content
-      )}
+) => {
+  const isGoalCompleted = goalList?.[index]?.isCompleted;
+
+  return (
+    <div
+      key={index}
+      className={`${styles.goalDetail} ${
+        isGoalDetailEditing && focusedGoalIndex === index ? styles.focused : ""
+      } ${isGoalCompleted ? styles.completedGoal : ""}`}
+    >
+      <div>
+        {goalList?.[index]?.content === "" ? (
+          <>
+            세부 목표를
+            <br />
+            입력해 주세요
+          </>
+        ) : (
+          goalList?.[index]?.content
+        )}
+      </div>
+      <textarea
+        placeholder="다짐을 적어주세요!"
+        value={goalDetailText}
+        onChange={(e) => setGoalDetailText(e.target.value)}
+      />
     </div>
-    <textarea
-      placeholder="다짐을 적어주세요!"
-      value={goalDetailText}
-      onChange={(e) => setGoalDetailText(e.target.value)}
-    />
-  </div>
-);
+  );
+};
