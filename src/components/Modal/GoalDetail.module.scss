@@ -27,6 +27,10 @@
       border: 5px solid #bce1a3;
     }
 
+    &:focus-within {
+      border: 5px solid #bce1a3;
+    }
+
     &.completedGoal {
       background-color: rgba(
         188,
