@@ -2,6 +2,7 @@
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -54,12 +55,4 @@
     z-index: 1;
     background-color: white;
   }
-}
-
-.service {
-  margin-top: 33px;
-  border-width: 0 0 1px 0;
-  background-color: transparent;
-  font-size: 16px;
-  cursor: pointer;
 }

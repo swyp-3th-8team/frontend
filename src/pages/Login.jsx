@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import Input from "../components/Input";
 import styles from "./Login.module.scss";
 
 export default function Login() {
@@ -25,15 +26,13 @@ export default function Login() {
           <div>투두리스트를 세워봐요!</div>
         </div>
         <div className={styles.loginInput}>
-          <input
+          <Input
             value={id}
-            className={styles.loginInputId}
             placeholder="아이디"
             onChange={(e) => handleChangeId(e)}
           />
-          <input
+          <Input
             value={password}
-            className={styles.loginInputPw}
             type="password"
             placeholder="비밀번호"
             onChange={(e) => handleChangePassword(e)}
@@ -51,7 +50,7 @@ export default function Login() {
           <span>|</span>
           <button
             className={styles.signupButton}
-            onClick={() => navigate("/signup")}
+            onClick={() => navigate("/pre-signup")}
           >
             회원가입
           </button>

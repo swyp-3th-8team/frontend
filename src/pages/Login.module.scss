@@ -15,41 +15,37 @@
   align-items: center;
 }
 
-.loginIntro img {
-  cursor: pointer;
-}
+.loginIntro {
+  & img {
+    cursor: pointer;
+  }
 
-.loginIntro div {
-  margin-top: 12px;
-  font-size: 18px;
-  font-weight: 600;
+  & div {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 600;
+  }
 }
 
 .loginInput {
   margin: 32px 0 20px;
-  & input {
-    box-sizing: border-box;
-    width: 356px;
-    height: 53px;
-    border: 1px solid #c0c0c0;
-    border-radius: 12px 12px 0px 0px;
-    padding: 0px 16px;
-    font-size: 16px;
-    &::placeholder {
-      color: #c0c0c0;
-    }
-    &:nth-child(2) {
-      border-radius: 0 0 12px 12px;
-    }
-    &:focus {
-      border-color: #6ab23a;
-      outline: 0;
-    }
-  }
+  // & input {
+  //   box-sizing: border-box;
+  //   width: 356px;
+  //   height: 53px;
+  //   border: 1px solid #c0c0c0;
+  //   border-radius: 12px 12px 0px 0px;
+  //   padding: 0px 16px;
+  //   font-size: 16px;
+  //   &:nth-child(2) {
+  //     border-radius: 0 0 12px 12px;
+  //   }
+  // }
 }
 
 .findContainer {
   margin-top: 16px;
+  display: flex;
   & button {
     border: 0;
     font-size: 16px;

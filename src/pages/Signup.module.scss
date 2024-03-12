@@ -1,45 +1,32 @@
 .wrapper {
-  height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: #f4faf0;
+  align-items: center;
+}
+
+.img {
+  margin-top: 23px;
+  cursor: pointer;
 }
 
 .container {
   width: 356px;
   height: 100%;
-  margin-bottom: 116.5px;
-  background-color: white;
-  padding: 0 272px;
-}
-
-.img {
-  margin-top: 23px;
-  text-align: center;
+  margin-top: 94.79px;
 }
 
 h2 {
   text-align: center;
   font-size: 28px;
-  margin-top: 112.79px;
+  margin: 0;
 }
 
 .makeName {
   margin-top: 46px;
-}
-
-.makeName input {
-  width: 100%;
-  height: 58px;
-  box-sizing: border-box;
-  margin-top: 12px;
-  border: 1px solid #bbbbbb;
-  border-radius: 12px;
-  padding: 0px 16px;
-  font-size: 16px;
-  &:focus {
-    border-color: #6ab23a;
-    outline: 0;
+  & label {
+    display: block;
+    margin-bottom: 12px;
   }
 }
 
@@ -47,16 +34,10 @@ h2 {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-}
-
-.makeId input {
-  height: 58px;
-  box-sizing: border-box;
-  margin-top: 12px;
-  border: 1px solid #bbbbbb;
-  border-radius: 12px;
-  padding: 0px 16px;
-  font-size: 16px;
+  & label {
+    display: block;
+    margin-bottom: 12px;
+  }
 }
 
 .duplicate {
@@ -70,37 +51,32 @@ h2 {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-}
 
-.email input {
-  height: 58px;
-  box-sizing: border-box;
-  margin-top: 12px;
-  border: 1px solid #bbbbbb;
-  border-radius: 12px;
-  padding: 0px 16px;
-  font-size: 16px;
+  & label {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  & span {
+    margin-top: 12px;
+    padding-left: 8px;
+    color: #be2e2e;
+  }
 }
 
 .makePw {
   margin: 20px 0px 46px;
   display: flex;
   flex-direction: column;
-}
 
-.makePw input {
-  width: 100%;
-  height: 58px;
-  box-sizing: border-box;
-  margin-top: 12px;
-  border: 1px solid #bbbbbb;
-  border-radius: 12px;
-  padding: 0px 16px;
-  font-size: 16px;
-}
+  & label {
+    display: block;
+    margin-bottom: 12px;
+  }
 
-.makePw div {
-  margin-top: 20px;
+  & div {
+    margin-top: 20px;
+  }
 }
 
 .submit {
