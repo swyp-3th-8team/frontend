@@ -6,7 +6,7 @@ import styles from "./GoalPanel.module.scss";
 
 export default function GoalPanel({ missionTitle, title, children, onClose }) {
   const [buttonText, setButtonText] = useState("수정하기");
-  const { togglePanelEditing, toggleGoalDetailEditing } =
+  const { togglePanelEditing, toggleGoalDetailEditing, toggleTextareaEditing } =
     useContext(MainPageContext);
 
   const handlePanelButtonClick = () => {
@@ -15,6 +15,7 @@ export default function GoalPanel({ missionTitle, title, children, onClose }) {
     setButtonText((prevText) =>
       prevText === "수정하기" ? "저장하기" : "수정하기"
     );
+    toggleTextareaEditing();
   };
 
   return (

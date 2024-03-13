@@ -16,6 +16,11 @@ export const MainPageProvider = ({ children }) => {
     setIsGoalDetailEditing((prev) => !prev);
   };
 
+  const [isTextareaEditing, setIsTextareaEditing] = useState(false);
+  const toggleTextareaEditing = () => {
+    setIsTextareaEditing((prev) => !prev);
+  };
+
   //context 사용자 관리 훅
   const useMainPageContext = () => {
     const context = useContext(MainPageContext);
@@ -34,6 +39,8 @@ export const MainPageProvider = ({ children }) => {
         togglePanelEditing,
         isGoalDetailEditing,
         toggleGoalDetailEditing,
+        isTextareaEditing,
+        toggleTextareaEditing,
         useMainPageContext,
       }}
     >

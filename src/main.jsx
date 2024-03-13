@@ -16,8 +16,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path="" element={<MainPage />} />
           <Route path="mando" element={<PreMainPage />} />
-          <Route path="main" element={<MainPage />} />
           <Route path="find-account" element={<FindAccount />} />
           <Route path="find-password" element={<FindPassword />} />
         </Route>

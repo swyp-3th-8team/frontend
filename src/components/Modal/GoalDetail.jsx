@@ -15,7 +15,7 @@ export default function GoalDetail({
   return (
     <div className={styles.goalDetailContainer} onClick={onClick}>
       {[0, 1, 2, 3].map((index) =>
-        renderGoalDetailItem(
+        RenderGoalDetailItem(
           index,
           missionList[selectedMissionIndex]?.goalList,
           goalDetailText[index],
@@ -36,7 +36,7 @@ export default function GoalDetail({
       </div>
 
       {[4, 5, 6, 7].map((index) =>
-        renderGoalDetailItem(
+        RenderGoalDetailItem(
           index,
           missionList[selectedMissionIndex]?.goalList,
           goalDetailText[index],
@@ -53,7 +53,7 @@ export default function GoalDetail({
   );
 }
 
-const renderGoalDetailItem = (
+const RenderGoalDetailItem = (
   index,
   goalList,
   goalDetailText,
@@ -61,6 +61,7 @@ const renderGoalDetailItem = (
   isGoalDetailEditing,
   focusedGoalIndex
 ) => {
+  const { isTextareaEditing } = useContext(MainPageContext);
   const isGoalCompleted = goalList?.[index]?.isCompleted;
 
   return (
@@ -81,11 +82,26 @@ const renderGoalDetailItem = (
           goalList?.[index]?.content
         )}
       </div>
-      <textarea
-        placeholder="다짐을 적어주세요!"
-        value={goalDetailText}
-        onChange={(e) => setGoalDetailText(e.target.value)}
-      />
+      {isTextareaEditing ? (
+        <textarea
+          className={styles.goalDetailTextarea}
+          placeholder="다짐을 적어주세요!&#10;메모라든지 할 일이라든지&#10;무엇이든 좋아요!"
+          value={goalDetailText}
+          onChange={(e) => setGoalDetailText(e.target.value)}
+        />
+      ) : (
+        <span className={styles.goalDetailTextarea}>
+          {goalDetailText || (
+            <>
+              다짐을 적어주세요!
+              <br />
+              메모라든지 할 일이라든지
+              <br />
+              무엇이든 좋아요!
+            </>
+          )}
+        </span>
+      )}
     </div>
   );
 };
