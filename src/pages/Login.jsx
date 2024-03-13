@@ -9,14 +9,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleChangeId = (e) => {
-    setUserId(e.target.value);
-  };
-
-  const handleChangePassword = (e) => {
-    setPassword(e.target.value);
-  };
+  const [errMessage, setErrMessage] = useState("");
 
   const handleSubmit = () => {
     axios
@@ -37,15 +30,18 @@ export default function Login() {
           <Input
             value={userId}
             placeholder="아이디"
-            onChange={(e) => handleChangeId(e)}
+            onChange={(e) => setUserId(e.target.value)}
           />
           <Input
             value={password}
             type="password"
             placeholder="비밀번호"
-            onChange={(e) => handleChangePassword(e)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <span className={errMessage ? styles.errMessage : styles.noErrMessage}>
+          {errMessage}
+        </span>
         <Button
           size="large"
           isActive={userId && password}
@@ -57,7 +53,7 @@ export default function Login() {
           <button onClick={() => navigate("/find-account")}>아이디 찾기</button>
           <span>|</span>
           <button onClick={() => navigate("/find-password")}>
-            비밀번호 찾기
+            비밀번호 찾기 · 변경
           </button>
           <span>|</span>
           <button
