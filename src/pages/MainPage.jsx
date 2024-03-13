@@ -32,7 +32,7 @@ export default function MainPage() {
   const [goalDetailTexts, setGoalDetailTexts] = useState(
     new Array(8).fill(null).map(() => "")
   ); //GoalDetail <textarea> 상태값을 각 Goal에 대한 상태를 배열로 초기화
-  const [isGoalDetailEditing, setIsGoalDetailEditing] = useState(false);
+  const [isGoalDetailEditing, setIsGoalDetailEditing] = useState(false); //GoalDetail창 전체
   const [focusedGoalIndex, setFocusedGoalIndex] = useState(null);
 
   const onFocusChange = (index) => {
