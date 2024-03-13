@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import MainPageContext from "../../pages/MainPageContext";
 import styles from "./GoalListItem.module.scss";
 
@@ -7,10 +7,28 @@ export default function GoalListItem({
   content,
   onChangeIsCompleted,
   onChangeContent,
+  onFocusChange,
+  index,
 }) {
   const { isPanelEditing } = useContext(MainPageContext);
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    onFocusChange(index);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    onFocusChange(null);
+  };
+
   return (
-    <li className={styles.listbox}>
+    <li
+      className={`${styles.listbox} ${isFocused ? styles.focused : ""}`}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+    >
       {isPanelEditing ? (
         <>
           <input
@@ -20,9 +38,9 @@ export default function GoalListItem({
             onChange={onChangeIsCompleted}
           />
           <input
-            className={styles.listInput}
+            className={isCompleted ? styles.completed : styles.listInput}
             value={content}
-            placeholder="목표를 등록해주세요"
+            placeholder="세부 목표를 입력해 주세요"
             onChange={onChangeContent}
           />
         </>
@@ -33,9 +51,9 @@ export default function GoalListItem({
             type="checkbox"
             checked={isCompleted}
             onChange={onChangeIsCompleted}
-          />
-          <span className={styles.listInput}>
-            {content || "목표를 등록해주세요"}
+          ></input>
+          <span className={isCompleted ? styles.completed : styles.listInput}>
+            {content || "세부 목표를 입력해 주세요"}
           </span>
         </>
       )}

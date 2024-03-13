@@ -20,6 +20,28 @@
   font-size: 18px;
 }
 
+.regular {
+  width: 306px;
+  height: 58px;
+  border-radius: 10px;
+  font-size: 22px;
+}
+
+.panelButton {
+  width: 306px;
+  height: 58px;
+
+  border: 0;
+  border-radius: 12px;
+  padding: 8px 21px;
+
+  font-size: 18px;
+  font-weight: 550; //semi-bold
+
+  background-color: #6ab23a;
+  color: #ffffff;
+}
+
 .button.white {
   width: 356px;
   height: 58px;

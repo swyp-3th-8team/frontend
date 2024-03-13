@@ -1,28 +1,43 @@
 import styles from "./Goal.module.scss";
 
 export default function Goal({ goalList, missionList, onClick }) {
+  const areAllGoalsCompleted = goalList.every((goal) => goal.isCompleted);
+
   return (
-    <div className={styles.cellContainer} onClick={onClick}>
-      <Cell>{goalList?.[0]?.content}</Cell>
-      <Cell>{goalList?.[1]?.content}</Cell>
-      <Cell>{goalList?.[2]?.content}</Cell>
-      <Cell>{goalList?.[3]?.content}</Cell>
-      <Cell className="mainCell">{missionList}</Cell>
-      <Cell>{goalList?.[4]?.content}</Cell>
-      <Cell>{goalList?.[5]?.content}</Cell>
-      <Cell>{goalList?.[6]?.content}</Cell>
-      <Cell>{goalList?.[7]?.content}</Cell>
+    <div
+      className={`${styles.cellContainer} ${
+        areAllGoalsCompleted ? styles.completedGoal : ""
+      }`}
+      onClick={onClick}
+    >
+      {goalList.slice(0, 4).map((goal, index) => (
+        <Cell
+          key={index}
+          className={`${styles[`cellWrapper${index}`]} ${
+            goal.isCompleted ? styles.completedGoal : ""
+          }`}
+        >
+          {goal.content}
+        </Cell>
+      ))}
+      <Cell className={styles.mainCell}>{missionList}</Cell>
+      {goalList.slice(4, 8).map((goal, index) => (
+        <Cell
+          key={index}
+          className={`${styles[`cellWrapper${index}`]} ${
+            goal.isCompleted ? styles.completedGoal : ""
+          }`}
+        >
+          {goal.content}
+        </Cell>
+      ))}
     </div>
   );
 }
 
-function Cell({ children, className }) {
+function Cell({ className, children }) {
   return (
-    <div
-      className={
-        className === "mainCell" ? styles.mainCell : styles.cellWrapper
-      }
-    >
+    <div className={`${className}`}>
       <div className={styles.cell}>{children}</div>
     </div>
   );
