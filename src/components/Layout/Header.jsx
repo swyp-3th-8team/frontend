@@ -5,7 +5,7 @@ import styles from "./Header.module.scss";
 export default function Header() {
   return (
     <header className={styles.wrapper}>
-      <Link to="/main">
+      <Link to="">
         <svg
           width="190"
           height="43"

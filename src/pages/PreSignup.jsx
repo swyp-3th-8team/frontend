@@ -7,7 +7,7 @@ export default function PreSignup() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <div onClick={() => navigate("/main")} className={styles.img}>
+        <div onClick={() => navigate("/")} className={styles.img}>
           <img src="img/logo.svg" alt="mado logo" />
         </div>
         <div className={styles.preSignupIntro}>

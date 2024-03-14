@@ -22,7 +22,7 @@ export default function Login() {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.loginIntro}>
-          <img src="img/logo.svg" alt="" onClick={() => navigate("/main")} />
+          <img src="img/logo.svg" alt="" onClick={() => navigate("/")} />
           <div>나만의 만다라트를 실천하기 위한</div>
           <div>투두리스트를 세워봐요!</div>
         </div>

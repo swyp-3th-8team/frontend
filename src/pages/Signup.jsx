@@ -74,7 +74,7 @@ export default function Signup() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.img}>
-        <img src="img/logo.svg" alt="" onClick={() => navigate("/main")} />
+        <img src="img/logo.svg" alt="" onClick={() => navigate("/")} />
       </div>
       <div className={styles.container}>
         <h2>회원가입</h2>
