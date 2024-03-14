@@ -4,7 +4,7 @@ import Mission from "../components/Mandalart/Mission";
 import Modal from "../components/Modal/Modal";
 import PreMainPageModal from "../components/Modal/PreMainPageModal";
 import styles from "./PreMainPage.module.scss";
-import { PreMainPagePanel } from "../components/Modal/PreMainPagePanel";
+import { PreMainPagePanel } from "../components/Mandalart/PreMainPagePanel";
 
 const createDefaultTask = () => ({
   content: "",
