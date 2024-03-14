@@ -11,11 +11,12 @@ export default function MissionPanel({
   title,
   children,
   onClose,
+  setIsMissionListEditing,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState("");
   const [buttonText, setButtonText] = useState("수정하기");
-  const { togglePanelEditing } = useContext(MainPageContext);
+  const { isPanelEditing, togglePanelEditing } = useContext(MainPageContext);
 
   // 초기에 title이 input인 경우를 고려하여 처리
   useEffect(() => {
@@ -34,6 +35,7 @@ export default function MissionPanel({
 
   const handlePanelButtonClick = () => {
     togglePanelEditing();
+    setIsMissionListEditing((prev) => !prev);
     setButtonText((prevText) =>
       prevText === "수정하기" ? "저장하기" : "수정하기"
     );
