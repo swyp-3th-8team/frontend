@@ -6,8 +6,12 @@ import styles from "./GoalPanel.module.scss";
 
 export default function GoalPanel({ missionTitle, title, children, onClose }) {
   const [buttonText, setButtonText] = useState("수정하기");
-  const { togglePanelEditing, toggleGoalDetailEditing, toggleTextareaEditing } =
-    useContext(MainPageContext);
+  const {
+    isPanelEditing,
+    togglePanelEditing,
+    toggleGoalDetailEditing,
+    toggleTextareaEditing,
+  } = useContext(MainPageContext);
 
   const handlePanelButtonClick = () => {
     togglePanelEditing();
@@ -18,9 +22,17 @@ export default function GoalPanel({ missionTitle, title, children, onClose }) {
     toggleTextareaEditing();
   };
 
+  const handleCloseButtonClick = () => {
+    if (isPanelEditing) {
+      alert("수정 사항을 저장해 주세요.");
+    } else {
+      onClose();
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
-      <CloseButton onClose={onClose} />
+      <CloseButton onClose={handleCloseButtonClick} />
       <div className={styles.titleWrapper}>
         <div className={styles.missionTitle}>{missionTitle}</div>
         <div className={styles.title}>{title}</div>

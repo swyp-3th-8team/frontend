@@ -1,11 +1,18 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Modal.module.scss";
+import MainPageContext from "../../pages/MainPageContext";
 
 const Backdrop = (props) => {
+  const { isPanelEditing } = useContext(MainPageContext);
+
   const backdropClickHandler = (e) => {
     e.stopPropagation(); // 이벤트 버블링 방지
-    props.onClose();
+    if (isPanelEditing) {
+      alert("수정 사항을 저장해 주세요.");
+    } else {
+      props.onClose();
+    }
   };
   return <div className={styles.backdrop} onClick={backdropClickHandler} />;
 };
