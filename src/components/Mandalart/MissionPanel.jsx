@@ -16,7 +16,7 @@ export default function MissionPanel({
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState("");
   const [buttonText, setButtonText] = useState("수정하기");
-  const { isPanelEditing, togglePanelEditing } = useContext(MainPageContext);
+  const { togglePanelEditing } = useContext(MainPageContext);
 
   // 초기에 title이 input인 경우를 고려하여 처리
   useEffect(() => {
