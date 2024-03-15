@@ -6,4 +6,8 @@
   align-items: center;
   padding: 20px 200px;
   box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.5);
+
+  & img {
+    cursor: pointer;
+  }
 }
