@@ -29,9 +29,17 @@ export default function GoalDetail({
         )
       )}
 
-      <div className={styles.mainGoalWrapper}>
+      <div
+        className={`${
+          missionList[selectedMissionIndex]?.content === ""
+            ? styles.mainGoalWrapper
+            : styles.completedMainGoalWrapper
+        }`}
+      >
         <div className={styles.mainGoal}>
-          {missionList[selectedMissionIndex]?.content}
+          {missionList[selectedMissionIndex]?.content === ""
+            ? "목표"
+            : missionList[selectedMissionIndex]?.content}
         </div>
       </div>
 

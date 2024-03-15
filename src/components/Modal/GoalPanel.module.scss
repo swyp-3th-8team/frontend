@@ -15,6 +15,18 @@
   display: flex;
   flex-direction: column;
 
+  animation: panel-ani 300ms ease-out;
+  @keyframes panel-ani {
+    from {
+      opacity: 0;
+      transform: translateX(-3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   .titleWrapper {
     box-sizing: border-box;
     width: 306px;
@@ -30,7 +42,8 @@
       color: #6ab23a;
     }
 
-    .title {
+    .title,
+    .completedTitle {
       box-sizing: border-box;
       height: 40px;
 
@@ -39,6 +52,11 @@
 
       font-weight: bold;
       font-size: 28px;
+    }
+    .title {
+      color: #bbbbbb;
+    }
+    .completedTitle {
       color: #000000;
     }
   }

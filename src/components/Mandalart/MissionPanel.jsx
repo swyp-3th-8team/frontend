@@ -16,7 +16,7 @@ export default function MissionPanel({
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState("");
   const [buttonText, setButtonText] = useState("수정하기");
-  const { togglePanelEditing } = useContext(MainPageContext);
+  const { isPanelEditing, togglePanelEditing } = useContext(MainPageContext);
 
   // 초기에 title이 input인 경우를 고려하여 처리
   useEffect(() => {
@@ -41,9 +41,17 @@ export default function MissionPanel({
     );
   };
 
+  const handleCloseButtonClick = () => {
+    if (isPanelEditing) {
+      alert("수정된 목표를 저장해 주세요.");
+    } else {
+      onClose();
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
-      <CloseButton onClose={onClose} />
+      <CloseButton onClose={handleCloseButtonClick} />
       <div className={styles.titleWrapper}>
         <div className={styles.title}>
           {isEditing ? (

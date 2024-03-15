@@ -47,18 +47,26 @@
     background-color: #bce1a3;
   }
 
-  .mainCell {
+  .mainCell,
+  .completedMainCell {
     margin-right: 1px;
     margin-bottom: 1px;
     border-radius: 10px;
-    border: 3px solid #e1e0e0;
     padding: 5px;
-
-    background-color: #6ab23a;
 
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .mainCell {
+    border: 3px solid #e1e0e0;
+    background-color: #e5e5e5;
+  }
+
+  .completedMainCell {
+    border: 3px solid #6ab23a;
+    background-color: rgba(106, 178, 58, 0.8);
   }
 
   .cell {

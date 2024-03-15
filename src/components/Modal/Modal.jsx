@@ -9,7 +9,7 @@ const Backdrop = (props) => {
   const backdropClickHandler = (e) => {
     e.stopPropagation(); // 이벤트 버블링 방지
     if (isPanelEditing) {
-      alert("수정 사항을 저장해 주세요.");
+      alert("수정된 내용을 저장해 주세요.");
     } else {
       props.onClose();
     }
