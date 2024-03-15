@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../api/ServerUrl";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import styles from "./Login.module.scss";
@@ -14,7 +15,10 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://129.154.48.177/api/member/login", { userId, password })
+      .post(`${SERVER_URL}/api/member/login`, {
+        userId,
+        password,
+      })
       .then((res) => {
         console.log(res);
         // sessionStorage.setItem(data.userId)

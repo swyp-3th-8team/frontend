@@ -1,8 +1,9 @@
 import axios from "axios";
+import { useState } from "react";
+import { SERVER_URL } from "../api/ServerUrl";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import styles from "./ChangePassword.module.scss";
-import { useState } from "react";
 
 export default function ChangePassword() {
   const [userId, setUserId] = useState("");
@@ -12,7 +13,7 @@ export default function ChangePassword() {
 
   const handleSubmit = () => {
     axios
-      .post("http://129.154.48.177/api/member/pwUpdate", {
+      .post(`${SERVER_URL}/api/member/pwUpdate`, {
         userId,
         password,
         newPassword,

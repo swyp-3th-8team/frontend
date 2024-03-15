@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../api/ServerUrl";
 
 export const useAuth = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export const useAuth = () => {
 
   const handleLogout = () => {
     axios
-      .post("http://129.154.48.177/api/member/logout")
+      .post(`${SERVER_URL}/api/member/logout`)
       .then((res) => {
         console.log(res);
         sessionStorage.removeItem("userId");

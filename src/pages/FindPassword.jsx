@@ -1,9 +1,10 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../api/ServerUrl";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import styles from "./FindPassword.module.scss";
-import axios from "axios";
 
 export default function FindAccount() {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ export default function FindAccount() {
 
   const handleSubmit = () => {
     axios
-      .post("http://129.154.48.177/api/member/check/findPw", {
+      .post(`${SERVER_URL}/api/member/check/findPw`, {
         userId,
         email,
       })
