@@ -42,7 +42,8 @@
       color: #6ab23a;
     }
 
-    .title {
+    .title,
+    .completedTitle {
       box-sizing: border-box;
       height: 40px;
 
@@ -51,6 +52,11 @@
 
       font-weight: bold;
       font-size: 28px;
+    }
+    .title {
+      color: #bbbbbb;
+    }
+    .completedTitle {
       color: #000000;
     }
   }

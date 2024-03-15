@@ -34,8 +34,14 @@ export default function GoalPanel({ missionTitle, title, children, onClose }) {
     <div className={styles.wrapper}>
       <CloseButton onClose={handleCloseButtonClick} />
       <div className={styles.titleWrapper}>
-        <div className={styles.missionTitle}>{missionTitle}</div>
-        <div className={styles.title}>{title}</div>
+        <div className={styles.missionTitle}>
+          {missionTitle === "" ? "미션을 등록해 주세요" : missionTitle}
+        </div>
+        <div
+          className={`${title === "" ? styles.title : styles.completedTitle}`}
+        >
+          {title === "" ? "목표를 등록해 주세요" : title}
+        </div>
       </div>
       <div className={styles.content}>{children}</div>
       <Button type="panel" onClick={handlePanelButtonClick}>

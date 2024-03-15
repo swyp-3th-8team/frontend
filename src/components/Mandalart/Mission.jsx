@@ -18,7 +18,13 @@ export default function Mission({ missionList, missionTitle, onClick }) {
             {mission.content}
           </Cell>
         ))}
-        <Cell className={styles.mainCell}>{missionTitle}</Cell>
+        <Cell
+          className={`${
+            missionTitle === "" ? styles.mainCell : styles.completedMainCell
+          }`}
+        >
+          {missionTitle}
+        </Cell>
         {missionList.slice(4, 8).map((mission, index) => (
           <Cell
             key={index + 4}
