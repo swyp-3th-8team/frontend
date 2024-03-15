@@ -7,10 +7,8 @@ export default function PreSignup() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <div onClick={() => navigate("/")} className={styles.img}>
-          <img src="img/logo.svg" alt="mado logo" />
-        </div>
         <div className={styles.preSignupIntro}>
+          <img src="img/logo.svg" alt="" onClick={() => navigate("/")} />
           <div>나만의 만다라트를 실천하기 위한</div>
           <div>투두리스트를 세워봐요!</div>
         </div>
