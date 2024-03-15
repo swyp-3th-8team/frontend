@@ -29,10 +29,14 @@ ul {
 
   &:focus-within {
     border: 2px solid #6ab23a;
+    .checkbox {
+      border: 2px solid #6ab23a;
+    }
   }
 
-  accent-color: #6ab23a;
   .checkbox {
+    appearance: none;
+
     box-sizing: border-box;
     width: 20px;
     height: 20px;
@@ -42,13 +46,14 @@ ul {
     border: 1.5px solid #bbbbbb;
     border-radius: 6px;
 
-    :checked {
-      color: #6ab23a;
+    &:checked {
+      border: 1.5px solid #6ab23a;
+      background-color: #6ab23a;
+      background-image: url("../../assets/icons/check.svg");
+      background-repeat: no-repeat;
+      background-size: 70%;
+      background-position: center center;
     }
-  }
-
-  .checkbox:checked {
-    background-color: #6ab23a;
   }
 
   .listInput {
@@ -66,6 +71,7 @@ ul {
       outline: 0;
     }
   }
+
   .completed {
     width: 244px;
     height: 24px;
