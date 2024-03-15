@@ -11,11 +11,16 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [errMessage, setErrMessage] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     axios
       .post("http://129.154.48.177/api/member/login", { userId, password })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        console.log(res);
+        // sessionStorage.setItem(data.userId)
+        navigate("/");
+      })
+      .catch((err) => setErrMessage(err.response.data));
   };
 
   return (
@@ -26,29 +31,29 @@ export default function Login() {
           <div>나만의 만다라트를 실천하기 위한</div>
           <div>투두리스트를 세워봐요!</div>
         </div>
-        <div className={styles.loginInput}>
-          <Input
-            value={userId}
-            placeholder="아이디"
-            onChange={(e) => setUserId(e.target.value)}
-          />
-          <Input
-            value={password}
-            type="password"
-            placeholder="비밀번호"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <span className={errMessage ? styles.errMessage : styles.noErrMessage}>
-          {errMessage}
-        </span>
-        <Button
-          size="large"
-          isActive={userId && password}
-          onClick={handleSubmit}
-        >
-          로그인
-        </Button>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.loginInput}>
+            <Input
+              value={userId}
+              placeholder="아이디"
+              onChange={(e) => setUserId(e.target.value)}
+            />
+            <Input
+              value={password}
+              type="password"
+              placeholder="비밀번호"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <span
+            className={errMessage ? styles.errMessage : styles.noErrMessage}
+          >
+            {errMessage}
+          </span>
+          <Button size="large" isActive={userId && password}>
+            로그인
+          </Button>
+        </form>
         <div className={styles.findContainer}>
           <button onClick={() => navigate("/find-account")}>아이디 찾기</button>
           <span>|</span>
