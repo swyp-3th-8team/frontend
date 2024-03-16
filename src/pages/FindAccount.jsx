@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../api/ServerUrl";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import styles from "./FindAccount.module.scss";
@@ -24,7 +25,7 @@ export default function FindAccount() {
     }
 
     axios
-      .post("http://129.154.48.177/api/member/check/find_username", {
+      .post(`${SERVER_URL}/api/member/check/find_username`, {
         email,
         username,
       })

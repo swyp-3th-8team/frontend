@@ -17,16 +17,17 @@
   align-items: center;
 }
 
-.img {
-  text-align: center;
-  cursor: pointer;
-}
-
 .preSignupIntro {
-  font-size: 18px;
-  font-weight: 600;
+  & img {
+    cursor: pointer;
+  }
   & div {
-    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    &:first-of-type {
+      margin-top: 12px;
+    }
   }
   margin-bottom: 38px;
 }

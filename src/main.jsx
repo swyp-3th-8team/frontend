@@ -9,6 +9,7 @@ import MainPage from "./pages/MainPage.jsx";
 import FindAccount from "./pages/FindAccount.jsx";
 import PreMainPage from "./pages/PreMainPage.jsx";
 import FindPassword from "./pages/FindPassword.jsx";
+import ChangePassword from "./pages/ChangePassword.jsx";
 import "./index.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -16,10 +17,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path="" element={<MainPage />} />
           <Route path="mando" element={<PreMainPage />} />
-          <Route path="main" element={<MainPage />} />
           <Route path="find-account" element={<FindAccount />} />
           <Route path="find-password" element={<FindPassword />} />
+          <Route path="change-password" element={<ChangePassword />} />
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />

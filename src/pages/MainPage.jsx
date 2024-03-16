@@ -32,8 +32,9 @@ export default function MainPage() {
   const [goalDetailTexts, setGoalDetailTexts] = useState(
     new Array(8).fill(null).map(() => "")
   ); //GoalDetail <textarea> 상태값을 각 Goal에 대한 상태를 배열로 초기화
-  const [isGoalDetailEditing, setIsGoalDetailEditing] = useState(false);
+  const [isGoalDetailEditing, setIsGoalDetailEditing] = useState(false); //GoalDetail창 전체
   const [focusedGoalIndex, setFocusedGoalIndex] = useState(null);
+  const [isMissionListEditing, setIsMissionListEditing] = useState(false);
 
   const onFocusChange = (index) => {
     setFocusedGoalIndex(index); // focus 상태 변경 시 focusedGoalIndex 업데이트
@@ -57,22 +58,46 @@ export default function MainPage() {
           <Goal
             goalList={missionList[0].goalList}
             missionList={missionList[0].content}
-            onClick={() => openModal(0)}
+            onClick={() => {
+              if (!isMissionListEditing) {
+                openModal(0);
+              } else {
+                alert("수정된 목표를 저장해 주세요.");
+              }
+            }}
           />
           <Goal
             goalList={missionList[1].goalList}
             missionList={missionList[1].content}
-            onClick={() => openModal(1)}
+            onClick={() => {
+              if (!isMissionListEditing) {
+                openModal(1);
+              } else {
+                alert("수정된 목표를 저장해 주세요.");
+              }
+            }}
           />
           <Goal
             goalList={missionList[2].goalList}
             missionList={missionList[2].content}
-            onClick={() => openModal(2)}
+            onClick={() => {
+              if (!isMissionListEditing) {
+                openModal(2);
+              } else {
+                alert("수정된 목표를 저장해 주세요.");
+              }
+            }}
           />
           <Goal
             goalList={missionList[3].goalList}
             missionList={missionList[3].content}
-            onClick={() => openModal(3)}
+            onClick={() => {
+              if (!isMissionListEditing) {
+                openModal(3);
+              } else {
+                alert("수정된 목표를 저장해 주세요.");
+              }
+            }}
           />
           <Mission
             missionList={missionList}
@@ -82,22 +107,46 @@ export default function MainPage() {
           <Goal
             goalList={missionList[4].goalList}
             missionList={missionList[4].content}
-            onClick={() => openModal(4)}
+            onClick={() => {
+              if (!isMissionListEditing) {
+                openModal(4);
+              } else {
+                alert("수정된 목표를 저장해 주세요.");
+              }
+            }}
           />
           <Goal
             goalList={missionList[5].goalList}
             missionList={missionList[5].content}
-            onClick={() => openModal(5)}
+            onClick={() => {
+              if (!isMissionListEditing) {
+                openModal(5);
+              } else {
+                alert("수정된 목표를 저장해 주세요.");
+              }
+            }}
           />
           <Goal
             goalList={missionList[6].goalList}
             missionList={missionList[6].content}
-            onClick={() => openModal(6)}
+            onClick={() => {
+              if (!isMissionListEditing) {
+                openModal(6);
+              } else {
+                alert("수정된 목표를 저장해 주세요.");
+              }
+            }}
           />
           <Goal
             goalList={missionList[7].goalList}
             missionList={missionList[7].content}
-            onClick={() => openModal(7)}
+            onClick={() => {
+              if (!isMissionListEditing) {
+                openModal(7);
+              } else {
+                alert("수정된 목표를 저장해 주세요.");
+              }
+            }}
           />
         </div>
         {selectedMissionList !== null && (
@@ -105,6 +154,7 @@ export default function MainPage() {
             title={missionTitle}
             onTitleChange={setMissionTitle} // title 변경 시 상태 업데이트
             onClose={() => setSelectedMissionList(null)}
+            setIsMissionListEditing={setIsMissionListEditing}
           >
             <MissionList
               missionList={missionList}

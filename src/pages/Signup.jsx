@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../api/ServerUrl";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import styles from "./Signup.module.scss";
@@ -25,7 +26,7 @@ export default function Signup() {
 
   const handleClickIdCheck = () => {
     axios
-      .post("http://129.154.48.177/member/checkUserId", {
+      .post(`${SERVER_URL}/member/checkUserId`, {
         userId,
       })
       .then((res) => console.log(res));
@@ -55,7 +56,7 @@ export default function Signup() {
 
     if (userId && emailRegExp && passwordRegExp && password === repassword) {
       axios
-        .post("http://129.154.48.177/member/join", {
+        .post(`${SERVER_URL}/member/join`, {
           username,
           userId,
           email,
@@ -74,7 +75,7 @@ export default function Signup() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.img}>
-        <img src="img/logo.svg" alt="" onClick={() => navigate("/main")} />
+        <img src="img/logo.svg" alt="" onClick={() => navigate("/")} />
       </div>
       <div className={styles.container}>
         <h2>회원가입</h2>

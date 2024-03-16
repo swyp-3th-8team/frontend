@@ -1,18 +1,24 @@
 ul {
   margin: 0;
   padding: 0;
+
+  box-sizing: border-box;
+  width: 306px;
+  height: 532px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .listbox {
-  margin-bottom: 10px;
   list-style: none;
 
   box-sizing: border-box;
   width: 306px;
   height: 56px;
-  box-shadow: 0 0 3px 1px #bbbbbb;
+  box-shadow: 0 0 5px 0.1px #bbbbbb;
 
-  margin-bottom: 10px;
   border-radius: 8px;
   padding: 18px 16px;
 
