@@ -20,7 +20,6 @@ export default function Signup() {
 
   const handleClickIdCheck = () => {
     const userIdRegExp = /^(?=.*[0-9])(?=.*[a-z]).{6,12}$/.test(userId);
-    console.log(userIdRegExp);
     userIdRegExp
       ? setUserIdCheck("")
       : setUserIdCheck("아이디의 형식을 다시 확인해주세요");
@@ -28,7 +27,12 @@ export default function Signup() {
       .post(`${SERVER_URL}/member/checkUserId`, {
         userId,
       })
-      .then((res) => console.log(res));
+      .then((res) => {
+        if (res.status === 200) {
+          setUserIdCheck("사용가능한 아이디입니다 ");
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleSubmit = () => {
@@ -100,7 +104,7 @@ export default function Signup() {
             onChange={(e) => setUserId(e.target.value)}
           />
           <div className={styles.duplicate}>
-            <div>{userIdCheck}</div>
+            <span>{userIdCheck}</span>
             <Button size="small" isActive={userId} onClick={handleClickIdCheck}>
               중복 확인하기
             </Button>
