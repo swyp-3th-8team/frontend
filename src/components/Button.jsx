@@ -7,7 +7,6 @@ export default function Button({
   color,
   isActive,
   onClick,
-  disabled,
 }) {
   const isPanelButton = type === "panel";
 
@@ -18,7 +17,7 @@ export default function Button({
       } ${color === "white" ? styles.white : ""}`;
 
   return (
-    <button className={buttonClass} onClick={onClick} disabled={disabled}>
+    <button className={buttonClass} onClick={onClick} disabled={!isActive}>
       {children}
     </button>
   );
