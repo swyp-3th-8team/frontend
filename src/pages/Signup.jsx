@@ -9,7 +9,7 @@ import styles from "./Signup.module.scss";
 export default function Signup() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
-  const [userId, setuserId] = useState("");
+  const [userId, setUserId] = useState("");
   const [userIdCheck, setUserIdCheck] = useState("");
   const [email, setEmail] = useState("");
   const [emailCheck, setEmailCheck] = useState("");
@@ -18,13 +18,12 @@ export default function Signup() {
   const [repassword, setRepassword] = useState("");
   const [repasswordCheck, setRepasswordCheck] = useState("");
 
-  const handleChangeUserId = (e) => {
-    const { value } = e.target;
-    const userIdRegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$/.test(value);
-    setuserId(value);
-  };
-
   const handleClickIdCheck = () => {
+    const userIdRegExp = /^(?=.*[0-9])(?=.*[a-z]).{6,12}$/.test(userId);
+    console.log(userIdRegExp);
+    userIdRegExp
+      ? setUserIdCheck("")
+      : setUserIdCheck("아이디의 형식을 다시 확인해주세요");
     axios
       .post(`${SERVER_URL}/member/checkUserId`, {
         userId,
@@ -37,7 +36,7 @@ export default function Signup() {
       email
     );
     const passwordRegExp =
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/.test(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/.test(
         password
       );
 
@@ -98,7 +97,7 @@ export default function Signup() {
             type="text"
             placeholder="영문, 숫자로 6~12자 내로 입력해주세요."
             autoComplete="off"
-            onChange={(e) => handleChangeUserId(e)}
+            onChange={(e) => setUserId(e.target.value)}
           />
           <div className={styles.duplicate}>
             <div>{userIdCheck}</div>
