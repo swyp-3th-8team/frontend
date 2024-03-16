@@ -7,17 +7,16 @@ export const useAuth = () => {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(false);
 
-  //   useEffect(() => {
-  //     const userId = sessionStorage.getItem("userId");
+  useEffect(() => {
+    const userId = sessionStorage.getItem("userId");
 
-  //     userId ? setIsLogin(true) : setIsLogin(false);
-  //   }, [setIsLogin]);
+    userId ? setIsLogin(true) : setIsLogin(false);
+  }, [setIsLogin]);
 
   const handleLogout = () => {
     axios
       .post(`${SERVER_URL}/api/member/logout`)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         sessionStorage.removeItem("userId");
         setIsLogin(false);
         navigate("/");

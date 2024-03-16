@@ -20,8 +20,7 @@ export default function Login() {
         password,
       })
       .then((res) => {
-        console.log(res);
-        // sessionStorage.setItem(data.userId)
+        sessionStorage.setItem("userId", res.data.userId);
         navigate("/");
       })
       .catch((err) => setErrMessage(err.response.data));
