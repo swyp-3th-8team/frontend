@@ -21,7 +21,8 @@ export default function FindAccount() {
     setEmail(e.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     axios
       .post(`${SERVER_URL}/api/member/check/findPw`, {
         userId,
@@ -43,7 +44,7 @@ export default function FindAccount() {
     <div className={styles.container}>
       <span>비밀번호 찾기</span>
       <span>가입된 이메일로 임시 비밀번호가 전송됩니다.</span>
-      <div className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.name}>
           <label htmlFor="name">아이디를 입력해주세요</label>
           <Input
@@ -80,16 +81,17 @@ export default function FindAccount() {
             {emailErrMessage}
           </span>
         </div>
-        <Button size="large" isActive={userId && email} onClick={handleSubmit}>
+        <Button size="large" isActive={userId && email}>
           임시 비밀번호 전송하기
         </Button>
         <button
           className={styles.changePassword}
+          type="button"
           onClick={() => navigate("/change-password")}
         >
           비밀번호 변경하러 가기
         </button>
-      </div>
+      </form>
     </div>
   );
 }
