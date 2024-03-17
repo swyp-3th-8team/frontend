@@ -17,7 +17,12 @@ export default function Button({
       } ${color === "white" ? styles.white : ""}`;
 
   return (
-    <button className={buttonClass} onClick={onClick} disabled={!isActive}>
+    <button
+      className={buttonClass}
+      type={type === "button" ? "button" : "submit"}
+      onClick={onClick}
+      disabled={!isActive}
+    >
       {children}
     </button>
   );
