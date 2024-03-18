@@ -10,40 +10,51 @@ export default function Signup() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [userId, setUserId] = useState("");
-  const [userIdCheck, setUserIdCheck] = useState("");
   const [email, setEmail] = useState("");
-  const [emailCheck, setEmailCheck] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordCheck, setPasswordCheck] = useState("");
   const [repassword, setRepassword] = useState("");
+  const [userIdCheck, setUserIdCheck] = useState("");
+  const [emailCheck, setEmailCheck] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
   const [repasswordCheck, setRepasswordCheck] = useState("");
 
   const handleClickIdCheck = () => {
     const userIdRegExp = /^(?=.*[0-9])(?=.*[a-z]).{6,12}$/.test(userId);
-    userIdRegExp
-      ? setUserIdCheck("")
-      : setUserIdCheck("아이디의 형식을 다시 확인해주세요");
+    if (userIdRegExp) {
+      setUserIdCheck("");
+    } else {
+      setUserIdCheck("아이디의 형식을 다시 확인해주세요");
+    }
     axios
       .post(`${SERVER_URL}/member/checkUserId`, {
         userId,
       })
       .then((res) => {
         if (res.status === 200) {
-          setUserIdCheck("사용가능한 아이디입니다 ");
+          setUserIdCheck("사용가능한 아이디입니다");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.response.data === "이미 사용 중인 사용자명입니다.") {
+          setUserIdCheck("중복된 아이디입니다");
+        }
+      });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const emailRegExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/.test(
+    const emailRegExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
       email
     );
-    const passwordRegExp =
-      /^(?=.*[0-9])(?=.*[a-z])(?=.*\\W)(?=\\S+$).{8,20}$/.test(password);
 
-    setEmailCheck(emailRegExp ? "" : "이메일 형식을 다시 확인해주세요");
+    const passwordRegExp =
+      /^(?=.*[0-9])(?=.*[a-z])(?=.*\W)(?=\S+$).{8,20}$/.test(password);
+
+    if (!emailRegExp) {
+      setEmailCheck("이메일 형식을 다시 확인해주세요");
+    } else {
+      setEmailCheck("");
+    }
 
     if (passwordRegExp) {
       setPasswordCheck("사용가능한 비밀번호입니다");
@@ -56,22 +67,21 @@ export default function Signup() {
       setPasswordCheck("비밀번호 형식을 다시 확인해주세요");
     }
 
-    if (userId && emailRegExp && passwordRegExp && password === repassword) {
-      axios
-        .post(`${SERVER_URL}/member/join`, {
-          username,
-          userId,
-          email,
-          password,
-          repassword,
-          role: "USER",
-        })
-        .then((res) => {
-          console.log(res);
-          navigate("/login");
-        })
-        .catch((err) => console.log(err.response));
-    }
+    // if (userId && emailRegExp && passwordRegExp && password === repassword) {
+    //   axios
+    //     .post(`${SERVER_URL}/member/join`, {
+    //       username,
+    //       userId,
+    //       email,
+    //       password,
+    //       repassword,
+    //       role: "USER",
+    //     })
+    //     .then(() => {
+    //       navigate("/login");
+    //     })
+    //     .catch((err) => console.log(err.response));
+    // }
   };
 
   return (
@@ -104,7 +114,18 @@ export default function Signup() {
               onChange={(e) => setUserId(e.target.value)}
             />
             <div className={styles.duplicate}>
-              <span>{userIdCheck}</span>
+              <span
+                className={`${
+                  userIdCheck === "사용가능한 아이디입니다"
+                    ? `${styles.messageSuccess}`
+                    : userIdCheck === "아이디의 형식을 다시 확인해주세요" ||
+                      userIdCheck === "중복된 아이디입니다"
+                    ? `${styles.messageError}`
+                    : ""
+                }`}
+              >
+                {userIdCheck}
+              </span>
               <Button
                 size="small"
                 isActive={userId}
@@ -125,7 +146,7 @@ export default function Signup() {
               autoComplete="off"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <span>{emailCheck}</span>
+            <span className={styles.messageError}>{emailCheck}</span>
           </div>
           <div className={styles.makePw}>
             <label htmlFor="pw">비밀번호를 입력해주세요.</label>
@@ -136,7 +157,17 @@ export default function Signup() {
               placeholder="영문, 숫자, 특수문자로 8자 이상 입력해주세요."
               onChange={(e) => setPassword(e.target.value)}
             />
-            <span>{passwordCheck}</span>
+            <span
+              className={`${
+                passwordCheck === "사용가능한 비밀번호입니다"
+                  ? `${styles.messageSuccess}`
+                  : passwordCheck === "비밀번호 형식을 다시 확인해주세요"
+                  ? `${styles.messageError}`
+                  : ""
+              }`}
+            >
+              {passwordCheck}
+            </span>
             <div>
               <label htmlFor="pwcheck">
                 비밀번호를 다시 한번 확인해주세요.
@@ -148,7 +179,17 @@ export default function Signup() {
                 placeholder="비밀번호를 다시 입력해주세요."
                 onChange={(e) => setRepassword(e.target.value)}
               />
-              <span>{repasswordCheck}</span>
+              <span
+                className={`${
+                  repasswordCheck === "비밀번호가 일치합니다"
+                    ? `${styles.messageSuccess}`
+                    : repasswordCheck === "비밀번호가 일치하지 않습니다"
+                    ? `${styles.messageError}`
+                    : ""
+                }`}
+              >
+                {repasswordCheck}
+              </span>
             </div>
           </div>
           <Button
