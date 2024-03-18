@@ -44,10 +44,8 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 12px;
-  & span {
-    padding-left: 8px;
-    color: #6ab23a;
+  & button {
+    margin-top: 12px;
   }
 }
 
@@ -59,12 +57,6 @@ h2 {
   & label {
     display: block;
     margin-bottom: 12px;
-  }
-
-  & span {
-    margin-top: 12px;
-    padding-left: 8px;
-    color: #be2e2e;
   }
 }
 
@@ -85,4 +77,16 @@ h2 {
 
 .submit {
   font-weight: 600;
+}
+
+.messageSuccess {
+  color: #6ab23a;
+  padding-left: 8px;
+  margin-top: 12px;
+}
+
+.messageError {
+  color: #be2e2e;
+  padding-left: 8px;
+  margin-top: 12px;
 }
