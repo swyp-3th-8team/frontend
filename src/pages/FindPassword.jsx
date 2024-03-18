@@ -13,14 +13,6 @@ export default function FindAccount() {
   const [email, setEmail] = useState("");
   const [emailErrMessage, setEmailErrMessage] = useState("");
 
-  const handleChangeId = (e) => {
-    setUserId(e.target.value);
-  };
-
-  const handleChangeEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -28,15 +20,19 @@ export default function FindAccount() {
         userId,
         email,
       })
-      .then((res) => console.log(res))
+      .then(() => navigate("/change-password"))
       .catch((err) => {
-        if (err.response.data === "아이디를 잘못 입력하셨습니다.") {
-          setUserIdErrMessage("아이디를 잘못 입력하셨습니다.");
-        }
-        if (err.response.data === "이메일 형식을 다시 확인해주세요.") {
-          setEmailErrMessage("이메일 형식을 다시 확인해주세요.");
-        }
-        console.log(err.response.data);
+        setUserIdErrMessage(
+          err.response.data === "아이디를 잘못 입력하셨습니다."
+            ? "아이디를 잘못 입력하셨습니다."
+            : ""
+        );
+
+        setEmailErrMessage(
+          err.response.data === "이메일 형식을 다시 확인해주세요."
+            ? "이메일 형식을 다시 확인해주세요."
+            : ""
+        );
       });
   };
 
@@ -53,7 +49,7 @@ export default function FindAccount() {
             type="text"
             placeholder="아이디"
             autoComplete="off"
-            onChange={(e) => handleChangeId(e)}
+            onChange={(e) => setUserId(e.target.value)}
           />
           <span
             className={
@@ -71,7 +67,7 @@ export default function FindAccount() {
             type="email"
             placeholder="ex) email@mando.com"
             autoComplete="off"
-            onChange={(e) => handleChangeEmail(e)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <span
             className={
