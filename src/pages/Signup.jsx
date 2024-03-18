@@ -67,21 +67,21 @@ export default function Signup() {
       setPasswordCheck("비밀번호 형식을 다시 확인해주세요");
     }
 
-    // if (userId && emailRegExp && passwordRegExp && password === repassword) {
-    //   axios
-    //     .post(`${SERVER_URL}/member/join`, {
-    //       username,
-    //       userId,
-    //       email,
-    //       password,
-    //       repassword,
-    //       role: "USER",
-    //     })
-    //     .then(() => {
-    //       navigate("/login");
-    //     })
-    //     .catch((err) => console.log(err.response));
-    // }
+    if (userId && emailRegExp && passwordRegExp && password === repassword) {
+      axios
+        .post(`${SERVER_URL}/member/join`, {
+          username,
+          userId,
+          email,
+          password,
+          repassword,
+          role: "USER",
+        })
+        .then(() => {
+          navigate("/login");
+        })
+        .catch((err) => console.log(err.response));
+    }
   };
 
   return (
