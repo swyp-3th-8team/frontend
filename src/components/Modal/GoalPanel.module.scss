@@ -55,6 +55,7 @@
     }
     .title {
       color: #bbbbbb;
+      cursor: default;
     }
     .completedTitle {
       color: #000000;
@@ -86,4 +87,6 @@
   padding: 0;
 
   background-color: transparent;
+
+  cursor: pointer;
 }
