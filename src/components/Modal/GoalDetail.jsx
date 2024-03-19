@@ -18,7 +18,7 @@ export default function GoalDetail({
         RenderGoalDetailItem(
           index,
           missionList[selectedMissionIndex]?.goalList,
-          goalDetailText[index],
+          goalDetailText?.[index] || "",
           (text) => {
             const updatedTexts = [...goalDetailText];
             updatedTexts[index] = text;
@@ -47,7 +47,7 @@ export default function GoalDetail({
         RenderGoalDetailItem(
           index,
           missionList[selectedMissionIndex]?.goalList,
-          goalDetailText[index],
+          goalDetailText?.[index] || "",
           (text) => {
             const updatedTexts = [...goalDetailText];
             updatedTexts[index] = text;

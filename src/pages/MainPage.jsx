@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MainPageProvider } from "./MainPageContext";
 import GoalPanel from "../components/Modal/GoalPanel";
 import MissionPanel from "../components/Mandalart/MissionPanel";
@@ -9,20 +9,22 @@ import Mission from "../components/Mandalart/Mission";
 import GoalDetail from "../components/Modal/GoalDetail";
 import Modal from "../components/Modal/Modal";
 import styles from "./MainPage.module.scss";
+import axios from "axios";
+import { SERVER_URL } from "../api/ServerUrl";
 
-const createDefaultTask = () => ({
+const createDefaultGoal = () => ({
   content: "",
   isCompleted: false,
 });
 
-const createDefaultObject = () => ({
+const createDefaultMission = () => ({
   content: "",
-  goalList: new Array(8).fill(null).map(createDefaultTask),
+  goalList: new Array(8).fill(null).map(createDefaultGoal),
 });
 
 export default function MainPage() {
   const [missionList, setMissionList] = useState(() =>
-    new Array(8).fill(null).map(createDefaultObject)
+    new Array(8).fill(null).map(createDefaultMission)
   );
   const [missionTitle, setMissionTitle] = useState("");
   const [selectedMissionIndex, setSelectedMissionIndex] = useState(null);
@@ -35,6 +37,81 @@ export default function MainPage() {
   const [isGoalDetailEditing, setIsGoalDetailEditing] = useState(false); //GoalDetail창 전체
   const [focusedGoalIndex, setFocusedGoalIndex] = useState(null);
   const [isMissionListEditing, setIsMissionListEditing] = useState(false);
+  const userId = sessionStorage.getItem("userId");
+  const [missionTitleId, setMissionTitleId] = useState("");
+  const [missionPanelId, setMissionPanelId] = useState("");
+  const [goalPanelId, setGoalPanelId] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`${SERVER_URL}/members/${userId}/title`)
+      .then((res) => {
+        setMissionTitleId(res.data.id);
+        setMissionTitle(res.data.title);
+      })
+      .catch((err) => console.log(err));
+
+    axios
+      .get(`${SERVER_URL}/members/${userId}/main`)
+      .then((res) => {
+        setMissionPanelId(res.data?.[0].id);
+        res.data[0].missionList.forEach((missionContent, index) => {
+          if (missionContent) {
+            setMissionList((prevMissionList) => {
+              const updatedMissionList = [...prevMissionList];
+              updatedMissionList[index].content = missionContent;
+              return updatedMissionList;
+            });
+          }
+        });
+      })
+      .catch((err) => console.log(err));
+
+    //axios
+    //  .get(`${SERVER_URL}/members/${userId}/details`)
+    //  .then((res) => console.log(res.data[0]));
+
+    axios
+      .get(`${SERVER_URL}/members/${userId}/details`)
+      .then((res) => {
+        setGoalPanelId(res.data?.[0].id); //로직에 추가해야 함
+        for (let i = 0; i < res.data.length; i++) {
+          const missionIndex = res.data[i].missionIndex;
+          const goalList = res.data[i].goalList;
+          const goalTexts = res.data[i].goalText; // goalText 배열 가져오기
+          if (missionIndex >= 0 && missionIndex < missionList.length) {
+            setMissionList((prevMissionList) => {
+              const updatedMissionList = [...prevMissionList];
+              updatedMissionList[missionIndex].goalList = goalList.map(
+                (goal) => ({
+                  content: goal,
+                  isCompleted: false, // 기본값 설정 혹은 서버에서 받은 값으로 업데이트
+                })
+              );
+              return updatedMissionList;
+            });
+            if (goalTexts && Array.isArray(goalTexts)) {
+              for (let j = 0; j < goalTexts.length; j++) {
+                const goalText = goalTexts[j];
+                if (goalText !== undefined) {
+                  setGoalDetailTexts((prevGoalDetailTexts) => {
+                    const updatedGoalDetailTexts = [...prevGoalDetailTexts];
+                    if (!updatedGoalDetailTexts[missionIndex]) {
+                      updatedGoalDetailTexts[missionIndex] = new Array(8).fill(
+                        ""
+                      );
+                    }
+                    updatedGoalDetailTexts[missionIndex][j] = goalText;
+                    return updatedGoalDetailTexts;
+                  });
+                }
+              }
+            }
+          }
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const onFocusChange = (index) => {
     setFocusedGoalIndex(index); // focus 상태 변경 시 focusedGoalIndex 업데이트
@@ -151,10 +228,14 @@ export default function MainPage() {
         </div>
         {selectedMissionList !== null && (
           <MissionPanel
+            titleId={missionTitleId}
+            missionPanelId={missionPanelId}
             title={missionTitle}
-            onTitleChange={setMissionTitle} // title 변경 시 상태 업데이트
+            onTitleChange={setMissionTitle} //title 변경 시 상태 업데이트
             onClose={() => setSelectedMissionList(null)}
+            isMissionListEditing={isMissionListEditing}
             setIsMissionListEditing={setIsMissionListEditing}
+            missionList={missionList} //axios
           >
             <MissionList
               missionList={missionList}
@@ -169,7 +250,7 @@ export default function MainPage() {
             <GoalDetail
               missionList={missionList}
               selectedMissionIndex={selectedMissionIndex}
-              goalDetailText={goalDetailTexts[selectedMissionIndex]}
+              goalDetailText={goalDetailTexts?.[selectedMissionIndex]}
               setGoalDetailText={(text) => {
                 const updatedTexts = [...goalDetailTexts];
                 updatedTexts[selectedMissionIndex] = text;
@@ -181,9 +262,16 @@ export default function MainPage() {
             />
             {showGoalPanel && (
               <GoalPanel
+                goalPanelId={goalPanelId}
                 missionTitle={missionTitle}
                 title={missionList?.[selectedMissionIndex]?.content}
                 onClose={() => setShowGoalPanel(false)}
+                goalList={missionList?.[selectedMissionIndex]?.goalList} //axios
+                goalDetailText={
+                  goalDetailTexts?.[selectedMissionIndex] ||
+                  new Array(8).fill(null).map(() => "")
+                } //axios
+                selectedMissionIndex={selectedMissionIndex}
               >
                 <GoalList
                   missionList={missionList}

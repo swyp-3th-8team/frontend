@@ -37,8 +37,8 @@ export default function PreMainPage() {
 
   return (
     <MainPageProvider>
-      <div className={styles.mainWrapper} onClick={openModal}>
-        <div className={styles.content}>
+      <div className={styles.mainWrapper}>
+        <div className={styles.content} onClick={openModal}>
           {[...missionList.slice(0, 4)].map((mission, index) => (
             <Goal
               key={index}

@@ -3,8 +3,19 @@ import CloseIcon from "../../assets/icons/close.svg";
 import MainPageContext from "../../pages/MainPageContext";
 import Button from "../Button";
 import styles from "./GoalPanel.module.scss";
+import axios from "axios";
+import { SERVER_URL } from "../../api/ServerUrl";
 
-export default function GoalPanel({ missionTitle, title, children, onClose }) {
+export default function GoalPanel({
+  goalPanelId,
+  missionTitle,
+  title,
+  children,
+  onClose,
+  goalList,
+  selectedMissionIndex,
+  goalDetailText,
+}) {
   const [buttonText, setButtonText] = useState("수정하기");
   const {
     isPanelEditing,
@@ -12,14 +23,39 @@ export default function GoalPanel({ missionTitle, title, children, onClose }) {
     toggleGoalDetailEditing,
     toggleTextareaEditing,
   } = useContext(MainPageContext);
+  const userId = sessionStorage.getItem("userId");
 
-  const handlePanelButtonClick = () => {
+  const handlePanelButtonClick = async () => {
     togglePanelEditing();
     toggleGoalDetailEditing();
     setButtonText((prevText) =>
       prevText === "수정하기" ? "저장하기" : "수정하기"
     );
     toggleTextareaEditing();
+
+    if (isPanelEditing === true) {
+      if (goalPanelId) {
+        axios
+          .put(
+            `${SERVER_URL}/members/${userId}/details/${selectedMissionIndex}`,
+            {
+              goalList: goalList.map(({ content }) => content),
+              goalText: goalDetailText,
+            }
+          )
+          .then()
+          .catch((err) => console.log(err));
+      } else {
+        axios
+          .post(`${SERVER_URL}/members/${userId}/details`, {
+            missionIndex: selectedMissionIndex,
+            goalList: goalList.map(({ content }) => content),
+            goalText: goalDetailText,
+          })
+          .then()
+          .catch((err) => console.log(err));
+      }
+    }
   };
 
   const handleCloseButtonClick = () => {
@@ -44,7 +80,7 @@ export default function GoalPanel({ missionTitle, title, children, onClose }) {
         </div>
       </div>
       <div className={styles.content}>{children}</div>
-      <Button type="panel" onClick={handlePanelButtonClick}>
+      <Button type="panel" isActive="false" onClick={handlePanelButtonClick}>
         {buttonText}
       </Button>
     </div>

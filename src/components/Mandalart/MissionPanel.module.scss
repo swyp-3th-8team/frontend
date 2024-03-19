@@ -46,6 +46,8 @@
       font-weight: bold;
       font-size: 28px;
 
+      cursor: default;
+
       input {
         box-sizing: border-box;
         width: 230px; //pencilButton에 가려 222>230 수정
@@ -87,6 +89,8 @@
   padding: 0;
 
   background-color: transparent;
+
+  cursor: pointer;
 }
 
 .closeButton {
@@ -98,4 +102,6 @@
   padding: 0;
 
   background-color: transparent;
+
+  cursor: pointer;
 }

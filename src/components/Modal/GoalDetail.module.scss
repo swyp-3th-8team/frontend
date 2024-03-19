@@ -24,6 +24,7 @@
     padding: 32px 28px;
 
     box-shadow: 0 0 5px 0.1px #f1efef;
+    cursor: pointer;
 
     &.focused {
       border: 5px solid #bce1a3;
@@ -102,6 +103,7 @@
     border: 3px solid rgba(187, 187, 187, 0.8);
     box-shadow: 0 0 5px 0.1px rgba(187, 187, 187, 0.8);
     background-color: #bbbbbb;
+    cursor: pointer;
   }
   .completedMainGoalWrapper {
     border: 3px solid rgba(106, 178, 58, 0.8);
