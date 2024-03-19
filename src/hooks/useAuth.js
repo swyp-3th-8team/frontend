@@ -20,6 +20,7 @@ export const useAuth = () => {
         sessionStorage.removeItem("userId");
         setIsLogin(false);
         navigate("/");
+        window.location.reload();
       })
       .catch((err) => console.log(err));
   };
