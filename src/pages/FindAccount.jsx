@@ -49,7 +49,7 @@ export default function FindAccount() {
         </div>
         <Button
           size="large"
-          isActive={"accountId"}
+          isActive="accountId"
           onClick={() => navigate("/login")}
         >
           로그인 하기
@@ -57,6 +57,7 @@ export default function FindAccount() {
         <Button
           size="large"
           color="white"
+          isActive="find-password"
           onClick={() => navigate("/find-password")}
         >
           비밀번호 찾기
