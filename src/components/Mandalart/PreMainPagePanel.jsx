@@ -20,7 +20,7 @@ export function PreMainPagePanel() {
       </div>
       <Button
         size="regular"
-        onClick={() => navigate("/signup")}
+        onClick={() => navigate("/pre-signup")}
         isActive="null"
       >
         시작하기
