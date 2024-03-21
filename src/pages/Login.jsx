@@ -21,7 +21,7 @@ export default function Login() {
       })
       .then((res) => {
         sessionStorage.setItem("userId", res.data.userId);
-        navigate("/");
+        navigate("/mando");
       })
       .catch((err) => setErrMessage(err.response.data));
   };
