@@ -14,7 +14,8 @@ export default function FindAccount() {
   const [accountFound, setAccountFound] = useState(false);
   const [accountId, setAccountId] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const emailRegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(
       email
     );
@@ -44,12 +45,11 @@ export default function FindAccount() {
           고객님의 정보와 일치하는 아이디 목록입니다
         </span>
         <div className={styles.checkbox}>
-          {/* <input type="checkbox" id="accountId" /> */}
           <label htmlFor="accountId">{accountId}</label>
         </div>
         <Button
           size="large"
-          isActive={"accountId"}
+          isActive="accountId"
           onClick={() => navigate("/login")}
         >
           로그인 하기
@@ -57,6 +57,7 @@ export default function FindAccount() {
         <Button
           size="large"
           color="white"
+          isActive="find-password"
           onClick={() => navigate("/find-password")}
         >
           비밀번호 찾기
@@ -68,7 +69,7 @@ export default function FindAccount() {
   return (
     <div className={styles.container}>
       <span className={styles.title}>아이디 찾기</span>
-      <div>
+      <form onSubmit={handleSubmit}>
         <div className={styles.name}>
           <label htmlFor="name">이름을 입력해주세요</label>
           <Input
@@ -91,14 +92,10 @@ export default function FindAccount() {
         <span className={errMessage ? styles.errMessage : styles.noErrMessage}>
           {errMessage}
         </span>
-        <Button
-          size="large"
-          isActive={username && email}
-          onClick={handleSubmit}
-        >
+        <Button size="large" isActive={username && email}>
           확인하기
         </Button>
-      </div>
+      </form>
     </div>
   );
 }
