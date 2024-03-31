@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SERVER_URL } from "../api/ServerUrl";
+import { KAKAO_AUTH_URL } from "../kakaodata";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import styles from "./Login.module.scss";
@@ -74,9 +75,9 @@ export default function Login() {
         <div className={styles.social}>
           <hr />
           <span>OR</span>
-          <div>
+          <a href={KAKAO_AUTH_URL}>
             <img src="img/kakao.svg" alt="kakaoLogin" />
-          </div>
+          </a>
           <div>
             <img src="img/google.svg" alt="googleLogin" />
           </div>

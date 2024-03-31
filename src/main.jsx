@@ -2,6 +2,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App.jsx";
 import Login from "./pages/Login.jsx";
+import KakaoLogin from "./pages/KakaoLogin.jsx";
 import Signup from "./pages/Signup.jsx";
 import PreSignup from "./pages/PreSignup.jsx";
 import MainPage from "./pages/MainPage.jsx";
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="change-password" element={<ChangePassword />} />
       </Route>
       <Route path="login" element={<Login />} />
+      <Route path="login/kakao" element={<KakaoLogin />} />
       <Route path="signup" element={<Signup />} />
       <Route path="pre-signup" element={<PreSignup />} />
     </Routes>
