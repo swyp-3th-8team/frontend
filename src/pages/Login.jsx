@@ -72,7 +72,7 @@ export default function Login() {
             회원가입
           </button>
         </div>
-        <div className={styles.social}>
+        {/* <div className={styles.social}>
           <hr />
           <span>OR</span>
           <a href={KAKAO_AUTH_URL}>
@@ -81,7 +81,7 @@ export default function Login() {
           <div>
             <img src="img/google.svg" alt="googleLogin" />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

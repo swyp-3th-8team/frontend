@@ -17,10 +17,7 @@ export default function HeaderLogin() {
           <button onClick={() => navigate("/login")} className={styles.login}>
             로그인
           </button>
-          <button
-            onClick={() => navigate("/pre-signup")}
-            className={styles.signup}
-          >
+          <button onClick={() => navigate("/signup")} className={styles.signup}>
             회원가입
           </button>
         </>

@@ -19,7 +19,7 @@ export default function PreSignup() {
         >
           만두에서 회원가입하기
         </Button>
-        <div className={styles.social}>
+        {/* <div className={styles.social}>
           <hr />
           <span>OR</span>
           <div>
@@ -28,7 +28,7 @@ export default function PreSignup() {
           <div>
             <img src="img/google.svg" alt="" />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
